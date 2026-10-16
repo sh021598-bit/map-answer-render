@@ -1,0 +1,10 @@
+00 0.89 | Russia and America are less than four kilometers apart. | Russia and America are less than 4 kilometers apart.
+01 1.00 | And yet, they live almost a full day apart. | And yet, they live almost a full day apart.
+02 1.00 | These are the Diomede Islands. The big one is Russian. The little one is American. | These are the Diomede Islands, the big one is Russian, the little one is American.
+03 0.91 | The International Date Line runs right between them, so the Russian island is twenty-one hours ahead. | The International Date Line runs right between them, so the Russian island is 21 hours ahead.
+04 1.00 | Locals call them Tomorrow Island and Yesterday Island. | Locals call them Tomorrow Island and Yesterday Island.
+05 0.93 | In winter, the strait freezes. You could almost walk into tomorrow, but crossing is forbidden. | In winter, the straight freezes. You could almost walk into tomorrow, but crossing is forbidden.
+06 1.00 | In 1948, the Soviets moved Big Diomede's people to the mainland, splitting families for decades. | In 1948, the Soviets moved Big Diomede's people to the mainland, splitting families for decades.
+07 0.93 | Then in 1987, Lynne Cox swam across in about two hours, through near-freezing water. | Then, in 1987, Lynn Cox swam across in about two hours through near -freezing water.
+08 1.00 | Months later, Reagan and Gorbachev raised a toast to her. | Months later, Reagan and Gorbachev raised a toast to her.
+09 0.74 | Four kilometers, and twenty-one hours. That's the map answer. | 4 kilometers and 21 hours. That's the map answer.

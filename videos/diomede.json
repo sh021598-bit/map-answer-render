@@ -1,0 +1,636 @@
+{
+ "id": "003-diomede",
+ "title": "Russia and the US are 4 km apart",
+ "region": {
+  "lon": [
+   -171.6,
+   -166.4
+  ],
+  "lat": [
+   64.9,
+   66.7
+  ],
+  "nx": 800,
+  "smooth": 1.0,
+  "z": 9,
+  "land": "elev",
+  "sea": 2,
+  "split": {
+   "lon": -168.977,
+   "west": "russia",
+   "east": "usa"
+  }
+ },
+ "countries": {
+  "russia": {
+   "admin": "Russia",
+   "color": "#ff4d4d"
+  },
+  "usa": {
+   "admin": "United States of America",
+   "color": "#3f8cff"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "Russia and America are less than four kilometers apart."
+  ],
+  [
+   "ask",
+   "And yet, they live almost a full day apart."
+  ],
+  [
+   "islands",
+   "These are the Diomede Islands. The big one is Russian. The little one is American.",
+   "These are the Dye-oh-meed Islands. The big one is Russian. The little one is American."
+  ],
+  [
+   "date",
+   "The International Date Line runs right between them, so the Russian island is twenty-one hours ahead."
+  ],
+  [
+   "nick",
+   "Locals call them Tomorrow Island and Yesterday Island."
+  ],
+  [
+   "ice",
+   "In winter, the strait freezes. You could almost walk into tomorrow, but crossing is forbidden."
+  ],
+  [
+   "curtain",
+   "In 1948, the Soviets moved Big Diomede's people to the mainland, splitting families for decades.",
+   "In 1948, the Soviets moved Big Dye-oh-meed's people to the mainland, splitting families for decades."
+  ],
+  [
+   "swim",
+   "Then in 1987, Lynne Cox swam across in about two hours, through near-freezing water."
+  ],
+  [
+   "toast",
+   "Months later, Reagan and Gorbachev raised a toast to her."
+  ],
+  [
+   "end",
+   "Four kilometers, and twenty-one hours. That's the map answer."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    -168.9,
+    65.85
+   ],
+   10.5,
+   52,
+   90
+  ],
+  "ask": [
+   [
+    -169.0,
+    65.78
+   ],
+   5.5,
+   55,
+   -10
+  ],
+  "islands": [
+   [
+    -169.0,
+    65.765
+   ],
+   2.6,
+   50,
+   90
+  ],
+  "date": [
+   [
+    -168.99,
+    65.775
+   ],
+   2.3,
+   44,
+   90
+  ],
+  "nick": [
+   [
+    -169.0,
+    65.765
+   ],
+   2.6,
+   50,
+   90
+  ],
+  "ice": [
+   [
+    -168.99,
+    65.77
+   ],
+   2.4,
+   46,
+   90
+  ],
+  "curtain": [
+   [
+    -169.25,
+    65.85
+   ],
+   4.2,
+   52,
+   90
+  ],
+  "swim": [
+   [
+    -168.98,
+    65.765
+   ],
+   1.6,
+   48,
+   90
+  ],
+  "toast": [
+   [
+    -168.99,
+    65.765
+   ],
+   2.4,
+   54,
+   90
+  ],
+  "end": [
+   [
+    -168.9,
+    65.85
+   ],
+   9.5,
+   58,
+   90
+  ]
+ },
+ "orbit": {
+  "ask": 15,
+  "end": -8
+ },
+ "tint": {
+  "hook": {
+   "russia": 1,
+   "usa": 1
+  },
+  "ask": {
+   "russia": 1,
+   "usa": 1
+  },
+  "islands": {
+   "russia": 1,
+   "usa": 1
+  },
+  "date": {
+   "russia": 1,
+   "usa": 1
+  },
+  "nick": {
+   "russia": 1,
+   "usa": 1
+  },
+  "ice": {
+   "russia": 0.6,
+   "usa": 0.6
+  },
+  "curtain": {
+   "russia": 1
+  },
+  "swim": {
+   "russia": 1,
+   "usa": 1
+  },
+  "toast": {
+   "russia": 1,
+   "usa": 1
+  },
+  "end": {
+   "russia": 1,
+   "usa": 1
+  }
+ },
+ "lift": {},
+ "exaggerate": {
+  "islands": 2.2,
+  "date": 2.2,
+  "nick": 2.2,
+  "ice": 2.0,
+  "swim": 2.0,
+  "toast": 2.2
+ },
+ "badges": {},
+ "big": {
+  "hook": [
+   "3.8 KM",
+   "RUSSIA ↔ USA"
+  ],
+  "date": [
+   "21 HOURS",
+   "AHEAD"
+  ],
+  "swim": [
+   "~2 HOURS",
+   "1987"
+  ]
+ },
+ "labels": {
+  "hook": [
+   [
+    "RUSSIA",
+    -170.0,
+    66.25,
+    0.6
+   ],
+   [
+    "ALASKA",
+    -167.6,
+    65.45,
+    0.8
+   ]
+  ],
+  "islands": [
+   [
+    "BIG DIOMEDE",
+    -169.12,
+    65.8,
+    0.3
+   ],
+   [
+    "LITTLE DIOMEDE",
+    -168.86,
+    65.75,
+    1.8
+   ]
+  ],
+  "date": [
+   [
+    "DATE LINE",
+    -168.977,
+    65.7,
+    0.8
+   ]
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "span",
+   "scene": "hook",
+   "a": [
+    -168.995,
+    65.765
+   ],
+   "b": [
+    -168.965,
+    65.76
+   ],
+   "from": 1.6,
+   "dur": 1.0,
+   "h": 0.035,
+   "size": 2.2
+  },
+  {
+   "type": "qmark",
+   "scene": "ask",
+   "at": [
+    -168.977,
+    65.79
+   ],
+   "size": 0.5
+  },
+  {
+   "type": "flags",
+   "scene": "islands",
+   "flag": "russia",
+   "at": [
+    [
+     -169.06,
+     65.79
+    ]
+   ],
+   "from": 1.6,
+   "size": 0.9
+  },
+  {
+   "type": "flags",
+   "scene": "islands",
+   "flag": "usa",
+   "at": [
+    [
+     -168.93,
+     65.758
+    ]
+   ],
+   "from": 3.4,
+   "size": 0.9
+  },
+  {
+   "type": "dateline",
+   "scene": "date",
+   "path": [
+    [
+     -168.977,
+     65.6
+    ],
+    [
+     -168.977,
+     65.95
+    ]
+   ],
+   "from": 0.4,
+   "dur": 1.4,
+   "h": 0.25
+  },
+  {
+   "type": "pricetag",
+   "scene": "nick",
+   "at": [
+    -169.06,
+    65.79
+   ],
+   "text": "TUE",
+   "sub": "TOMORROW",
+   "h": 0.22,
+   "size": 0.38,
+   "from": 0.5
+  },
+  {
+   "type": "pricetag",
+   "scene": "nick",
+   "at": [
+    -168.93,
+    65.758
+   ],
+   "text": "MON",
+   "sub": "YESTERDAY",
+   "h": 0.18,
+   "size": 0.38,
+   "from": 1.6
+  },
+  {
+   "type": "dateline",
+   "scene": "nick",
+   "path": [
+    [
+     -168.977,
+     65.55
+    ],
+    [
+     -168.977,
+     66.0
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.25
+  },
+  {
+   "type": "ice",
+   "scene": "ice",
+   "a": [
+    -169.12,
+    65.72
+   ],
+   "b": [
+    -168.86,
+    65.82
+   ],
+   "n": 70,
+   "from": 0.1,
+   "dur": 2.2,
+   "size": 0.5
+  },
+  {
+   "type": "army",
+   "scene": "ice",
+   "color": "#3f8cff",
+   "flag": "usa",
+   "from": [
+    -168.93,
+    65.75
+   ],
+   "to": [
+    -168.972,
+    65.757
+   ],
+   "rows": 1,
+   "cols": 1,
+   "march": [
+    2.2,
+    4.0
+   ],
+   "retreat": [
+    4.6,
+    5.6
+   ],
+   "size": 1.0
+  },
+  {
+   "type": "dateline",
+   "scene": "ice",
+   "path": [
+    [
+     -168.977,
+     65.55
+    ],
+    [
+     -168.977,
+     66.0
+    ]
+   ],
+   "from": 3.4,
+   "dur": 0.6,
+   "h": 0.18,
+   "color": "#ff4d4d"
+  },
+  {
+   "type": "houses",
+   "scene": "curtain",
+   "at": [
+    [
+     -169.03,
+     65.775
+    ],
+    [
+     -169.04,
+     65.78
+    ],
+    [
+     -169.025,
+     65.785
+    ]
+   ],
+   "size": 1.3,
+   "from": 0.3,
+   "vanish": [
+    3.6,
+    4.6
+   ]
+  },
+  {
+   "type": "ship",
+   "scene": "curtain",
+   "path": [
+    [
+     -169.06,
+     65.8
+    ],
+    [
+     -169.6,
+     66.02
+    ]
+   ],
+   "dur": 6.5,
+   "flag": "ussr",
+   "size": 1.1
+  },
+  {
+   "type": "swimmer",
+   "scene": "swim",
+   "path": [
+    [
+     -168.955,
+     65.752
+    ],
+    [
+     -168.97,
+     65.758
+    ],
+    [
+     -168.985,
+     65.762
+    ],
+    [
+     -168.995,
+     65.768
+    ]
+   ],
+   "from": 0.6,
+   "dur": 4.8,
+   "size": 2.6
+  },
+  {
+   "type": "dateline",
+   "scene": "swim",
+   "path": [
+    [
+     -168.977,
+     65.55
+    ],
+    [
+     -168.977,
+     66.0
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.12
+  },
+  {
+   "type": "glasses",
+   "scene": "toast",
+   "at": [
+    -168.977,
+    65.77
+   ],
+   "left": "usa",
+   "right": "ussr",
+   "t": 1.2,
+   "h": 0.28,
+   "size": 1.5,
+   "axis": "z",
+   "flagoff": 0.2
+  },
+  {
+   "type": "span",
+   "scene": "end",
+   "a": [
+    -168.995,
+    65.765
+   ],
+   "b": [
+    -168.965,
+    65.76
+   ],
+   "from": 0.3,
+   "dur": 0.8,
+   "h": 0.035,
+   "size": 2.2
+  }
+ ],
+ "sfx": [
+  [
+   "hook",
+   1.6,
+   "whoosh"
+  ],
+  [
+   "ask",
+   0.5,
+   "pop"
+  ],
+  [
+   "islands",
+   1.6,
+   "pop"
+  ],
+  [
+   "islands",
+   3.4,
+   "pop"
+  ],
+  [
+   "date",
+   0.4,
+   "whoosh"
+  ],
+  [
+   "nick",
+   0.5,
+   "pop"
+  ],
+  [
+   "nick",
+   1.6,
+   "pop"
+  ],
+  [
+   "ice",
+   3.4,
+   "boom"
+  ],
+  [
+   "curtain",
+   3.0,
+   "whoosh"
+  ],
+  [
+   "swim",
+   0.6,
+   "whoosh"
+  ],
+  [
+   "toast",
+   1.4,
+   "pop"
+  ],
+  [
+   "toast",
+   1.45,
+   "pop"
+  ]
+ ],
+ "hold": {
+  "toast": 0.6,
+  "swim": 0.4,
+  "ice": 0.3
+ },
+ "fog_add": 3.5
+}

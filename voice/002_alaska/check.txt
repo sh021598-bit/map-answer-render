@@ -1,0 +1,10 @@
+00 1.00 | In 1867, Russia sold all of this for about two cents an acre. | In 1867, Russia sold all of this for about two cents an acre.
+01 1.00 | Why would anyone sell a place this big? | Why would anyone sell a place this big?
+02 1.00 | First, the fur ran out. | First, the fur ran out.
+03 0.92 | Russian hunters had nearly wiped out the sea otters that made Alaska profitable. | Russian hunters had newly wiped out the sea otters that made Alaska profitable.
+04 1.00 | Second, fear. | Second, fear.
+05 1.00 | After losing the Crimean War, Russia worried Britain could simply take Alaska from Canada next door. | After losing the Crimean War, Russia worried Britain could simply take Alaska from Canada next door.
+06 0.77 | So Russia sold it to the United States for seven point two million dollars. | So, Russia sold it to the United States for $7 .2 million.
+07 0.77 | Americans mocked it as Seward's Folly. | Americans mocked it as Sioux words folly.
+08 1.00 | Then gold was found. Then oil. | then gold was found, then oil,
+09 1.00 | The folly became one of the best deals in history. That's the map answer. | The folly became one of the best deals in history. That's the map answer.

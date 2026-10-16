@@ -1,0 +1,219 @@
+<!doctype html><html><head><meta charset="utf-8">
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+<style>
+@font-face{font-family:AB;src:url(node_modules/@fontsource/archivo-black/files/archivo-black-latin-400-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:radial-gradient(120% 80% at 50% 30%,#1b2a44 0%,#0a0f1a 70%)}
+canvas{position:absolute;inset:0}
+#ov{position:absolute;inset:0;pointer-events:none;font-family:IN}
+.scrT{position:absolute;left:0;right:0;top:0;height:620px;background:linear-gradient(#0a0f1ae6,#0a0f1a00)}
+.scrB{position:absolute;left:0;right:0;bottom:0;height:760px;background:linear-gradient(#0a0f1a00,#0a0f1acc 55%)}
+.bug{position:absolute;left:56px;top:64px;font:800 30px IN;letter-spacing:6px;color:#fff;opacity:.9}
+.bug b{color:#FFC83D}
+.bar{position:absolute;left:0;top:0;height:8px;background:#FFC83D}
+.badge{position:absolute;left:56px;top:130px;display:flex;align-items:center;gap:18px;transform-origin:left center}
+.badge .n{font:400 64px AB;color:#0a0f1a;background:#FFC83D;width:96px;height:96px;border-radius:24px;display:flex;align-items:center;justify-content:center}
+.badge .t{font:400 78px AB;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.6)}
+.badge .s{font:800 34px IN;color:#FFC83D;margin-top:4px}
+.big{position:absolute;left:0;right:0;top:300px;text-align:center;font:400 150px AB;color:#fff;text-shadow:0 10px 40px rgba(0,0,0,.65)}
+.big small{display:block;font:800 44px IN;color:#FFC83D;letter-spacing:4px;margin-top:-6px}
+.cap{position:absolute;left:60px;right:60px;top:1380px;text-align:center;font:400 86px AB;line-height:1.08;color:#fff;
+  -webkit-text-stroke:3px #000;paint-order:stroke fill;text-shadow:0 8px 24px rgba(0,0,0,.7);text-transform:uppercase}
+.cap .on{color:#FFC83D}
+.end{position:absolute;left:90px;right:90px;top:760px;padding:56px 0;text-align:center;background:rgba(10,15,26,.82);border-radius:44px;border:3px solid #FFC83D}
+.end .a{font:400 92px AB;color:#fff}.end .b{font:800 40px IN;color:#FFC83D;letter-spacing:3px;margin-top:10px}
+.tag{position:absolute;font:400 40px AB;color:#fff;letter-spacing:3px;-webkit-text-stroke:2px #0a0f1a;paint-order:stroke fill;text-shadow:0 4px 16px #000;white-space:nowrap;transform:translate(-50%,-50%)}
+</style></head><body><div id="ov"></div>
+<script type="module">
+import * as THREE from 'three';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
+import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+import {ShaderPass} from 'three/addons/postprocessing/ShaderPass.js';
+import {GTAOPass} from 'three/addons/postprocessing/GTAOPass.js';
+import {HorizontalTiltShiftShader} from 'three/addons/shaders/HorizontalTiltShiftShader.js';
+import {VerticalTiltShiftShader} from 'three/addons/shaders/VerticalTiltShiftShader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {makeProps} from './props.js';
+const W=1080,H=1920;
+const J=async u=>(await fetch(u)).json();
+const CFG=await J('data/config.json'), meta=await J('data/meta.json'), TL=await J('data/timeline.json');
+const HB=new Float32Array(await (await fetch('data/height.bin')).arrayBuffer());
+async function px(src){const im=new Image();im.src=src;await im.decode();const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const x=c.getContext('2d');x.drawImage(im,0,0);return x.getImageData(0,0,im.width,im.height).data}
+const grid=await px('data/grid.png'), coast=await px('data/coast.png');
+const {NX,NY}=meta, S=0.02, HS=0.5;
+const my=lat=>180/Math.PI*Math.log(Math.tan(Math.PI/4+lat*Math.PI/360));
+const g2w=(gx,gy)=>[(gx-NX/2)*S,(gy-NY/2)*S];
+const ll2g=(lon,lat)=>[(lon-meta.LON0)/(meta.LON1-meta.LON0)*(NX-1),(meta.Y1-my(lat))/(meta.Y1-meta.Y0)*(NY-1)];
+const ll2w=(lon,lat)=>{const [gx,gy]=ll2g(lon,lat);return g2w(gx,gy)};
+// ---------- terrain ----------
+const r=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});
+r.setSize(W,H);r.setPixelRatio(1);r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.05;
+document.body.prepend(r.domElement);
+const scene=new THREE.Scene(); scene.fog=new THREE.Fog(0x0d1626,9,24);
+const geo=new THREE.PlaneGeometry((NX-1)*S,(NY-1)*S,NX-1,NY-1); geo.rotateX(-Math.PI/2);
+const pos=geo.attributes.position, N=pos.count, col=new Float32Array(N*3), base=new Float32Array(N), baseCol=new Float32Array(N*3), cid=new Uint8Array(N), rowOf=new Float32Array(N);
+const C=(h)=>new THREE.Color(h);
+const SEA_D=C('#0b1b33'),SEA_S=C('#1d4f7a'),LAND_L=C('#d8cdb8'),LAND_M=C('#c2b49a'),LAND_H=C('#efe9df');
+const tmp=new THREE.Color();
+for(let i=0;i<N;i++){const gx=i%NX, gy=Math.floor(i/NX), p=(gy*NX+gx)*4;
+  const ef=Math.min(1,Math.min(gx,NX-1-gx,gy,NY-1-gy)/18), h=Math.min(1,HB[i]*1.3)*ef, id=Math.round(grid[p+1]/40), land=grid[p+2]/255, cs=coast[p]/255;
+  cid[i]=land>0.5?id:0; rowOf[i]=gy;
+  let y; if(land>0.5){ y=0.02+Math.pow(h,1.35)*HS; tmp.copy(LAND_L).lerp(LAND_M,Math.min(1,h*2)).lerp(LAND_H,Math.max(0,(h-0.45)*2)); }
+  else { y=-0.06-0.08*(1-cs); tmp.copy(SEA_D).lerp(SEA_S,cs*0.9); }
+  const e=land*(1-land)*4; if(e>0.05){ y=y*(land)+(-0.04)*(1-land); }
+  base[i]=y; pos.setY(i,y); baseCol[i*3]=tmp.r;baseCol[i*3+1]=tmp.g;baseCol[i*3+2]=tmp.b; }
+col.set(baseCol); geo.setAttribute('color',new THREE.BufferAttribute(col,3)); geo.computeVertexNormals();
+const terr=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({vertexColors:true,roughness:0.92,metalness:0}));
+terr.receiveShadow=true;terr.castShadow=true;scene.add(terr);
+scene.add(new THREE.HemisphereLight(0xbfd4ff,0x1a2233,0.55));
+const sun=new THREE.DirectionalLight(0xfff1dc,2.6); sun.position.set(-6,7,-3); sun.castShadow=true;
+sun.shadow.mapSize.set(+(new URLSearchParams(location.search).get('sh')||2048),+(new URLSearchParams(location.search).get('sh')||2048));sun.shadow.radius=3; Object.assign(sun.shadow.camera,{left:-7,right:7,top:7,bottom:-7,near:1,far:25}); sun.shadow.bias=-0.0008; scene.add(sun);
+const rim=new THREE.DirectionalLight(0x6fa8ff,0.6); rim.position.set(6,3,6); scene.add(rim);
+// ---------- highlight groups (countries + subregions) ----------
+const HL={};
+for(const [k,c] of Object.entries(CFG.countries)){const id=meta.ids[k];HL[k]={idx:[],col:C(c.color)};for(let i=0;i<N;i++) if(cid[i]===id) HL[k].idx.push(i)}
+for(const [k,c] of Object.entries(CFG.subregions||{})){const gyc=ll2g(-60,c.north_of)[1];HL[k]={idx:HL[c.of].idx.filter(i=>rowOf[i]<gyc),col:C(c.color)}}
+function heightAt(gx,gy){gx=Math.max(0,Math.min(NX-1,Math.round(gx)));gy=Math.max(0,Math.min(NY-1,Math.round(gy)));return base[gy*NX+gx]}
+const bigRing=k=>meta.outlines[k].reduce((a,b)=>b.length>a.length?b:a);
+function ringTube(k,color){const pts=bigRing(k).map(([gx,gy])=>{const [x,z]=g2w(gx,gy);return new THREE.Vector3(x,heightAt(gx,gy)+0.02,z)});
+  const curve=new THREE.CatmullRomCurve3(pts,true,'centripetal',0.2);
+  return new THREE.Mesh(new THREE.TubeGeometry(curve,pts.length*2,0.012,5,true),new THREE.MeshBasicMaterial({color:C(color),transparent:true,opacity:0,toneMapped:false}))}
+const tubes={}; for(const [k,c] of Object.entries(CFG.borders||{})){tubes[k]=ringTube(k,c);scene.add(tubes[k])}
+// ---------- camera + post ----------
+const cam=new THREE.PerspectiveCamera(32,W/H,0.05,600);
+// 고급 미니어처 룩: 환경광 반사 + 접촉 그림자(AO) + 틸트시프트(미니어처 렌즈) + 비네트·그레인, MSAA 4x
+const pm=new THREE.PMREMGenerator(r); const ENV=pm.fromScene(new RoomEnvironment(),0.04).texture; // 소품에만 반사광(지형은 제외: 뿌옇게 됨)
+const Q=Object.fromEntries(new URLSearchParams(location.search));
+const LOOK=Object.assign({ao:true,tilt:0.0016,vignette:0.35,grain:0.035,msaa:4},CFG.look||{});for(const k in Q)LOOK[k]=+Q[k];
+const comp=new EffectComposer(r,new THREE.WebGLRenderTarget(W,H,{type:THREE.HalfFloatType,samples:LOOK.msaa})); comp.addPass(new RenderPass(scene,cam));
+let aoPass=null;if(LOOK.ao){const ao=aoPass=new GTAOPass(scene,cam,W,H);ao.updateGtaoMaterial({radius:0.18,distanceExponent:1.5,thickness:1,scale:1.2,samples:8});ao.updatePdMaterial({samples:8,radius:6});ao.blendIntensity=0.85;comp.addPass(ao)}
+comp.addPass(new UnrealBloomPass(new THREE.Vector2(W/2,H/2),0.45,0.6,0.97));
+if(LOOK.tilt){const th=new ShaderPass(HorizontalTiltShiftShader),tv=new ShaderPass(VerticalTiltShiftShader);
+  th.uniforms.h.value=LOOK.tilt*0.5;tv.uniforms.v.value=LOOK.tilt*0.5*W/H;th.uniforms.r.value=tv.uniforms.r.value=0.5;comp.addPass(th);comp.addPass(tv)}
+comp.addPass(new OutputPass());
+const grade=new ShaderPass({uniforms:{tDiffuse:{value:null},t:{value:0},vig:{value:LOOK.vignette},grain:{value:LOOK.grain}},
+  vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+  fragmentShader:`uniform sampler2D tDiffuse;uniform float t,vig,grain;varying vec2 vUv;
+  float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233))+t*7.)*43758.5453);}
+  void main(){vec4 c=texture2D(tDiffuse,vUv);vec2 d=vUv-.5;d.x*=.75;float v=1.-vig*smoothstep(.25,.85,length(d)*1.4);
+  vec3 col=c.rgb*v;col=clamp(col,0.,1.);col=mix(col,col*col*(3.-2.*col),.35);col=mix(col,col*vec3(1.03,1.,.96),.5);col+=(h(vUv*1000.)-.5)*grain;gl_FragColor=vec4(col,1.);}`});
+comp.addPass(grade);
+// ---------- choreography ----------
+const sc=[...new Set(TL.lines.map(l=>l.scene))]; const T0={}; TL.lines.forEach(l=>{if(T0[l.scene]===undefined)T0[l.scene]=l.t0});
+const T1={}; sc.forEach((s,i)=>T1[s]=i+1<sc.length?T0[sc[i+1]]:TL.total);
+const ease=u=>u<0?0:u>1?1:u*u*(3-2*u);
+function shotPose(s,yawAdd=0){const [[lo,la],d,p,y]=CFG.shots[s];const [tx,tz]=ll2w(lo,la);const ty=0.15;
+  const pr=p*Math.PI/180,yr=(y+yawAdd)*Math.PI/180;return {t:new THREE.Vector3(tx,ty,tz),c:new THREE.Vector3(tx+d*Math.cos(pr)*Math.sin(yr),ty+d*Math.sin(pr),tz+d*Math.cos(pr)*Math.cos(yr))}}
+const cur={};Object.keys(HL).forEach(k=>cur[k]={tint:0,lift:0});
+const ov=document.getElementById('ov');
+function sceneAt(t){let s=sc[0];for(const k of sc) if(T0[k]<=t+1e-6) s=k;return s}
+const P=pos.array;
+const groundAtW=(x,z)=>{const gx=Math.max(0,Math.min(NX-1,Math.round(x/S+NX/2))),gy=Math.max(0,Math.min(NY-1,Math.round(z/S+NY/2)));return P[(gy*NX+gx)*3+1]};
+const ctx={ENV,THREE,scene,CFG,meta,HL,cid,base,NX,NY,S,ll2w,ll2g,g2w,heightAt,groundAtW,bigRing,ease,T0,T1,cur,cam};
+const props=await makeProps(ctx);
+scene.traverse(o=>{if(o.material)(Array.isArray(o.material)?o.material:[o.material]).forEach(bendMat)});
+// ---------- 하나의 세계: 지역 지형 + 세계 배경(지역 바깥 전체). 모든 재질의 정점을 uCurv 만큼 구(지구본)로 만다 ----
+// uCurv=1 이면 세계 전체가 지구본, 0 이면 평평한 지도. 오프닝은 지구본(1)에서 줌인하며 0 으로 펴진다 (끊김 없는 한 번의 카메라 이동).
+const BU={uCurv:{value:0},uLonShift:{value:0}};
+const kx=S*(NX-1)/(meta.LON1-meta.LON0), kz=S*(NY-1)/(meta.Y1-meta.Y0);
+const [[CLO,CLA]]=CFG.shots[Object.keys(CFG.shots)[0]]; const [CX,CZ]=ll2w(CLO,CLA);
+const RG=kx*180/Math.PI/Math.cos(CLA*Math.PI/180);   // 지역 중심에서 지도와 지구본 축척이 같도록
+const GLSL_BEND=`uniform float uCurv; uniform float uLonShift;
+vec3 bendSph(vec3 p, out vec3 E, out vec3 Nn, out vec3 U){
+  float lon=${(meta.LON0+NX/2*(meta.LON1-meta.LON0)/(NX-1)).toFixed(6)}+p.x*${(1/kx).toFixed(6)};
+  float myd=${(meta.Y1-NY/2*(meta.Y1-meta.Y0)/(NY-1)).toFixed(6)}-p.z*${(1/kz).toFixed(6)};
+  float lat=clamp(2.0*atan(exp(radians(myd)))-1.5707963,-1.48,1.48);
+  float dl=radians(lon-(${CLO.toFixed(4)}))+uLonShift; float al=radians(${CLA.toFixed(4)})-1.5707963; float ca=cos(al), sa=sin(al);
+  vec3 v=vec3(cos(lat)*sin(dl),sin(lat),cos(lat)*cos(dl)); vec3 e=vec3(cos(dl),0.,-sin(dl)); vec3 n=vec3(-sin(lat)*sin(dl),cos(lat),-sin(lat)*cos(dl));
+  U=vec3(v.x,v.y*ca-v.z*sa,v.y*sa+v.z*ca); E=vec3(e.x,e.y*ca-e.z*sa,e.y*sa+e.z*ca); Nn=vec3(n.x,n.y*ca-n.z*sa,n.y*sa+n.z*ca);
+  return vec3(${CX.toFixed(5)},-${RG.toFixed(5)},${CZ.toFixed(5)})+(${RG.toFixed(5)}+p.y)*U; }`;
+function bendMat(m){if(!m||m.userData.bent)return;m.userData.bent=true;
+  m.onBeforeCompile=sh=>{Object.assign(sh.uniforms,BU);
+    sh.vertexShader=sh.vertexShader.replace('#include <common>','#include <common>\n'+GLSL_BEND)
+    .replace('#include <defaultnormal_vertex>',`#include <defaultnormal_vertex>
+      if(uCurv>0.0){vec3 E_,N_,U_;bendSph((modelMatrix*vec4(position,1.)).xyz,E_,N_,U_);vec3 wn=normalize(mat3(modelMatrix)*objectNormal);
+        vec3 sn=wn.x*E_+wn.y*U_-wn.z*N_; transformedNormal=normalize(mat3(viewMatrix)*normalize(mix(wn,sn,uCurv)));}`)
+    .replace('#include <project_vertex>',`vec4 wpB=modelMatrix*vec4(transformed,1.0);
+      if(uCurv>0.0){vec3 E_,N_,U_;wpB.xyz=mix(wpB.xyz,bendSph(wpB.xyz,E_,N_,U_),uCurv);}
+      vec4 mvPosition=viewMatrix*wpB; gl_Position=projectionMatrix*mvPosition;`);
+    if(m.userData.tintMask){Object.assign(sh.uniforms,m.userData.tintU);
+      sh.fragmentShader=sh.fragmentShader.replace('#include <common>','#include <common>\nuniform sampler2D uMask; uniform vec3 uT; uniform vec3 uC0,uC1,uC2;')
+      .replace('#include <map_fragment>',`#include <map_fragment>
+        {vec3 mk=texture2D(uMask,vMapUv).rgb; diffuseColor.rgb=mix(diffuseColor.rgb,uC0,mk.r*uT.x*0.85); diffuseColor.rgb=mix(diffuseColor.rgb,uC1,mk.g*uT.y*0.85); diffuseColor.rgb=mix(diffuseColor.rgb,uC2,mk.b*uT.z*0.85);}`)}};
+  m.customProgramCacheKey=()=>'bend'+(m.userData.tintMask?'T':'');}
+// 세계 배경: 지역 지형 아래(바다 -0.15)에 깔고, 육지는 변위로 0.01 까지 올린다
+const TL_=new THREE.TextureLoader(); const wtex=TL_.load('data/world.jpg'); wtex.colorSpace=THREE.SRGBColorSpace; wtex.anisotropy=8;
+const wland=TL_.load('data/worldland.png'), wmask=TL_.load('data/worldmask.png');
+const WWd=360*kx, WHd=2*meta.WYM*kz, [wcx]=ll2w(meta.LC,0), wcz=(()=>{const gy=meta.Y1/(meta.Y1-meta.Y0)*(NY-1);return (gy-NY/2)*S})();
+const wgeo=new THREE.PlaneGeometry(WWd,WHd,640,740); wgeo.rotateX(-Math.PI/2);
+const wkeys=meta.wkeys||[]; const tintU={uMask:{value:wmask},uT:{value:new THREE.Vector3()},uC0:{value:new THREE.Color()},uC1:{value:new THREE.Color()},uC2:{value:new THREE.Color()}};
+wkeys.forEach((k,j)=>tintU['uC'+j].value.set(CFG.countries[k].color));
+const wmat=new THREE.MeshStandardMaterial({map:wtex,displacementMap:wland,displacementScale:0.16,roughness:0.92});wmat.userData.tintMask=true;wmat.userData.tintU=tintU;
+{// 지역 지도 아래의 세계 배경은 구멍을 뚫어 숨긴다 (작은 지역에서 거친 세계 지형이 지역 지도를 뚫고 올라오는 문제)
+  const ac=document.createElement('canvas');ac.width=2048;ac.height=1024;const ag=ac.getContext('2d');ag.fillStyle='#fff';ag.fillRect(0,0,2048,1024);
+  const m=4*S, x0=(-NX/2*S+m-(wcx-WWd/2))/WWd, x1=(NX/2*S-m-(wcx-WWd/2))/WWd, v0=0.5-((-NY/2*S+m)-wcz)/WHd, v1=0.5-((NY/2*S-m)-wcz)/WHd;
+  ag.fillStyle='#000';ag.fillRect(x0*2048,(1-v0)*1024,(x1-x0)*2048,(v0-v1)*1024);
+  const at=new THREE.CanvasTexture(ac);wmat.alphaMap=at;wmat.alphaTest=0.5;}
+const world=new THREE.Mesh(wgeo,wmat); world.position.set(wcx,-0.15,wcz); world.receiveShadow=true; scene.add(world); bendMat(wmat);
+const GT=CFG.globe===false?0:1.6, MT=GT;
+// 지구본일 때만: 속 구(극지방 빈 곳 메움) + 대기 테두리 (구부리지 않는 진짜 구)
+const core=new THREE.Mesh(new THREE.SphereGeometry(RG-0.17,96,64),new THREE.MeshStandardMaterial({color:0x0b1b33,roughness:0.9}));core.position.set(CX,-RG,CZ);scene.add(core);
+const atmo=new THREE.Mesh(new THREE.SphereGeometry(RG*1.12,96,64),new THREE.ShaderMaterial({transparent:true,side:THREE.BackSide,depthWrite:false,blending:THREE.AdditiveBlending,
+  uniforms:{opacity:{value:0}},vertexShader:'varying vec3 vN;varying vec3 vV;void main(){vN=normalize(normalMatrix*normal);vec4 mv=modelViewMatrix*vec4(position,1.);vV=normalize(-mv.xyz);gl_Position=projectionMatrix*mv;}',
+  fragmentShader:'uniform float opacity;varying vec3 vN;varying vec3 vV;void main(){float i=pow(clamp(0.62+dot(vN,vV),0.,1.),4.0);gl_FragColor=vec4(vec3(0.35,0.62,1.0)*i*opacity,1.);}'}));atmo.position.copy(core.position);scene.add(atmo);
+const globeU=(t)=>Math.min(1,t/GT);
+let EX=1;
+window.frame=(t)=>{
+  const s=sceneAt(t), i=sc.indexOf(s), prev=sc[Math.max(0,i-1)], u=ease((t-T0[s])/1.6);
+  const orbit=(CFG.orbit||{})[s]||0, ls=t-T0[s], sd=T1[s]-T0[s];
+  const a=shotPose(i?prev:sc[sc.length-1],i?((CFG.orbit||{})[prev]||0):0), b=shotPose(s,orbit*ease(ls/sd)); if(i===0){a.t.copy(b.t);a.c.copy(b.t);a.c.y+=b.c.distanceTo(b.t)*2.3;a.c.z+=0.01}  // 바로 위 높은 곳 → 비스듬한 첫 샷 (지구본 급강하와 같은 방향)
+  const k=i===0?1-Math.pow(1-Math.min(1,Math.max(0,t-MT)/1.7),3):u; const tg=a.t.clone().lerp(b.t,k), cp=a.c.clone().lerp(b.c,k);
+  const drift=ls*0.03; cp.x+=Math.sin(drift)*0.25; cp.z+=Math.cos(drift)*0.1;
+  if(t<GT){ // 지구본 → 지역: 회전이 멈추며 카메라가 지구 중심 위에서 지역 바로 위로 급강하, 동시에 세계가 평평하게 펴짐
+    const gu=globeU(t), sm=(e0,e1,x)=>{x=Math.min(1,Math.max(0,(x-e0)/(e1-e0)));return x*x*(3-2*x)};
+    BU.uCurv.value=1-sm(0.45,1.0,gu); BU.uLonShift.value=(1-sm(0,0.55,gu))*1.1;
+    const w=sm(0.12,1.0,gu), gc=new THREE.Vector3(CX,-RG,CZ), d0=9.5*RG, d1=a.c.distanceTo(a.t);
+    tg.copy(gc.clone().lerp(a.t,w)); const dist=d0*Math.pow(d1/d0,w); cp.copy(tg).add(new THREE.Vector3(0,1,0.03).normalize().multiplyScalar(dist));
+    {const Hs=d0-RG, H=Hs*Math.pow(Math.max(0.01,d1)/Hs,w); if(cp.y<H) cp.y=H}   // 지구본이 큰(작은 지역) 영상에서 카메라가 땅 밑으로 내려가 검은 화면이 되는 것 방지
+  } else {BU.uCurv.value=0;BU.uLonShift.value=0}
+  const flat=BU.uCurv.value===0; core.visible=!flat; atmo.visible=!flat; atmo.material.uniforms.opacity.value=1.6*Math.pow(BU.uCurv.value,2); sun.castShadow=flat; if(aoPass)aoPass.enabled=flat;
+  cam.position.copy(cp); cam.lookAt(tg); {const d=cp.distanceTo(tg),g=BU.uCurv.value,fa=(CFG.fog_add||0)*(1-g);scene.fog.near=d*(0.85+0.4*g)+fa;scene.fog.far=d*(2.0+2*g)+fa*2.2;
+    const fr=Math.max(600,d*3);if(cam.far!==fr){cam.far=fr;cam.near=Math.max(0.05,d*0.004);cam.updateProjectionMatrix()}}   // 작은 지역은 지구본 반지름이 커서 far 를 늘린다; fog_add = 가까운 샷에서 주변 맥락 보이게
+  const tintS=CFG.tint, liftS=CFG.lift;
+  for(const key in HL){const tgtT=(tintS[s]?.[key]||0), tgtL=(liftS[s]?.[key]||0);
+    const v=Math.min(1,ls/0.9); const pT=i?(tintS[prev]?.[key]||0):0, pL=i?(liftS[prev]?.[key]||0):0;
+    cur[key].tint=pT+(tgtT-pT)*ease(v); cur[key].lift=pL+(tgtL-pL)*ease(v);}
+  if(i===0){const f=sc[0];for(const key in HL){if(tintS[f]?.[key]){cur[key].lift=(liftS[f]?.[key]||0)*ease((t-0.6)/1.4);cur[key].tint=ease((t-0.4)/1.0)}}}
+  col.set(baseCol);
+  const exS=CFG.exaggerate||{}; const exNow=(exS[s]||1), exPrev=i?(exS[prev]||1):1; EX=exPrev+(exNow-exPrev)*ease(ls/1.4);
+  for(let j=0;j<N;j++) P[j*3+1]=base[j]>0.03?base[j]*EX:base[j];
+  for(const key of Object.keys(HL)){const h=HL[key],c=cur[key]; if(c.tint<0.01&&c.lift<0.01) continue;
+    const lf=c.lift*0.09; for(const j of h.idx){P[j*3+1]=(base[j]>0.03?base[j]*EX:base[j])+lf; const m=c.tint*0.85;
+      col[j*3]=baseCol[j*3]*(1-m)+h.col.r*m; col[j*3+1]=baseCol[j*3+1]*(1-m)+h.col.g*m; col[j*3+2]=baseCol[j*3+2]*(1-m)+h.col.b*m;}}
+  pos.needsUpdate=true; geo.attributes.color.needsUpdate=true; geo.computeVertexNormals();
+  for(const k in tubes){tubes[k].material.opacity=Math.min(1,cur[k].tint)*0.92; tubes[k].position.y=cur[k].lift*0.09; tubes[k].scale.y=1}
+  wkeys.forEach((k,j)=>tintU.uT.value.setComponent(j,cur[k]?.tint||0));
+  props.update(t,s,ls,EX);
+  grade.uniforms.t.value=t; comp.render();
+  // ---------- overlay ----------
+  let html=`<div class="scrT"></div><div class="scrB"></div><div class="bar" style="width:${(t/TL.total*100).toFixed(2)}%"></div><div class="bug">THE <b>MAP</b> ANSWER</div>`;
+  const pop=(t0)=>{const v=Math.max(0,Math.min(1,(t-t0)/0.35));const sc_=0.6+0.4*(1-Math.pow(1-v,3))+Math.sin(v*Math.PI)*0.08;return `opacity:${v};transform:scale(${sc_.toFixed(3)})`};
+  const B=CFG.badges[s]; if(B){const base_=s.replace(/\d+$/,'');const t0=T0[base_]??T0[s];html+=`<div class="badge" style="${pop(t0)}"><div class="n">${B[0]}</div><div><div class="t">${B[1]}</div><div class="s">${B[2]}</div></div></div>`}
+  const G=(CFG.big||{})[s]; if(G){let txt=G[0];const m=txt.match(/^COUNT:(\d+):(\d+):(.*)$/);
+    if(m){const dp=props.driveOf(s);const v=+m[1]+(+m[2]-+m[1])*(dp?Math.max(0,Math.min(1,(ls-dp.from)/dp.dur)):1);txt=Math.round(v).toLocaleString('en-US')+m[3]}
+    html+=`<div class="big" style="${pop(T0[s]+(i?0.2:0.3))}">${txt}<small>${G[1]}</small></div>`}
+  for(const [txt,lo,la,c0,c1] of (CFG.labels||{})[s]||[]){if(ls<(c0||0.5)||(c1&&ls>c1))continue;const [x,z]=ll2w(lo,la);const v=new THREE.Vector3(x,groundAtW(x,z)+0.08,z).project(cam);const ty=(1-v.y)/2*H;if(ty>1300||ty<300||v.z>1)continue;
+    html+=`<div class="tag" style="left:${((v.x+1)/2*W).toFixed(0)}px;top:${((1-v.y)/2*H).toFixed(0)}px;opacity:${Math.min(1,(ls-(c0||0.5))/0.4).toFixed(2)}">${txt}</div>`}
+  if(s===sc[sc.length-1]){const ws=TL.lines[TL.lines.length-1].words;const w=ws.find(w=>/^That/.test(w[0]))||ws[0];const t0=w[1];
+    if(t>=t0)html+=`<div class="end" style="${pop(t0)}"><div class="a">${CFG.endcard[0]}</div><div class="b">${CFG.endcard[1]}</div></div>`}
+  const L=TL.lines.find(l=>t>=l.t0&&t<l.t1+0.15);
+  if(L){const ws=L.words;let wi=ws.findIndex(w=>t<w[2]);if(wi<0)wi=ws.length-1;const g=Math.floor(wi/3)*3;
+    html+=`<div class="cap">${ws.slice(g,g+3).map((w,j)=>`<span class="${g+j===wi?'on':''}">${w[0]}</span>`).join(' ')}</div>`}
+  ov.innerHTML=html; return true;
+};
+await document.fonts.load('400 80px AB');await document.fonts.load('800 40px IN');
+window.ready=true;
+</script></body></html>

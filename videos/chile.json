@@ -1,0 +1,668 @@
+{
+ "id": "001-chile",
+ "title": "Why is Chile so thin?",
+ "region": {
+  "lon": [
+   -92,
+   -28
+  ],
+  "lat": [
+   -58,
+   -2
+  ],
+  "nx": 560,
+  "smooth": 1.7
+ },
+ "countries": {
+  "chile": {
+   "admin": "Chile",
+   "color": "#ff4d4d"
+  },
+  "arg": {
+   "admin": "Argentina",
+   "color": "#3f8cff"
+  },
+  "bol": {
+   "admin": [
+    "Bolivia",
+    "Peru"
+   ],
+   "color": "#8f6bd8"
+  }
+ },
+ "subregions": {
+  "north": {
+   "of": "chile",
+   "north_of": -24,
+   "color": "#ff9a2e"
+  }
+ },
+ "borders": {
+  "chile": "#ffd0d0",
+  "arg": "#bcd6ff"
+ },
+ "lines": [
+  [
+   "hook",
+   "Chile is longer than the distance from Lisbon to Moscow."
+  ],
+  [
+   "thin",
+   "But it's so thin, you could drive across it in an afternoon."
+  ],
+  [
+   "ask",
+   "So how did a country end up shaped like this?"
+  ],
+  [
+   "wall",
+   "First, the wall."
+  ],
+  [
+   "wall",
+   "The Andes tower up to nearly seven thousand meters, boxing Spanish Chile against the Pacific."
+  ],
+  [
+   "war",
+   "Then, the war."
+  ],
+  [
+   "war",
+   "In 1879, Chile fought Bolivia and Peru for the nitrate-rich Atacama Desert, and won."
+  ],
+  [
+   "war2",
+   "It took this whole northern strip. Bolivia has had no coast ever since."
+  ],
+  [
+   "deal",
+   "Finally, the deal."
+  ],
+  [
+   "deal",
+   "In 1881, Chile and Argentina split the south along the highest peaks of the Andes."
+  ],
+  [
+   "deal2",
+   "Argentina got the plains of Patagonia. Chile kept the coast."
+  ],
+  [
+   "end",
+   "A wall, a war, and a deal. That's the map answer."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    -68,
+    -37
+   ],
+   12.5,
+   68,
+   0
+  ],
+  "thin": [
+   [
+    -71,
+    -33.5
+   ],
+   5.2,
+   52,
+   -14
+  ],
+  "ask": [
+   [
+    -67,
+    -36
+   ],
+   10.5,
+   64,
+   6
+  ],
+  "wall": [
+   [
+    -70,
+    -31
+   ],
+   5.2,
+   34,
+   -75
+  ],
+  "war": [
+   [
+    -69,
+    -21
+   ],
+   6.0,
+   50,
+   -10
+  ],
+  "war2": [
+   [
+    -69.5,
+    -22
+   ],
+   4.8,
+   56,
+   -18
+  ],
+  "deal": [
+   [
+    -69,
+    -45
+   ],
+   7.5,
+   50,
+   8
+  ],
+  "deal2": [
+   [
+    -68,
+    -46
+   ],
+   7.0,
+   56,
+   0
+  ],
+  "end": [
+   [
+    -66,
+    -34
+   ],
+   13,
+   72,
+   0
+  ]
+ },
+ "tint": {
+  "hook": {
+   "chile": 1
+  },
+  "thin": {
+   "chile": 1
+  },
+  "ask": {
+   "chile": 1
+  },
+  "wall": {
+   "chile": 0.55
+  },
+  "war": {
+   "chile": 1,
+   "bol": 1
+  },
+  "war2": {
+   "chile": 1,
+   "bol": 1,
+   "north": 1
+  },
+  "deal": {
+   "chile": 1,
+   "arg": 1
+  },
+  "deal2": {
+   "chile": 1,
+   "arg": 1
+  },
+  "end": {
+   "chile": 1
+  }
+ },
+ "lift": {
+  "hook": {
+   "chile": 1
+  },
+  "thin": {
+   "chile": 1
+  },
+  "ask": {
+   "chile": 1
+  },
+  "wall": {},
+  "war": {
+   "bol": 0.4
+  },
+  "war2": {
+   "north": 1.4,
+   "bol": 0.2
+  },
+  "deal": {
+   "arg": 0.5,
+   "chile": 0.6
+  },
+  "deal2": {
+   "arg": 0.8
+  },
+  "end": {
+   "chile": 1
+  }
+ },
+ "exaggerate": {
+  "wall": 1.6
+ },
+ "badges": {
+  "wall": [
+   "1",
+   "THE WALL",
+   "Andes · up to ~7,000 m"
+  ],
+  "war": [
+   "2",
+   "THE WAR",
+   "War of the Pacific · 1879–84"
+  ],
+  "war2": [
+   "2",
+   "THE WAR",
+   "Chile takes the north"
+  ],
+  "deal": [
+   "3",
+   "THE DEAL",
+   "Boundary Treaty · 1881"
+  ],
+  "deal2": [
+   "3",
+   "THE DEAL",
+   "Patagonia split"
+  ]
+ },
+ "big": {
+  "hook": [
+   "COUNT:0:4300: KM",
+   "CHILE, NORTH TO SOUTH"
+  ],
+  "thin": [
+   "~177 KM",
+   "AVERAGE WIDTH"
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "drive",
+   "scene": "hook",
+   "from": 0.4,
+   "dur": 2.6,
+   "path": "spine:chile",
+   "color": "#ff4d4d",
+   "car": 4,
+   "size": 1.6
+  },
+  {
+   "type": "drive",
+   "scene": "thin",
+   "from": 0.3,
+   "dur": 2.4,
+   "path": [
+    [
+     -71.6,
+     -33.0
+    ],
+    [
+     -70.0,
+     -33.0
+    ]
+   ],
+   "color": "#ffc83d",
+   "ruler": true,
+   "car": 3.2
+  },
+  {
+   "type": "trace",
+   "scene": "ask",
+   "country": "chile",
+   "dur": 2.4
+  },
+  {
+   "type": "qmark",
+   "scene": "ask",
+   "at": [
+    -66.5,
+    -33
+   ]
+  },
+  {
+   "type": "houses",
+   "scene": "wall",
+   "at": [
+    [
+     -71.6,
+     -33.05
+    ],
+    [
+     -70.65,
+     -33.45
+    ],
+    [
+     -73.05,
+     -36.8
+    ],
+    [
+     -71.25,
+     -29.9
+    ],
+    [
+     -72.6,
+     -38.7
+    ]
+   ],
+   "size": 2.2
+  },
+  {
+   "type": "ship",
+   "scene": "wall",
+   "path": [
+    [
+     -76,
+     -24
+    ],
+    [
+     -73.2,
+     -32.8
+    ]
+   ],
+   "dur": 5
+  },
+  {
+   "type": "crest",
+   "scene": "wall",
+   "between": [
+    "chile",
+    "arg"
+   ],
+   "color": "#ffffff"
+  },
+  {
+   "type": "army",
+   "scene": "war",
+   "color": "#ff4d4d",
+   "flag": "chile",
+   "from": [
+    -71.0,
+    -29.5
+   ],
+   "to": [
+    -70.05,
+    -24.1
+   ],
+   "rows": 3,
+   "cols": 5,
+   "march": [
+    0.2,
+    3.2
+   ],
+   "size": 1.5
+  },
+  {
+   "type": "army",
+   "scene": "war",
+   "color": "#8f6bd8",
+   "flag": "bolivia",
+   "from": [
+    -66.5,
+    -18.5
+   ],
+   "to": [
+    -69.0,
+    -21.4
+   ],
+   "rows": 3,
+   "cols": 4,
+   "march": [
+    0.2,
+    3.2
+   ],
+   "retreat": [
+    6.2,
+    8.5
+   ],
+   "size": 1.5
+  },
+  {
+   "type": "clash",
+   "scene": "war",
+   "at": [
+    -69.5,
+    -22.7
+   ],
+   "from": 3.0,
+   "to": 6.4
+  },
+  {
+   "type": "flagswap",
+   "scene": "war2",
+   "at": [
+    -70.4,
+    -23.65
+   ],
+   "lost": "bolivia",
+   "won": "chile",
+   "t": 0.6,
+   "size": 1.3
+  },
+  {
+   "type": "flags",
+   "scene": "war2",
+   "flag": "chile",
+   "at": [
+    [
+     -70.15,
+     -20.2
+    ],
+    [
+     -70.3,
+     -18.5
+    ]
+   ],
+   "from": 1.4,
+   "size": 1.3
+  },
+  {
+   "type": "pen",
+   "scene": "deal",
+   "between": [
+    "chile",
+    "arg"
+   ],
+   "south_of": -33,
+   "from": 1.0,
+   "dur": 4.5,
+   "color": "#ffc83d",
+   "size": 2.2
+  },
+  {
+   "type": "flags",
+   "scene": "deal2",
+   "flag": "argentina",
+   "at": [
+    [
+     -68.5,
+     -44.5
+    ]
+   ],
+   "from": 0.1,
+   "size": 1.3
+  },
+  {
+   "type": "sheep",
+   "scene": "deal2",
+   "at": [
+    -68.0,
+    -47.5
+   ],
+   "n": 9,
+   "from": 0.4,
+   "size": 2.2
+  },
+  {
+   "type": "flags",
+   "scene": "deal2",
+   "flag": "chile",
+   "at": [
+    [
+     -73.4,
+     -45.4
+    ]
+   ],
+   "from": 2.2,
+   "size": 1.3
+  }
+ ],
+ "labels": {
+  "wall": [
+   [
+    "PACIFIC",
+    -72.6,
+    -31.0,
+    1.0
+   ],
+   [
+    "ANDES",
+    -68.6,
+    -31,
+    2.5
+   ]
+  ],
+  "war": [
+   [
+    "CHILE",
+    -71.2,
+    -24.8,
+    0.5
+   ],
+   [
+    "BOLIVIA",
+    -65.5,
+    -17.5,
+    0.8
+   ],
+   [
+    "PERU",
+    -73,
+    -14.5,
+    1.1
+   ]
+  ],
+  "war2": [
+   [
+    "BOLIVIA",
+    -65.5,
+    -18.5,
+    0.3
+   ]
+  ],
+  "deal": [
+   [
+    "CHILE",
+    -73.5,
+    -41,
+    0.6
+   ],
+   [
+    "ARGENTINA",
+    -66,
+    -40,
+    0.9
+   ]
+  ],
+  "deal2": [
+   [
+    "PATAGONIA",
+    -68,
+    -49.5,
+    0.5
+   ]
+  ]
+ },
+ "sfx": [
+  [
+   "hook",
+   0.4,
+   "whoosh"
+  ],
+  [
+   "ask",
+   0.5,
+   "pop"
+  ],
+  [
+   "wall",
+   1.2,
+   "pop"
+  ],
+  [
+   "wall",
+   1.48,
+   "pop"
+  ],
+  [
+   "wall",
+   1.76,
+   "pop"
+  ],
+  [
+   "wall",
+   2.04,
+   "pop"
+  ],
+  [
+   "wall",
+   2.32,
+   "pop"
+  ],
+  [
+   "war",
+   3.0,
+   "volley"
+  ],
+  [
+   "war",
+   4.6,
+   "volley"
+  ],
+  [
+   "war",
+   4.0,
+   "boom"
+  ],
+  [
+   "war2",
+   0.6,
+   "whoosh"
+  ],
+  [
+   "war2",
+   1.1,
+   "pop"
+  ],
+  [
+   "war2",
+   1.4,
+   "pop"
+  ],
+  [
+   "war2",
+   1.75,
+   "pop"
+  ],
+  [
+   "deal",
+   1.0,
+   "whoosh"
+  ],
+  [
+   "deal2",
+   0.1,
+   "pop"
+  ],
+  [
+   "deal2",
+   2.2,
+   "pop"
+  ]
+ ]
+}

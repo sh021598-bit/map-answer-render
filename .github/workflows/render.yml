@@ -1,0 +1,95 @@
+# The Map Answer 영상 렌더 (공개 레포 = Actions 무료 무제한)
+# render/job.json {video, voice, out} → videos 브랜치에 out(mp4) + qc/<out>.txt + qc/<out>.jpg
+# 실행: render-run 브랜치에 새 커밋 푸시 또는 수동 실행. 프레임을 8조각(matrix)으로 나눠 병렬 렌더 → 조각이 멈춰도 그 조각만 실패.
+name: Render
+
+on:
+  push:
+    branches: [render-run]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render
+
+env:
+  PARTS: 8
+
+jobs:
+  part:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: 준비
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q numpy pillow soundfile
+          mkdir -p /tmp/w/data /tmp/w/voice && cp r3d/{index.html,props.js,render.js,package.json,world50.json} /tmp/w/
+          cd /tmp/w && npm i --silent && npx playwright install --with-deps chromium >/dev/null
+          python3 -c "import json;j=json.load(open('$GITHUB_WORKSPACE/render/job.json'));open('/tmp/job.env','w').write(f\"VIDEO={j['video']}\nVOICE={j['voice']}\nOUT={j['out']}\n\")"
+          cat /tmp/job.env >> $GITHUB_ENV
+      - name: 음성·지형
+        run: |
+          cp "$VOICE"/* /tmp/w/voice/ && cp videos/$VIDEO.json /tmp/w/data/config.json
+          cd /tmp/w && python3 $GITHUB_WORKSPACE/r3d/prep3d.py data/config.json && python3 $GITHUB_WORKSPACE/r3d/audio3d.py data/config.json voice
+      - name: 렌더 (조각 ${{ matrix.part }}, 실패 시 이어 그리기 3번)
+        run: |
+          cd /tmp/w && (python3 -m http.server 8765 >/dev/null 2>&1 &) && sleep 1
+          N=$(python3 -c "import json,math;print(math.ceil(json.load(open('data/timeline.json'))['total']*30))")
+          A=$(( N * ${{ matrix.part }} / PARTS )); E=$(( N * (${{ matrix.part }} + 1) / PARTS )); echo "frames $A..$E / $N"
+          OK=0; for k in 1 2 3; do node render.js frames 30 $A $E >> r.log 2>&1 && { OK=1; break; }; done
+          tail -n 25 r.log; ls frames | wc -l; [ $OK = 1 ]
+      - uses: actions/upload-artifact@v4
+        with:
+          name: part-${{ matrix.part }}
+          path: |
+            /tmp/w/frames
+            /tmp/w/final_audio.wav
+          retention-days: 2
+
+  join:
+    needs: part
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: 준비
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && pip install -q pillow
+          python3 -c "import json;j=json.load(open('render/job.json'));print('OUT='+j['out'])" >> $GITHUB_ENV
+      - uses: actions/download-artifact@v4
+        with:
+          path: /tmp/parts
+      - name: 합치기
+        run: |
+          mkdir -p /tmp/w/frames && cd /tmp/w
+          for d in /tmp/parts/part-*; do cp "$d"/frames/*.jpg frames/; done
+          cp /tmp/parts/part-0/final_audio.wav .
+          ls frames | wc -l
+          ffmpeg -v error -y -framerate 30 -i frames/%05d.jpg -i final_audio.wav -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -shortest -movflags +faststart out.mp4
+      - name: 품질 검사
+        run: |
+          cd /tmp/w
+          { echo "duration $(ffprobe -v error -show_entries format=duration -of csv=p=0 out.mp4)";
+            ffmpeg -i out.mp4 -vf blackdetect=d=0.15:pix_th=0.06 -an -f null - 2>&1 | grep -o "black_start.*" || echo "black: none";
+            ffmpeg -i out.mp4 -af ebur128 -f null - 2>&1 | grep -E "^\s+I:" | tail -1; } > qc.txt; cat qc.txt
+          python3 -c "
+          from PIL import Image;import glob
+          fs=sorted(glob.glob('frames/*.jpg'));pick=[fs[int(i*(len(fs)-1)/11)] for i in range(12)]
+          W=Image.new('RGB',(270*6,480*2));[W.paste(Image.open(f).resize((270,480)),((k%6)*270,(k//6)*480)) for k,f in enumerate(pick)];W.save('qc.jpg',quality=80)"
+      - name: 저장 (videos 브랜치)
+        run: |
+          mkdir -p /tmp/o/qc && cp /tmp/w/out.mp4 "/tmp/o/$OUT" && cp /tmp/w/qc.txt "/tmp/o/qc/$OUT.txt" && cp /tmp/w/qc.jpg "/tmp/o/qc/$OUT.jpg"
+          git config user.name "render-bot" && git config user.email "render-bot@users.noreply.github.com"
+          if git fetch -q origin videos; then git checkout -q -B videos origin/videos; else git checkout -q --orphan videos && git rm -rqf .; fi
+          cp -r /tmp/o/* . && git add "$OUT" qc && git commit -qm "render $OUT" && git push -q origin videos

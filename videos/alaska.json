@@ -1,0 +1,632 @@
+{
+ "id": "002-alaska",
+ "title": "Why does Alaska belong to the US, not Russia?",
+ "region": {
+  "lon": [
+   -180,
+   -118
+  ],
+  "lat": [
+   48,
+   72
+  ],
+  "nx": 560,
+  "smooth": 1.4
+ },
+ "countries": {
+  "usa": {
+   "admin": "United States of America",
+   "color": "#3f8cff"
+  },
+  "russia": {
+   "admin": "Russia",
+   "color": "#ff4d4d"
+  },
+  "canada": {
+   "admin": "Canada",
+   "color": "#8f6bd8"
+  }
+ },
+ "subregions": {
+  "ak_ru": {
+   "of": "usa",
+   "north_of": 52,
+   "color": "#ff4d4d"
+  },
+  "ak_us": {
+   "of": "usa",
+   "north_of": 52,
+   "color": "#3f8cff"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "In 1867, Russia sold all of this for about two cents an acre."
+  ],
+  [
+   "ask",
+   "Why would anyone sell a place this big?"
+  ],
+  [
+   "fur",
+   "First, the fur ran out."
+  ],
+  [
+   "fur",
+   "Russian hunters had nearly wiped out the sea otters that made Alaska profitable."
+  ],
+  [
+   "fear",
+   "Second, fear."
+  ],
+  [
+   "fear",
+   "After losing the Crimean War, Russia worried Britain could simply take Alaska from Canada next door."
+  ],
+  [
+   "sale",
+   "So Russia sold it to the United States for seven point two million dollars."
+  ],
+  [
+   "folly",
+   "Americans mocked it as Seward's Folly.",
+   "Americans mocked it as Soo-word's Folly."
+  ],
+  [
+   "payoff",
+   "Then gold was found. Then oil."
+  ],
+  [
+   "end",
+   "The folly became one of the best deals in history. That's the map answer."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    -152,
+    62.5
+   ],
+   19,
+   68,
+   0
+  ],
+  "ask": [
+   [
+    -151,
+    62
+   ],
+   16,
+   60,
+   -10
+  ],
+  "fur": [
+   [
+    -154,
+    57.8
+   ],
+   8.5,
+   50,
+   -15
+  ],
+  "fear": [
+   [
+    -131.5,
+    56.8
+   ],
+   9.5,
+   52,
+   15
+  ],
+  "sale": [
+   [
+    -170,
+    63.5
+   ],
+   27,
+   62,
+   0
+  ],
+  "folly": [
+   [
+    -137.5,
+    58.2
+   ],
+   10,
+   60,
+   -5
+  ],
+  "payoff": [
+   [
+    -153.5,
+    64.5
+   ],
+   19,
+   62,
+   4
+  ],
+  "end": [
+   [
+    -151,
+    62
+   ],
+   20,
+   70,
+   0
+  ]
+ },
+ "orbit": {
+  "ask": 22,
+  "payoff": -10
+ },
+ "tint": {
+  "hook": {
+   "ak_ru": 1,
+   "russia": 1
+  },
+  "ask": {
+   "ak_ru": 1,
+   "russia": 1
+  },
+  "fur": {
+   "ak_ru": 1
+  },
+  "fear": {
+   "ak_ru": 1,
+   "canada": 1
+  },
+  "sale": {
+   "ak_ru": 1,
+   "russia": 1
+  },
+  "folly": {
+   "ak_us": 1
+  },
+  "end": {
+   "ak_us": 1
+  },
+  "payoff": {
+   "ak_us": 1
+  }
+ },
+ "lift": {
+  "hook": {
+   "ak_ru": 1
+  },
+  "ask": {
+   "ak_ru": 1
+  },
+  "fur": {},
+  "fear": {
+   "canada": 0.4
+  },
+  "sale": {
+   "ak_ru": 0.6
+  },
+  "folly": {
+   "ak_us": 0.5
+  },
+  "end": {
+   "ak_us": 1
+  },
+  "payoff": {
+   "ak_us": 0.3
+  }
+ },
+ "exaggerate": {},
+ "badges": {
+  "fur": [
+   "1",
+   "THE FUR",
+   "Sea otters hunted out"
+  ],
+  "fear": [
+   "2",
+   "THE FEAR",
+   "Crimean War · 1853–56"
+  ],
+  "sale": [
+   "3",
+   "THE SALE",
+   "Alaska Purchase · 1867"
+  ],
+  "folly": [
+   "3",
+   "THE SALE",
+   "Flag change at Sitka"
+  ],
+  "payoff": [
+   "+",
+   "THE PAYOFF",
+   "Gold 1880s–90s · Oil 1968"
+  ]
+ },
+ "big": {
+  "hook": [
+   "$7.2 MILLION",
+   "FOR ALL OF ALASKA"
+  ],
+  "folly": [
+   "SEWARD'S FOLLY",
+   "WHAT CRITICS CALLED IT"
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "FOLLOW FOR THE NEXT MAP"
+ ],
+ "labels": {
+  "fur": [
+   [
+    "ALASKA",
+    -152,
+    63.2,
+    0.5
+   ],
+   [
+    "KODIAK",
+    -153.4,
+    57.5,
+    1.2
+   ]
+  ],
+  "fear": [
+   [
+    "CANADA",
+    -125,
+    58.5,
+    0.5
+   ],
+   [
+    "SITKA",
+    -135.3,
+    57.05,
+    1.0
+   ]
+  ],
+  "sale": [
+   [
+    "RUSSIA",
+    -178,
+    67.5,
+    0.4
+   ],
+   [
+    "ALASKA",
+    -152,
+    64.5,
+    0.4
+   ]
+  ],
+  "payoff": [
+   [
+    "NOME",
+    -165.4,
+    64.5,
+    0.6
+   ],
+   [
+    "FAIRBANKS",
+    -147.7,
+    64.8,
+    0.9
+   ],
+   [
+    "PRUDHOE BAY",
+    -148.4,
+    70.0,
+    1.5
+   ]
+  ]
+ },
+ "props": [
+  {
+   "type": "pricetag",
+   "scene": "hook",
+   "at": [
+    -151,
+    63.5
+   ],
+   "text": "2¢",
+   "sub": "PER ACRE",
+   "h": 0.9,
+   "size": 3.2,
+   "from": 1.7
+  },
+  {
+   "type": "qmark",
+   "scene": "ask",
+   "at": [
+    -151,
+    63.5
+   ],
+   "size": 2.6
+  },
+  {
+   "type": "otters",
+   "scene": "fur",
+   "at": [
+    -152.3,
+    57.0
+   ],
+   "n": 14,
+   "from": 0.2,
+   "vanish": [
+    3.2,
+    6.2
+   ],
+   "size": 2.6
+  },
+  {
+   "type": "ship",
+   "scene": "fur",
+   "path": [
+    [
+     -158.5,
+     55.4
+    ],
+    [
+     -151.5,
+     57.6
+    ]
+   ],
+   "dur": 7,
+   "flag": "russia",
+   "size": 1.9
+  },
+  {
+   "type": "army",
+   "scene": "fear",
+   "color": "#c8102e",
+   "flag": "uk",
+   "from": [
+    -123.5,
+    55.2
+   ],
+   "to": [
+    -129.2,
+    57.4
+   ],
+   "rows": 3,
+   "cols": 4,
+   "march": [
+    0.3,
+    3.2
+   ],
+   "size": 2.0
+  },
+  {
+   "type": "ship",
+   "scene": "fear",
+   "path": [
+    [
+     -133,
+     51.5
+    ],
+    [
+     -134.6,
+     55.6
+    ]
+   ],
+   "dur": 6,
+   "flag": "uk",
+   "size": 2.0
+  },
+  {
+   "type": "flags",
+   "scene": "fear",
+   "flag": "russia",
+   "at": [
+    [
+     -135.3,
+     57.05
+    ]
+   ],
+   "from": 0.2,
+   "size": 2.0
+  },
+  {
+   "type": "coins",
+   "scene": "sale",
+   "src": [
+    -119,
+    51
+   ],
+   "dst": [
+    -176.5,
+    65.6
+   ],
+   "n": 22,
+   "start": 0.4,
+   "dur": 4.0,
+   "size": 8
+  },
+  {
+   "type": "flagswap",
+   "scene": "folly",
+   "at": [
+    -135.3,
+    57.05
+   ],
+   "lost": "russia",
+   "won": "usa",
+   "t": 0.3,
+   "size": 4.5
+  },
+  {
+   "type": "nuggets",
+   "scene": "payoff",
+   "at": [
+    [
+     -165.4,
+     64.5
+    ],
+    [
+     -147.7,
+     64.8
+    ],
+    [
+     -150.0,
+     61.5
+    ]
+   ],
+   "from": 0.2,
+   "size": 9
+  },
+  {
+   "type": "pumpjacks",
+   "scene": "payoff",
+   "at": [
+    [
+     -149.6,
+     70.25
+    ],
+    [
+     -148.4,
+     70.3
+    ],
+    [
+     -147.2,
+     70.15
+    ]
+   ],
+   "from": 1.4,
+   "size": 10
+  }
+ ],
+ "sfx": [
+  [
+   "ask",
+   0.5,
+   "pop"
+  ],
+  [
+   "fur",
+   3.2,
+   "whoosh"
+  ],
+  [
+   "fear",
+   0.3,
+   "whoosh"
+  ],
+  [
+   "folly",
+   0.3,
+   "whoosh"
+  ],
+  [
+   "folly",
+   0.8,
+   "pop"
+  ],
+  [
+   "sale",
+   0.6,
+   "pop"
+  ],
+  [
+   "sale",
+   0.82,
+   "pop"
+  ],
+  [
+   "sale",
+   1.04,
+   "pop"
+  ],
+  [
+   "sale",
+   1.26,
+   "pop"
+  ],
+  [
+   "sale",
+   1.48,
+   "pop"
+  ],
+  [
+   "sale",
+   1.7,
+   "pop"
+  ],
+  [
+   "sale",
+   1.92,
+   "pop"
+  ],
+  [
+   "sale",
+   2.14,
+   "pop"
+  ],
+  [
+   "sale",
+   2.36,
+   "pop"
+  ],
+  [
+   "sale",
+   2.58,
+   "pop"
+  ],
+  [
+   "sale",
+   2.8,
+   "pop"
+  ],
+  [
+   "sale",
+   3.02,
+   "pop"
+  ],
+  [
+   "sale",
+   3.24,
+   "pop"
+  ],
+  [
+   "sale",
+   3.46,
+   "pop"
+  ],
+  [
+   "payoff",
+   0.2,
+   "pop"
+  ],
+  [
+   "payoff",
+   0.55,
+   "pop"
+  ],
+  [
+   "payoff",
+   0.9,
+   "pop"
+  ],
+  [
+   "payoff",
+   1.4,
+   "boom"
+  ],
+  [
+   "hook",
+   1.7,
+   "pop"
+  ],
+  [
+   "hook",
+   0.2,
+   "whoosh"
+  ]
+ ],
+ "hold": {
+  "folly": 0.5,
+  "payoff": 1.6,
+  "fur": 0.3
+ },
+ "globe_admin": []
+}

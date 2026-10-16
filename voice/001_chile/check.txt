@@ -1,0 +1,12 @@
+00 1.00 | Chile is longer than the distance from Lisbon to Moscow. | Chile is longer than the distance from Lisbon to Moscow.
+01 1.00 | But it's so thin, you could drive across it in an afternoon. | But it's so thin, you could drive across it in an afternoon.
+02 1.00 | So how did a country end up shaped like this? | So how did a country end up shaped like this?
+03 1.00 | First, the wall. | First, the wall.
+04 0.87 | The Andes tower up to nearly seven thousand meters, boxing Spanish Chile against the Pacific. | The Andes Tower up to nearly 7 ,000 meters, boxing Spanish Chile against the Pacific.
+05 1.00 | Then, the war. | Then, the war.
+06 1.00 | In 1879, Chile fought Bolivia and Peru for the nitrate-rich Atacama Desert, and won. | In 1879, Chile fought Bolivia and Peru for the nitrate -rich Atacama Desert, and won.
+07 1.00 | It took this whole northern strip. Bolivia has had no coast ever since. | It took this whole northern strip. Bolivia has had no coast ever since.
+08 1.00 | Finally, the deal. | Finally, the deal.
+09 1.00 | In 1881, Chile and Argentina split the south along the highest peaks of the Andes. | In 1881, Chile and Argentina split the south along the highest peaks of the Andes,
+10 1.00 | Argentina got the plains of Patagonia. Chile kept the coast. | Argentina got the plains of Patagonia. Chile kept the coast.
+11 1.00 | A wall, a war, and a deal. That's the map answer. | a wall, a war, and a deal. That's the map answer.
