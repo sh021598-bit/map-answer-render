@@ -1,0 +1,335 @@
+{
+ "id": "004-greenland",
+ "title": "America tried to buy Greenland",
+ "region": {
+  "lon": [
+   -100,
+   -8
+  ],
+  "lat": [
+   38,
+   84
+  ],
+  "nx": 560,
+  "smooth": 1.4
+ },
+ "countries": {
+  "greenland": {
+   "admin": "Greenland",
+   "color": "#ff4d4d"
+  },
+  "usa": {
+   "admin": "United States of America",
+   "color": "#3f8cff"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "In 1946, America offered Denmark one hundred million dollars in gold for Greenland."
+  ],
+  [
+   "ask",
+   "Denmark never sold. So why did America want it so badly?"
+  ],
+  [
+   "map",
+   "Because Greenland sits between North America and Europe, right on the shortest route across the Arctic."
+  ],
+  [
+   "ww2",
+   "In 1941, with Denmark under German occupation, America moved in to defend the island."
+  ],
+  [
+   "deal",
+   "After the war, Denmark kept Greenland. But in 1951, a deal let America keep its bases."
+  ],
+  [
+   "base",
+   "The biggest was Thule Air Base, built in the far north.",
+   "The biggest was Too-lee Air Base, built in the far north."
+  ],
+  [
+   "today",
+   "It's still there today, now a U.S. Space Force base."
+  ],
+  [
+   "end",
+   "A hundred million in gold, and Greenland stayed Danish. That's the map answer."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    -55,
+    62
+   ],
+   38,
+   60,
+   0
+  ],
+  "ask": [
+   [
+    -45,
+    66
+   ],
+   30,
+   55,
+   -8
+  ],
+  "map": [
+   [
+    -50,
+    64
+   ],
+   36,
+   55,
+   10
+  ],
+  "ww2": [
+   [
+    -45,
+    70
+   ],
+   20,
+   52,
+   0
+  ],
+  "deal": [
+   [
+    -45,
+    72
+   ],
+   24,
+   55,
+   6
+  ],
+  "base": [
+   [
+    -68.7,
+    76.5
+   ],
+   5.0,
+   48,
+   0
+  ],
+  "today": [
+   [
+    -68.7,
+    76.5
+   ],
+   3.6,
+   46,
+   -12
+  ],
+  "end": [
+   [
+    -50,
+    66
+   ],
+   36,
+   62,
+   0
+  ]
+ },
+ "orbit": {
+  "ask": 12,
+  "end": -8
+ },
+ "tint": {
+  "hook": {
+   "greenland": 1,
+   "usa": 1
+  },
+  "ask": {
+   "greenland": 1,
+   "usa": 1
+  },
+  "map": {
+   "greenland": 1,
+   "usa": 1
+  },
+  "ww2": {
+   "greenland": 1,
+   "usa": 1
+  },
+  "deal": {
+   "greenland": 1,
+   "usa": 1
+  },
+  "base": {
+   "greenland": 1,
+   "usa": 1
+  },
+  "today": {
+   "greenland": 1,
+   "usa": 1
+  },
+  "end": {
+   "greenland": 1,
+   "usa": 1
+  }
+ },
+ "lift": {},
+ "exaggerate": {},
+ "badges": {},
+ "big": {
+  "hook": [
+   "$100M",
+   "IN GOLD"
+  ],
+  "today": [
+   "1951",
+   "TO TODAY"
+  ]
+ },
+ "labels": {
+  "hook": [
+   [
+    "GREENLAND",
+    -42,
+    72,
+    1.2
+   ],
+   [
+    "USA",
+    -98,
+    41,
+    0.4
+   ]
+  ],
+  "map": [
+   [
+    "N.AMERICA",
+    -85,
+    55,
+    0.6
+   ],
+   [
+    "EUROPE",
+    -12,
+    66,
+    0.6
+   ]
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "coins",
+   "scene": "hook",
+   "src": [
+    -95,
+    42
+   ],
+   "dst": [
+    -42,
+    72
+   ],
+   "n": 22,
+   "start": 1.2,
+   "dur": 4.0,
+   "size": 8
+  },
+  {
+   "type": "qmark",
+   "scene": "ask",
+   "at": [
+    -42,
+    72
+   ],
+   "size": 2.6
+  },
+  {
+   "type": "flags",
+   "scene": "deal",
+   "flag": "denmark",
+   "at": [
+    [
+     -50,
+     64
+    ]
+   ],
+   "from": 0.3,
+   "size": 2.0
+  },
+  {
+   "type": "flags",
+   "scene": "base",
+   "flag": "usa",
+   "at": [
+    [
+     -68.7,
+     76.5
+    ]
+   ],
+   "from": 1.0,
+   "size": 0.8
+  },
+  {
+   "type": "houses",
+   "scene": "base",
+   "at": [
+    [
+     -68.75,
+     76.52
+    ],
+    [
+     -68.65,
+     76.49
+    ],
+    [
+     -68.7,
+     76.55
+    ]
+   ],
+   "from": 0.4,
+   "size": 0.6
+  },
+  {
+   "type": "flags",
+   "scene": "end",
+   "flag": "denmark",
+   "at": [
+    [
+     -42,
+     70
+    ]
+   ],
+   "from": 0.3,
+   "size": 2.0
+  }
+ ],
+ "sfx": [
+  [
+   "hook",
+   1.2,
+   "whoosh"
+  ],
+  [
+   "ask",
+   0.5,
+   "pop"
+  ],
+  [
+   "deal",
+   0.3,
+   "pop"
+  ],
+  [
+   "base",
+   1.0,
+   "pop"
+  ],
+  [
+   "end",
+   0.3,
+   "pop"
+  ]
+ ],
+ "fog_add": 0
+}

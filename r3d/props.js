@@ -24,6 +24,7 @@ function flagTex(kind){const c=document.createElement('canvas');c.width=192;c.he
   else if(kind==='bolivia') bands(['#d52b1e','#f9e300','#007934']);
   else if(kind==='peru'){g.fillStyle='#d91023';g.fillRect(0,0,192,128);g.fillStyle='#fff';g.fillRect(64,0,64,128)}
   else if(kind==='argentina'){bands(['#74acdf','#fff','#74acdf']);g.fillStyle='#f6b40e';g.beginPath();g.arc(96,64,13,0,7);g.fill()}
+  else if(kind==='denmark'){g.fillStyle='#c8102e';g.fillRect(0,0,192,128);g.fillStyle='#fff';g.fillRect(56,0,24,128);g.fillRect(0,52,192,24)}
   else if(kind==='russia') bands(['#ffffff','#0039a6','#d52b1e']);
   else if(kind==='ussr'){g.fillStyle='#cc0000';g.fillRect(0,0,192,128);g.fillStyle='#ffd700';g.beginPath();for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rr=i%2?4:10;g.lineTo(34+rr*Math.cos(a),22+rr*Math.sin(a))}g.fill();
     g.strokeStyle='#ffd700';g.lineWidth=5;g.beginPath();g.arc(36,52,12,0.3,Math.PI*1.25);g.stroke();g.beginPath();g.moveTo(26,64);g.lineTo(46,42);g.stroke()}
