@@ -1,0 +1,314 @@
+{
+ "id": "005-lesotho",
+ "title": "A country inside a country",
+ "region": {
+  "lon": [
+   24.5,
+   32.0
+  ],
+  "lat": [
+   -33.0,
+   -26.0
+  ],
+  "nx": 700,
+  "smooth": 1.0,
+  "z": 7
+ },
+ "countries": {
+  "lesotho": {
+   "admin": "Lesotho",
+   "color": "#ff4d4d"
+  },
+  "sa": {
+   "admin": "South Africa",
+   "color": "#3f8cff"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "There's a whole country hiding inside South Africa."
+  ],
+  [
+   "ask",
+   "It's Lesotho. So why isn't it part of South Africa?"
+  ],
+  [
+   "war",
+   "In the 1860s, this mountain kingdom was losing land to Boer settlers."
+  ],
+  [
+   "prot",
+   "So in 1868, he asked Britain for protection, and Britain agreed."
+  ],
+  [
+   "union",
+   "Britain kept it separate, so when South Africa formed in 1910, Lesotho stayed out."
+  ],
+  [
+   "indep",
+   "In 1966, it won independence."
+  ],
+  [
+   "high",
+   "And it has the world's highest lowest point: 1,400 meters up.",
+   "And it has the world's highest lowest point: fourteen hundred meters up."
+  ],
+  [
+   "end",
+   "A country inside a country, thanks to one request for protection. That's the map answer."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    28.0,
+    -29.6
+   ],
+   10,
+   58,
+   0
+  ],
+  "ask": [
+   [
+    28.2,
+    -29.6
+   ],
+   13,
+   55,
+   -8
+  ],
+  "war": [
+   [
+    28.0,
+    -29.4
+   ],
+   13,
+   52,
+   10
+  ],
+  "prot": [
+   [
+    28.2,
+    -29.6
+   ],
+   13,
+   50,
+   0
+  ],
+  "union": [
+   [
+    28.2,
+    -29.7
+   ],
+   16,
+   56,
+   -10
+  ],
+  "indep": [
+   [
+    28.2,
+    -29.6
+   ],
+   13,
+   48,
+   8
+  ],
+  "high": [
+   [
+    28.6,
+    -29.4
+   ],
+   9,
+   38,
+   -14
+  ],
+  "end": [
+   [
+    28.1,
+    -29.6
+   ],
+   15,
+   60,
+   0
+  ]
+ },
+ "orbit": {
+  "ask": 12,
+  "end": -8
+ },
+ "tint": {
+  "hook": {
+   "lesotho": 1,
+   "sa": 1
+  },
+  "ask": {
+   "lesotho": 1,
+   "sa": 1
+  },
+  "war": {
+   "lesotho": 1,
+   "sa": 1
+  },
+  "prot": {
+   "lesotho": 1,
+   "sa": 1
+  },
+  "union": {
+   "lesotho": 1,
+   "sa": 1
+  },
+  "indep": {
+   "lesotho": 1,
+   "sa": 1
+  },
+  "high": {
+   "lesotho": 1,
+   "sa": 1
+  },
+  "end": {
+   "lesotho": 1,
+   "sa": 1
+  }
+ },
+ "lift": {},
+ "exaggerate": {
+  "high": 1.6
+ },
+ "badges": {},
+ "big": {
+  "hook": [
+   "A COUNTRY",
+   "INSIDE A COUNTRY"
+  ],
+  "indep": [
+   "1966",
+   "INDEPENDENT"
+  ],
+  "high": [
+   "1,400 M",
+   "LOWEST POINT"
+  ]
+ },
+ "labels": {
+  "hook": [
+   [
+    "LESOTHO",
+    28.25,
+    -29.6,
+    0.5
+   ],
+   [
+    "SOUTH AFRICA",
+    25.3,
+    -31.8,
+    1.0
+   ]
+  ],
+  "union": [
+   [
+    "SOUTH AFRICA",
+    25.3,
+    -31.8,
+    1.0
+   ]
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "trace",
+   "scene": "hook",
+   "country": "lesotho",
+   "dur": 2.0
+  },
+  {
+   "type": "qmark",
+   "scene": "ask",
+   "at": [
+    28.2,
+    -29.6
+   ],
+   "size": 1.4
+  },
+  {
+   "type": "flags",
+   "scene": "prot",
+   "flag": "uk",
+   "at": [
+    [
+     28.2,
+     -29.5
+    ]
+   ],
+   "from": 1.8,
+   "size": 3.5
+  },
+  {
+   "type": "houses",
+   "scene": "war",
+   "at": [
+    [
+     27.5,
+     -29.3
+    ],
+    [
+     28.9,
+     -29.8
+    ],
+    [
+     28.1,
+     -30.1
+    ]
+   ],
+   "from": 0.5,
+   "size": 3.5
+  },
+  {
+   "type": "trace",
+   "scene": "union",
+   "country": "lesotho",
+   "dur": 1.5
+  },
+  {
+   "type": "flags",
+   "scene": "end",
+   "flag": "#0b7bd1",
+   "at": [
+    [
+     28.2,
+     -29.6
+    ]
+   ],
+   "from": 0.3,
+   "size": 3.5
+  }
+ ],
+ "sfx": [
+  [
+   "hook",
+   0.4,
+   "whoosh"
+  ],
+  [
+   "ask",
+   0.5,
+   "pop"
+  ],
+  [
+   "prot",
+   1.8,
+   "pop"
+  ],
+  [
+   "end",
+   0.3,
+   "pop"
+  ]
+ ],
+ "fog_add": 0
+}
