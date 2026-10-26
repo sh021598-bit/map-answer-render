@@ -204,7 +204,7 @@ window.frame=(t)=>{
   const B=CFG.badges[s]; if(B){const base_=s.replace(/\d+$/,'');const t0=T0[base_]??T0[s];html+=`<div class="badge" style="${pop(t0)}"><div class="n">${B[0]}</div><div><div class="t">${B[1]}</div><div class="s">${B[2]}</div></div></div>`}
   const G=(CFG.big||{})[s]; if(G){let txt=G[0];const m=txt.match(/^COUNT:(\d+):(\d+):(.*)$/);
     if(m){const dp=props.driveOf(s);const v=+m[1]+(+m[2]-+m[1])*(dp?Math.max(0,Math.min(1,(ls-dp.from)/dp.dur)):1);txt=Math.round(v).toLocaleString('en-US')+m[3]}
-    html+=`<div class="big" style="${pop(T0[s]+(i?0.2:0.3))}">${txt}<small>${G[1]}</small></div>`}
+    html+=`<div class="big" style="${i?pop(T0[s]+0.2):'opacity:1;transform:scale(1)'}">${txt}<small>${G[1]}</small></div>`} // 첫 장면 훅은 0초부터 = 썸네일 프레임
   for(const [txt,lo,la,c0,c1] of (CFG.labels||{})[s]||[]){if(ls<(c0||0.5)||(c1&&ls>c1))continue;const [x,z]=ll2w(lo,la);const v=new THREE.Vector3(x,groundAtW(x,z)+0.08,z).project(cam);const ty=(1-v.y)/2*H;if(ty>1300||ty<300||v.z>1)continue;
     html+=`<div class="tag" style="left:${((v.x+1)/2*W).toFixed(0)}px;top:${((1-v.y)/2*H).toFixed(0)}px;opacity:${Math.min(1,(ls-(c0||0.5))/0.4).toFixed(2)}">${txt}</div>`}
   if(s===sc[sc.length-1]){const ws=TL.lines[TL.lines.length-1].words;const w=ws.find(w=>/^That/.test(w[0]))||ws[0];const t0=w[1];

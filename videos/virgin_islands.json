@@ -1,0 +1,320 @@
+{
+ "id": "006-virgin-islands",
+ "title": "America paid $25M in gold for these islands",
+ "region": {
+  "lon": [
+   -68.0,
+   -62.5
+  ],
+  "lat": [
+   16.8,
+   19.8
+  ],
+  "nx": 800,
+  "smooth": 1.0,
+  "z": 9,
+  "land": "elev",
+  "sea": 2
+ },
+ "countries": {
+  "usvi": {
+   "admin": "United States Virgin Islands",
+   "color": "#ff4d4d"
+  },
+  "pr": {
+   "admin": "Puerto Rico",
+   "color": "#3f8cff"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "In 1917, America paid Denmark twenty-five million dollars in gold for a few Caribbean islands."
+  ],
+  [
+   "ask",
+   "So why did America want them so badly?"
+  ],
+  [
+   "canal",
+   "Because they sit near the sea routes to the Panama Canal, which had just opened in 1914."
+  ],
+  [
+   "war",
+   "And in World War One, America feared Germany could take control of them."
+  ],
+  [
+   "push",
+   "So it told Denmark it would never allow that, and Denmark agreed to sell."
+  ],
+  [
+   "deal",
+   "On March 31st, 1917, the islands became the U.S. Virgin Islands."
+  ],
+  [
+   "today",
+   "Every year, residents still mark that day as Transfer Day."
+  ],
+  [
+   "end",
+   "Gold coins and a fear of Germany turned Danish islands into American ones. That's the map answer."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    -65.3,
+    18.2
+   ],
+   9,
+   58,
+   0
+  ],
+  "ask": [
+   [
+    -65.0,
+    18.3
+   ],
+   8,
+   55,
+   -8
+  ],
+  "canal": [
+   [
+    -66.0,
+    17.9
+   ],
+   14,
+   56,
+   10
+  ],
+  "war": [
+   [
+    -65.0,
+    18.3
+   ],
+   10,
+   52,
+   0
+  ],
+  "push": [
+   [
+    -65.0,
+    18.3
+   ],
+   9,
+   55,
+   -10
+  ],
+  "deal": [
+   [
+    -64.85,
+    18.35
+   ],
+   5.5,
+   50,
+   8
+  ],
+  "today": [
+   [
+    -64.9,
+    18.35
+   ],
+   4.5,
+   46,
+   -12
+  ],
+  "end": [
+   [
+    -65.2,
+    18.3
+   ],
+   11,
+   60,
+   0
+  ]
+ },
+ "orbit": {
+  "ask": 12,
+  "end": -8
+ },
+ "tint": {
+  "hook": {
+   "usvi": 1,
+   "pr": 1
+  },
+  "ask": {
+   "usvi": 1,
+   "pr": 1
+  },
+  "canal": {
+   "usvi": 1,
+   "pr": 1
+  },
+  "war": {
+   "usvi": 1,
+   "pr": 1
+  },
+  "push": {
+   "usvi": 1,
+   "pr": 1
+  },
+  "deal": {
+   "usvi": 1,
+   "pr": 1
+  },
+  "today": {
+   "usvi": 1,
+   "pr": 1
+  },
+  "end": {
+   "usvi": 1,
+   "pr": 1
+  }
+ },
+ "lift": {},
+ "exaggerate": {
+  "deal": 1.8
+ },
+ "badges": {},
+ "big": {
+  "hook": [
+   "$25M",
+   "IN GOLD"
+  ],
+  "canal": [
+   "1914",
+   "CANAL OPENS"
+  ],
+  "war": [
+   "WWI",
+   "1914-1918"
+  ],
+  "deal": [
+   "MARCH 31",
+   "1917"
+  ]
+ },
+ "labels": {
+  "hook": [
+   [
+    "U.S. VIRGIN ISLANDS",
+    -64.85,
+    18.6,
+    0.4
+   ]
+  ],
+  "canal": [
+   [
+    "TO PANAMA CANAL",
+    -66.6,
+    17.0,
+    0.6
+   ]
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "coins",
+   "scene": "hook",
+   "src": [
+    -67.6,
+    19.4
+   ],
+   "dst": [
+    -64.85,
+    18.35
+   ],
+   "n": 22,
+   "start": 1.2,
+   "dur": 3.0,
+   "size": 3
+  },
+  {
+   "type": "qmark",
+   "scene": "ask",
+   "at": [
+    -64.85,
+    18.35
+   ],
+   "size": 0.9
+  },
+  {
+   "type": "flags",
+   "scene": "push",
+   "flag": "denmark",
+   "at": [
+    [
+     -64.85,
+     18.35
+    ]
+   ],
+   "from": 0.4,
+   "size": 1.6
+  },
+  {
+   "type": "flags",
+   "scene": "deal",
+   "flag": "usa",
+   "at": [
+    [
+     -64.9,
+     18.34
+    ]
+   ],
+   "from": 1.0,
+   "size": 1.2
+  },
+  {
+   "type": "flags",
+   "scene": "end",
+   "flag": "usa",
+   "at": [
+    [
+     -64.9,
+     18.34
+    ]
+   ],
+   "from": 0.3,
+   "size": 1.5
+  }
+ ],
+ "sfx": [
+  [
+   "hook",
+   1.2,
+   "whoosh"
+  ],
+  [
+   "ask",
+   0.5,
+   "pop"
+  ],
+  [
+   "canal",
+   0.4,
+   "pop"
+  ],
+  [
+   "war",
+   0.5,
+   "pop"
+  ],
+  [
+   "deal",
+   1.0,
+   "pop"
+  ],
+  [
+   "end",
+   0.3,
+   "pop"
+  ]
+ ],
+ "fog_add": 3.5
+}
