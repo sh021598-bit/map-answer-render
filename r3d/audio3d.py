@@ -103,8 +103,8 @@ for p in (cfg.get('props',[]) if cfg.get('prop_sfx',os.path.exists(f'{AU}/sfx/co
         samp('march',st,0.25,min(4.0,p['march'][1]-p['march'][0]))
     elif k in PROP_SFX:
         f,g,loop=PROP_SFX[k]; samp(f,st,g,min(p.get('dur',3.0),4.0) if loop else None)
-# 수동 신호 cfg 'sfx': [장면, 초, 종류(, 길이)] — 종류는 audio/sfx 이름 아무거나(gunshot·cannon·explosion·march·cheer·splash·waves·wind·horn·horse·bell·car·sheep·glass…). 옛 이름 pop·boom·volley·whoosh 도 됨
-CUE_G={'gunshot':.35,'cannon':.45,'explosion':.45,'cheer':.3,'march':.35,'splash':.4,'waves':.3,'wind':.25,'horn':.3,'horse':.3,'bell':.3,'car':.2,'sheep':.3,'glass':.35}
+# 수동 신호 cfg 'sfx': [장면, 초, 종류(, 길이)] — 종류는 audio/sfx 이름 아무거나(gunshot·cannon·explosion·march·applause(축하만)·splash·waves·wind·horn·horse·bell·car·sheep·glass…). 옛 이름 pop·boom·volley·whoosh 도 됨
+CUE_G={'gunshot':.35,'cannon':.45,'explosion':.45,'applause':.3,'march':.35,'splash':.4,'waves':.3,'wind':.25,'horn':.3,'horse':.3,'bell':.3,'car':.2,'sheep':.3,'glass':.35}
 for c in cfg.get('sfx',[]):
     sid,sec,kind=c[:3]; st=T0[sid]+sec; L=c[3] if len(c)>3 else None
     if kind=='pop': samp('pluck',st,0.4) or pop(st)

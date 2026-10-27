@@ -31,7 +31,7 @@
 - gunshot_2.ogg ← Rifle: Shot #2 (https://bigsoundbank.com/rifle-shot-2-s2854.html)
 - cannon.ogg ← Explosion far Away #1 (https://bigsoundbank.com/explosion-far-away-s1023.html)
 - explosion.ogg ← Explosion far Away #1 (https://bigsoundbank.com/explosion-far-away-s1023.html)
-- cheer.ogg ← Shouts and Applauses of Teens #2 (https://bigsoundbank.com/shouts-and-applauses-of-teens-2-s0237.html)
+- applause.ogg ← Shouts and Applauses of Teens #2 — **축하(독립·조약 성공)만, 전쟁 장면 금지**(precheck 가 막음). 전쟁 함성 녹음은 CC0 에서 못 찾아 없음 (https://bigsoundbank.com/shouts-and-applauses-of-teens-2-s0237.html)
 - splash.ogg ← Splash, Small #1 (https://bigsoundbank.com/splash-small-1-s1529.html)
 - splash_2.ogg ← Splash, Big #3 (https://bigsoundbank.com/splash-big-3-s1521.html)
 - waves.ogg ← Small Waves Facing the Ocean (https://bigsoundbank.com/small-waves-facing-the-ocean-s1046.html)
@@ -47,4 +47,4 @@
 
 ## 자동 연결 (audio3d PROP_SFX)
 - coins·nuggets→coins · flags·flagswap→cloth · qmark·pricetag·dateline·span·houses→pluck · trace·pen→scratch · glasses→glass · sheep→sheep · army(행진 구간)→march · clash→gunshot 여러 발 · ship→waves · swimmer·otters→splash · drive→car · 장면 전환→impact
-- 그 밖의 장면(대포·함성·종·말·뱃고동·바람)은 설정 `"sfx": [[장면, 초, "이름"(, 길이)]]` 로 직접.
+- 그 밖의 장면(대포·폭발·박수(축하만)·종·말·뱃고동·바람)은 설정 `"sfx": [[장면, 초, "이름"(, 길이)]]` 로 직접.
