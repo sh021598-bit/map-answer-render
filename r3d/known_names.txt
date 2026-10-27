@@ -1,0 +1,75 @@
+# 확인된 이름 — Chatterbox(TTS)가 이미 문제없이 읽은 영상(001~006)의 이름. precheck.py 「낯선 고유명사」가 이 목록의 단어는 통과시킨다.
+# 한 줄에 단어 하나, 대소문자 무시, # 뒤는 주석. 소유격 's 는 뗀 꼴로 적는다.
+# 넣는 기준: 그 이름이 든 음성을 실제로 듣거나 check.txt(Whisper 대조)로 맞게 읽힌 걸 확인한 것만.
+# 넣지 않는 것: 오독된 이름(재생성한 것)과, 줄 3번째 값(발음 철자)으로 고쳐서 읽힌 이름 — 그런 이름은 줄마다 발음 철자 칸으로 통과시킨다.
+# 영어 사전(/usr/share/dict/words)이 없는 환경에선 Island·Base 같은 보통 단어도 대문자면 후보라 여기서 걸러 둔다.
+
+# 나라·지역·바다·지명
+Africa
+Alaska
+America
+Andes
+Arctic
+Argentina
+Atacama
+Bolivia
+Britain
+Canada
+Caribbean
+Chile
+Denmark
+Europe
+Germany
+Greenland
+Lesotho
+Lisbon
+Moscow
+North
+Pacific
+Panama
+Patagonia
+Peru
+Russia
+South
+U.S.
+Virgin
+
+# 사람·민족·형용사
+Americans
+American
+Boer
+Cox
+Danish
+German
+Gorbachev
+Lynne
+Reagan
+Russian
+Soviets
+Spanish
+Crimean
+
+# 이름의 일부로 대문자가 된 보통 단어
+Air
+Base
+Big
+Canal
+Date
+Day
+Desert
+Folly
+Force
+Island
+Islands
+International
+Line
+March
+One
+Space
+States
+Tomorrow
+Transfer
+United
+War
+World
+Yesterday

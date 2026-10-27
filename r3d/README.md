@@ -9,7 +9,7 @@
 | audio3d.py | 음성(폴더 or Kokoro) + BGM + 효과음 + 덕킹 + -14 LUFS, Whisper 단어 타이밍 반영. BGM = 설정 `bgm`(이름, `../audio/bgm/catalog.json` 10곡 · 없으면 `mood`), Kevin MacLeod CC BY — **설명란 출처 줄 필수**(precheck 가 찍음), 무거운 소재에 tone light 금지(precheck). 효과음 = `../audio/sfx/*.ogg`(BigSoundBank·Kenney CC0) — 소품 종류별 자동(PROP_SFX, 끄기 `prop_sfx:false`) + 설정 `sfx: [[장면, 초, 이름(, 길이)]]`. 목록 `../audio/CREDITS.md`. `tail` 끝 무음 |
 | index.html | 장면·카메라·강조·자막/배지/라벨 오버레이 (`window.frame(t)`) |
 | props.js | 소품 라이브러리: drive(자동차+궤적) · trace(윤곽 그리기) · qmark · houses · ship · crest(능선 빛) · army(행진·전투·후퇴) · clash(총구 섬광·연기) · flagswap · flags · sheep · pen(국경 긋기). 새 연출은 type 추가 |
-| precheck.py | **렌더 전 점검** `python3 precheck.py ../videos/<id>.json [../voice/<NNN_id>]` — 길이 35~40초·0초 큰 글자·4초 안 전환·5초 안 첫 답. 음성 없이 = 대본 단계 추정(±2초), 음성 있으면 audio3d 와 같은 계산(실제 영상과 ±0.1초) |
+| precheck.py | **렌더 전 점검** `python3 precheck.py ../videos/<id>.json [../voice/<NNN_id>]` — 길이 35~40초·0초 큰 글자·4초 안 전환·5초 안 첫 답. 음성 없이 = 대본 단계 추정(±2초), 음성 있으면 audio3d 와 같은 계산(실제 영상과 ±0.1초)· **낯선 고유명사 점검**: 대본의 대문자 단어가 `known_names.txt`(확인된 이름)·영어 사전·그 줄의 발음 철자(줄 3번째 값, TTS 가 읽는 글)에 없으면 ❌ — 새 이름은 3번째 값에 발음 철자를 쓰거나 이름을 뺀다 |
 | render.js | `CHROME=<chromium 경로> node render.js out.mp4 30` / 정지컷 `node render.js x 30 1.5,14` |
 
 음성: `../tts/` — Chatterbox(MIT)는 세션에서 HuggingFace 차단이라 GitHub Actions(`channel-tts.yml`)에서 생성.
