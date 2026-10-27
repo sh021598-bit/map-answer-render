@@ -1,0 +1,141 @@
+{
+ "sfx": {},
+ "bgm": [
+  {
+   "mood": "epic",
+   "file": "audio/out/bgm/epic_0.mp3",
+   "title": "Hero Down",
+   "feel": "Epic, Intense, Somber",
+   "genre": "22",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hero%20Down.mp3"
+  },
+  {
+   "mood": "epic",
+   "file": "audio/out/bgm/epic_1.mp3",
+   "title": "Hall of the Mountain King",
+   "feel": "Dark, Driving, Epic, Intense",
+   "genre": "4",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hall%20of%20the%20Mountain%20King.mp3"
+  },
+  {
+   "mood": "epic",
+   "file": "audio/out/bgm/epic_2.mp3",
+   "title": "Dark Star",
+   "feel": "Epic, Uplifting",
+   "genre": "22",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dark%20Star.mp3"
+  },
+  {
+   "mood": "epic",
+   "file": "audio/out/bgm/epic_3.mp3",
+   "title": "Impact Lento",
+   "feel": "Epic, Mysterious, Relaxed",
+   "genre": "24",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Impact%20Lento.mp3"
+  },
+  {
+   "mood": "tense",
+   "file": "audio/out/bgm/tense_0.mp3",
+   "title": "Delightful D",
+   "feel": "Bright, Driving, Grooving",
+   "genre": "7",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Delightful%20D.mp3"
+  },
+  {
+   "mood": "tense",
+   "file": "audio/out/bgm/tense_1.mp3",
+   "title": "Constance",
+   "feel": "Action, Dark, Epic, Intense, Mysterious, Suspenseful",
+   "genre": "22",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Constance.mp3"
+  },
+  {
+   "mood": "tense",
+   "file": "audio/out/bgm/tense_2.mp3",
+   "title": "Chase Pulse Faster",
+   "feel": "Dark, Driving, Mysterious",
+   "genre": "10",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Chase%20Pulse%20Faster.mp3"
+  },
+  {
+   "mood": "tense",
+   "file": "audio/out/bgm/tense_3.mp3",
+   "title": "Gnarled Situation",
+   "feel": "Dark, Eerie, Intense, Mysterious, Somber",
+   "genre": "22",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Gnarled%20Situation.mp3"
+  },
+  {
+   "mood": "mystery",
+   "file": "audio/out/bgm/mystery_0.mp3",
+   "title": "Thunder Dreams",
+   "feel": "Dark, Mysterious, Suspenseful, Unnerving",
+   "genre": "10",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Thunder%20Dreams.mp3"
+  },
+  {
+   "mood": "mystery",
+   "file": "audio/out/bgm/mystery_1.mp3",
+   "title": "Frozen Star",
+   "feel": "Calming, Mystical, Relaxed, Uplifting",
+   "genre": "22",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Frozen%20Star.mp3"
+  },
+  {
+   "mood": "mystery",
+   "file": "audio/out/bgm/mystery_2.mp3",
+   "title": "Sneak 'n Get Caught",
+   "feel": "Dark, Mysterious, Epic, Suspenseful",
+   "genre": "22",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sneak%20n%20Get%20Caught.mp3"
+  },
+  {
+   "mood": "mystery",
+   "file": "audio/out/bgm/mystery_3.mp3",
+   "title": "Investigations",
+   "feel": "Humorous, Mysterious",
+   "genre": "22",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Investigations.mp3"
+  },
+  {
+   "mood": "bright",
+   "file": "audio/out/bgm/bright_0.mp3",
+   "title": "Allada",
+   "feel": "Bouncy, Bright, Grooving",
+   "genre": "25",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Allada.mp3"
+  },
+  {
+   "mood": "bright",
+   "file": "audio/out/bgm/bright_1.mp3",
+   "title": "Rollin at 5 - electronic",
+   "feel": "Bouncy, Driving, Grooving",
+   "genre": "11",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Rollin%20at%205%20-%20electronic.mp3"
+  },
+  {
+   "mood": "bright",
+   "file": "audio/out/bgm/bright_2.mp3",
+   "title": "Monkeys Spinning Monkeys",
+   "feel": "Bouncy, Bright, Humorous, Uplifting",
+   "genre": "22",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Monkeys%20Spinning%20Monkeys.mp3"
+  },
+  {
+   "mood": "bright",
+   "file": "audio/out/bgm/bright_3.mp3",
+   "title": "Cattails",
+   "feel": "Bouncy, Calming, Relaxed",
+   "genre": "5",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Cattails.mp3"
+  }
+ ],
+ "log": [
+  "rpg-audio: zip 링크 없음",
+  "casino-audio: zip 링크 없음",
+  "impact-sounds: zip 링크 없음",
+  "interface-sounds: zip 링크 없음",
+  "ui-audio: zip 링크 없음",
+  "pieces keys: title, filename, length, instruments, genre, bpm, description, feel, uploaded, isrc, collection, sheetmusic, video, itunes, filmmusicURL"
+ ]
+}
