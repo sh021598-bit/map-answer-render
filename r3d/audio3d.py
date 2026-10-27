@@ -68,8 +68,8 @@ def clink(st,g=0.12):   # 금속 「팅」 (동전)
 def scratch(st,d,g=0.05):   # 펜·윤곽 긋는 소리 (고음 잡음, 떨림)
     b0=int(st*SR); bl=max(0,min(int(min(d,2.0)*SR),n-b0)); x=np.diff(rng.standard_normal(bl+1)); bt=np.arange(bl)/SR
     sfx[b0:b0+bl]+=g*x*(0.6+0.4*np.sin(2*np.pi*7*bt))*np.clip(bt/0.1,0,1)*np.clip((bl/SR-bt)/0.2,0,1)
-# 소품 자동 효과음 (2026-10-27 채택, 작게 — 장면 전환 boom 의 1/3 이하). 끄기: 설정 "prop_sfx": false
-for p in (cfg.get('props',[]) if cfg.get('prop_sfx',True) else []):
+# 소품 자동 효과음 (합성음, 기본 꺼짐 — 2026-10-27 Jacob 「짜치다」 → 무료 음원 교체 전까지). 켜기: 설정 "prop_sfx": true
+for p in (cfg.get('props',[]) if cfg.get('prop_sfx',False) else []):
     if p.get('scene') not in T0: continue
     st=T0[p['scene']]+(p.get('start') if p.get('start') is not None else p.get('from') if p.get('from') is not None else {'trace':0.2,'houses':1.2}.get(p['type'],0.35))
     k=p['type']
