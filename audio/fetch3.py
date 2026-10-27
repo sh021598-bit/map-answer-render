@@ -7,6 +7,13 @@ Q={'gunshot':('gunshot rifle',4),'musket':('musket',4),'cannon':('cannon',5),'ex
    'crowd':('crowd shouting',6),'cheer':('crowd cheering',6),'splash':('splash water',3),'swim':('swimming',6),'waves':('waves sea',10),'sheep':('sheep',3),
    'car':('car engine',6),'horn':('ship horn',5),'wind':('wind',10),'glass':('glass clink',2),'horse':('horse gallop',6),'bell':('church bell',5),'drum':('military drum',6)}
 R={'sfx':{},'log':[]}
+import sys
+if len(sys.argv)>1 and sys.argv[1]=='debug':   # 페이지 구조 확인용 원본 저장
+    os.makedirs(f'{O}/debug',exist_ok=True)
+    for name,u in [('search','https://bigsoundbank.com/search?q=gunshot'),('search2','https://bigsoundbank.com/search/?q=gunshot'),('sound','https://bigsoundbank.com/forest-5-s3085.html'),('home','https://bigsoundbank.com/')]:
+        try: open(f'{O}/debug/{name}.html','wb').write(get(u))
+        except Exception as e: R['log'].append(f'{name}: {e}')
+    json.dump(R,open(f'{O}/debug/log.json','w')); sys.exit(0)
 for key,(q,maxs) in Q.items():
     got=[]
     try:
