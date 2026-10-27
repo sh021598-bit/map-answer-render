@@ -34,14 +34,17 @@ sf.write('voice_raw.wav',np.concatenate(chunks),SR)
 # ---- music: synthesized cinematic pad (no licensing) ----
 n=int(TOT*SR); tt=np.arange(n)/SR; mus=np.zeros(n)
 def note(f): return 440*2**((f-69)/12)
-prog=[[45,52,57,60,64],[41,48,53,57,60],[48,55,60,64,67],[43,50,55,59,62]]  # Am F C G
-bar=4.0
+MOODS={'epic':([[45,52,57,60,64],[41,48,53,57,60],[48,55,60,64,67],[43,50,55,59,62]],1,4.0),   # Am F C G (기본, 001~006)
+       'tense':([[38,45,50,53,57],[46,53,58,62,65],[43,50,55,58,62],[45,52,57,61,64]],1,3.0),  # Dm Bb Gm A — 전쟁·위협·분쟁
+       'mystery':([[40,47,52,55,59],[36,43,48,52,55],[45,52,57,60,64],[47,54,59,63,66]],0,5.0),# Em C Am B, 맥박 없음 — 수수께끼·숨은 지도
+       'bright':([[48,55,60,64,67],[43,50,55,59,62],[45,52,57,60,64],[41,48,53,57,60]],1,4.0)} # C G Am F — 거래·성공·반전
+prog,PULSE,bar=MOODS[cfg.get('mood','epic')]   # 2026-10-27 Jacob 제안 → 채널성장팀 채택: 영상 분위기마다 BGM
 for i in range(int(TOT/bar)+1):
     s=int(i*bar*SR); e=min(n,int((i+1)*bar*SR)+SR//2); seg=tt[s:e]-i*bar
     env=np.clip(seg/1.2,0,1)*np.clip((bar+0.5-seg)/0.8,0,1)
     for m in prog[i%4]:
         f=note(m); mus[s:e]+=env*(0.5*np.sin(2*np.pi*f*seg)+0.18*np.sin(2*np.pi*2*f*seg+0.3)+0.08*np.sin(2*np.pi*f*1.003*seg))/5
-    for j in range(8):
+    for j in range(int(bar*2) if PULSE else 0):
         ps=s+int(j*0.5*SR); pe=min(n,ps+int(0.35*SR)); pt=(np.arange(max(0,pe-ps)))/SR
         mus[ps:pe]+=0.25*np.sin(2*np.pi*note(33+(0 if i%4!=1 else -4))*pt)*np.exp(-pt*9)
 # ---- sfx: whoosh+impact at scene changes, plus prop cues (cfg 'sfx': [[scene, sec, kind]]) ----
@@ -59,6 +62,24 @@ def shot(st,g=0.3):
     b0=int(st*SR); bl=min(int(0.18*SR),n-b0); bt=np.arange(bl)/SR; x=rng.standard_normal(bl)
     sfx[b0:b0+bl]+=g*x*np.exp(-bt*35); boom(st,80,g*0.8,25)
 for s in list(T0)[1:]: whoosh(T0[s]); boom(T0[s])
+def clink(st,g=0.12):   # 금속 「팅」 (동전)
+    b0=int(st*SR); bl=min(int(0.25*SR),n-b0); bt=np.arange(bl)/SR
+    sfx[b0:b0+bl]+=g*sum(a*np.sin(2*np.pi*f*bt) for f,a in ((2400,1),(3700,.6),(5100,.35)))*np.exp(-bt*22)
+def scratch(st,d,g=0.05):   # 펜·윤곽 긋는 소리 (고음 잡음, 떨림)
+    b0=int(st*SR); bl=max(0,min(int(min(d,2.0)*SR),n-b0)); x=np.diff(rng.standard_normal(bl+1)); bt=np.arange(bl)/SR
+    sfx[b0:b0+bl]+=g*x*(0.6+0.4*np.sin(2*np.pi*7*bt))*np.clip(bt/0.1,0,1)*np.clip((bl/SR-bt)/0.2,0,1)
+# 소품 자동 효과음 (2026-10-27 채택, 작게 — 장면 전환 boom 의 1/3 이하). 끄기: 설정 "prop_sfx": false
+for p in (cfg.get('props',[]) if cfg.get('prop_sfx',True) else []):
+    if p.get('scene') not in T0: continue
+    st=T0[p['scene']]+(p.get('start') if p.get('start') is not None else p.get('from') if p.get('from') is not None else {'trace':0.2,'houses':1.2}.get(p['type'],0.35))
+    k=p['type']
+    if k=='coins':
+        for q in range(min(6,p.get('n',4))): clink(st+q*p.get('dur',2.0)/min(6,p.get('n',4))+rng.uniform(0,0.08),0.08+0.05*rng.random())
+    elif k=='flags': whoosh(st+0.3,0.15)
+    elif k in('qmark','pricetag'): pop(st,0.18)
+    elif k=='houses':
+        for q in range(len(p.get('at',[])) or 1): pop(st+q*0.28,0.12)
+    elif k in('trace','pen'): scratch(st,p.get('dur',1.5))
 for sid,sec,kind in cfg.get('sfx',[]):
     st=T0[sid]+sec
     if kind=='pop': pop(st)
