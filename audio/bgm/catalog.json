@@ -1,0 +1,13 @@
+{
+ "_설명": "BGM 목록 (Kevin MacLeod, incompetech.com, CC BY 4.0 — 설명란 출처 줄 필수). tone: serious=무거운 소재 가능 · neutral=대부분 · light=밝은 소재만. 무거운 소재(전쟁·위협·학살·재난·죽음)엔 light 금지 — precheck 가 막는다. 2026-10-27 채널성장팀",
+ "epic":        {"title": "Impact Lento", "mood": "epic", "tone": "neutral", "feel": "Epic, Mysterious, Relaxed", "use": "기본 · 역사 거래·지리 수수께끼 일반"},
+ "stormfront":  {"title": "Stormfront", "mood": "epic", "tone": "serious", "feel": "Dark, Epic, Intense, Suspenseful, Unnerving", "use": "전쟁·제국·큰 충돌"},
+ "tense":       {"title": "Constance", "mood": "tense", "tone": "serious", "feel": "Action, Dark, Epic, Intense, Mysterious, Suspenseful", "use": "위협·분쟁·추격"},
+ "egmont":      {"title": "Variation on Egmont", "mood": "tense", "tone": "serious", "feel": "Driving, Aggressive, Unnerving", "use": "침공·전투·급박한 사건"},
+ "mystery":     {"title": "Thunder Dreams", "mood": "mystery", "tone": "serious", "feel": "Dark, Mysterious, Suspenseful, Unnerving", "use": "숨은 이유·이상한 국경"},
+ "opium":       {"title": "Opium", "mood": "mystery", "tone": "neutral", "feel": "Calming, Mystical, Relaxed", "use": "가벼운 수수께끼·자연 지리"},
+ "anguish":     {"title": "Anguish", "mood": "somber", "tone": "serious", "feel": "Calming, Dark, Somber", "use": "학살·기근·재난·잃은 땅"},
+ "bright":      {"title": "Rollin at 5 - electronic", "mood": "bright", "tone": "light", "feel": "Bouncy, Driving, Grooving", "use": "거래 성공·반전·재미있는 사실"},
+ "evening":     {"title": "Evening", "mood": "bright", "tone": "light", "feel": "Bright, Calming, Relaxed", "use": "평화로운 지리·여행"},
+ "mississippi": {"title": "Whiskey on the Mississippi", "mood": "bright", "tone": "light", "feel": "Bouncy, Grooving", "use": "미국 개척·가벼운 미국사"}
+}

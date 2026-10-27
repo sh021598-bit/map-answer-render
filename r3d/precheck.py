@@ -28,15 +28,17 @@ TOT=t+cfg.get('tail',1.2)
 for sid,txt,a,b in rows: print(f'{a:5.1f}-{b:5.1f}s  {sid:8} {txt[:60]}')
 first=rows[0][0]; cut=next((a for s,_,a,_ in rows if s!=first),TOT)
 ans=next((a for s,x,a,_ in rows[1:] if not x.rstrip().endswith('?')),TOT)   # 첫 답 = 질문 아닌 둘째 줄부터의 첫 줄
+import os
+CAT=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','audio','bgm','catalog.json'))) if os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','audio','bgm','catalog.json')) else {}
+BGN=cfg.get('bgm') or cfg.get('mood','epic'); BGI=CAT.get(BGN) if CAT else {'tone':None}; TONE=(BGI or {}).get('tone')
+SERIOUS=re.findall(r"\b(wars?|battles?|invad\w*|invasion|army|armies|troops|soldiers|killed|kill|died|deaths?|dead|massacres?|genocide|bombs?|bombed|nuclear|attacks?|threat\w*|famine|disasters?|earthquakes?|tsunamis?|occup\w+|conflicts?|enemy|fought|weapons?|missiles?|refugees|executed|slaves?|slavery|plague|terror\w*)\b",' '.join(r[1] for r in rows).lower())
 chk=[('길이 35~40초',35<=TOT<=40,f'{TOT:.1f}s'),
      ('0초 큰 글자(big 첫 장면)',first in cfg.get('big',{}),' / '.join(cfg.get('big',{}).get(first,['없음']))),
      ('4초 안 장면 전환',cut<=4,f'{cut:.1f}s'),
      ('5초 안 첫 답',ans<=5,f'{ans:.1f}s'),
      ('끝: 맺음말 없음·꼬리 ≤0.5초',"map answer" not in rows[-1][1].lower() and cfg.get('tail',1.2)<=0.5,f"tail {cfg.get('tail',1.2)}s"),
+     ('BGM: 무거운 소재에 밝은 곡 금지',not (SERIOUS and TONE=='light') and BGI is not None,f"{BGN} ({TONE or '목록에 없음'})"+(f" · 무거운 말: {', '.join(sorted(set(SERIOUS))[:4])}" if SERIOUS else '')),
      ('단어 타이밍(words.json 줄 수)',not VD or len(json.load(open(f'{VD}/words.json')))==len(rows),'' if VD else '(음성 없음 — 추정)')]
 for name,ok,v in chk: print(('✅' if ok else '❌'),name,v)
-import os; CR=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','audio','CREDITS.md')
-if os.path.exists(CR) and not cfg.get('bgm'):   # 파일 BGM 은 CC BY — 설명란 출처 줄 필수
-    t=dict(re.findall(r'^\| (\w+) \| (.+?) \|$',open(CR).read(),re.M)).get(cfg.get('mood','epic'))
-    if t: print(f'ℹ️ 설명란에 넣을 줄: Music: "{t}" Kevin MacLeod (incompetech.com) · Licensed under Creative Commons: By Attribution 4.0 · http://creativecommons.org/licenses/by/4.0/')
+if BGI and BGI.get('title'): print(f'ℹ️ 설명란에 넣을 줄: Music: "{BGI["title"]}" Kevin MacLeod (incompetech.com) · Licensed under Creative Commons: By Attribution 4.0 · http://creativecommons.org/licenses/by/4.0/')
 sys.exit(0 if all(ok for _,ok,_ in chk) else 1)
