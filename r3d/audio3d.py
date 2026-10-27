@@ -28,7 +28,8 @@ for i,ln in enumerate(cfg['lines']):
     nxt=cfg['lines'][i+1][0] if i+1<len(cfg['lines']) else None
     if nxt!=sid: gap+=cfg.get('hold',{}).get(sid,0)   # 장면 끝 여유(소품 연출 시간)
     chunks+=[a,np.zeros(int(gap*SR),np.float32)]; t+=dur+gap
-chunks.append(np.zeros(int(1.2*SR),np.float32)); TOT=t+1.2
+TAIL=cfg.get('tail',1.2)   # 끝 무음 — 짧을수록 루프가 매끄럽다(2026-10-27 끝 이탈 30~41%)
+chunks.append(np.zeros(int(TAIL*SR),np.float32)); TOT=t+TAIL
 sf.write('voice_raw.wav',np.concatenate(chunks),SR)
 # ---- music: synthesized cinematic pad (no licensing) ----
 n=int(TOT*SR); tt=np.arange(n)/SR; mus=np.zeros(n)

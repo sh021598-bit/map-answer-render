@@ -207,7 +207,7 @@ window.frame=(t)=>{
     html+=`<div class="big" style="${i?pop(T0[s]+0.2):'opacity:1;transform:scale(1)'}">${txt}<small>${G[1]}</small></div>`} // 첫 장면 훅은 0초부터 = 썸네일 프레임
   for(const [txt,lo,la,c0,c1] of (CFG.labels||{})[s]||[]){if(ls<(c0||0.5)||(c1&&ls>c1))continue;const [x,z]=ll2w(lo,la);const v=new THREE.Vector3(x,groundAtW(x,z)+0.08,z).project(cam);const ty=(1-v.y)/2*H;if(ty>1300||ty<300||v.z>1)continue;
     html+=`<div class="tag" style="left:${((v.x+1)/2*W).toFixed(0)}px;top:${((1-v.y)/2*H).toFixed(0)}px;opacity:${Math.min(1,(ls-(c0||0.5))/0.4).toFixed(2)}">${txt}</div>`}
-  if(s===sc[sc.length-1]){const ws=TL.lines[TL.lines.length-1].words;const w=ws.find(w=>/^That/.test(w[0]))||ws[0];const t0=w[1];
+  if(s===sc[sc.length-1]){const ws=TL.lines[TL.lines.length-1].words;const w=ws.find(w=>/^That/.test(w[0]));const t0=w?w[1]:Math.max(ws[0][1],ws[ws.length-1][2]-1.2);
     if(t>=t0)html+=`<div class="end" style="${pop(t0)}"><div class="a">${CFG.endcard[0]}</div><div class="b">${CFG.endcard[1]}</div></div>`}
   const L=TL.lines.find(l=>t>=l.t0&&t<l.t1+0.15);
   if(L){const ws=L.words;let wi=ws.findIndex(w=>t<w[2]);if(wi<0)wi=ws.length-1;const g=Math.floor(wi/3)*3;

@@ -1,4 +1,4 @@
-# 렌더 전 점검: 대본 줄 시간을 audio3d.py 와 같은 식으로 계산해 전략 회의 기준(길이·0초 훅·4초 전환·5초 첫 답)을 본다
+# 렌더 전 점검: 대본 줄 시간을 audio3d.py 와 같은 식으로 계산해 전략 회의 기준(길이·0초 훅·4초 전환·5초 첫 답·끝 처리)을 본다
 # python3 precheck.py <영상설정.json> [음성폴더]   → 줄별 시각 + ✅/❌, ❌ 가 있으면 exit 1
 # 음성폴더 없이 = TTS 전 추정(음절 ÷ 4.5/초, 002~006 실측 중앙값, 줄마다 ±20%) — 대본 단계에서 먼저 고친다
 import json,re,struct,sys,numpy as np
@@ -24,7 +24,7 @@ for i,(sid,txt,*_) in enumerate(cfg['lines']):
     nxt=cfg['lines'][i+1][0] if i+1<len(cfg['lines']) else None
     if nxt!=sid: gap+=cfg.get('hold',{}).get(sid,0)
     t+=d+gap
-TOT=t+1.2
+TOT=t+cfg.get('tail',1.2)
 for sid,txt,a,b in rows: print(f'{a:5.1f}-{b:5.1f}s  {sid:8} {txt[:60]}')
 first=rows[0][0]; cut=next((a for s,_,a,_ in rows if s!=first),TOT)
 ans=next((a for s,x,a,_ in rows[1:] if not x.rstrip().endswith('?')),TOT)   # 첫 답 = 질문 아닌 둘째 줄부터의 첫 줄
@@ -32,6 +32,7 @@ chk=[('길이 35~40초',35<=TOT<=40,f'{TOT:.1f}s'),
      ('0초 큰 글자(big 첫 장면)',first in cfg.get('big',{}),' / '.join(cfg.get('big',{}).get(first,['없음']))),
      ('4초 안 장면 전환',cut<=4,f'{cut:.1f}s'),
      ('5초 안 첫 답',ans<=5,f'{ans:.1f}s'),
+     ('끝: 맺음말 없음·꼬리 ≤0.5초',"map answer" not in rows[-1][1].lower() and cfg.get('tail',1.2)<=0.5,f"tail {cfg.get('tail',1.2)}s"),
      ('단어 타이밍(words.json 줄 수)',not VD or len(json.load(open(f'{VD}/words.json')))==len(rows),'' if VD else '(음성 없음 — 추정)')]
 for name,ok,v in chk: print(('✅' if ok else '❌'),name,v)
 sys.exit(0 if all(ok for _,ok,_ in chk) else 1)
