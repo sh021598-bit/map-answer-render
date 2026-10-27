@@ -1,6 +1,6 @@
 # 대본 → 음성 + 합성 배경음·효과음 + 덕킹 + -14 LUFS → final_audio.wav, data/timeline.json(단어 타이밍)
 # python3 audio3d.py <영상설정.json> [음성폴더]   음성폴더(NN.wav, 대본 줄 순서)가 있으면 그걸 쓰고(Chatterbox 등), 없으면 Kokoro am_michael
-import json,re,subprocess,sys,os,numpy as np,soundfile as sf
+import glob,json,re,subprocess,sys,os,numpy as np,soundfile as sf
 cfg=json.load(open(sys.argv[1])); VD=sys.argv[2] if len(sys.argv)>2 else None
 SR=48000
 def load(i,txt):
@@ -49,7 +49,7 @@ for i in range(int(TOT/bar)+1):
         mus[ps:pe]+=0.25*np.sin(2*np.pi*note(33+(0 if i%4!=1 else -4))*pt)*np.exp(-pt*9)
 AU=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','audio')   # 무료 음원 (2026-10-27 채널성장팀 채택, 출처 audio/CREDITS.md)
 def dec(p): return np.frombuffer(subprocess.run(['ffmpeg','-v','error','-i',p,'-ac','1','-ar',str(SR),'-f','f32le','-'],capture_output=True,check=True).stdout,np.float32).astype(float)
-BG=cfg.get('bgm') or f"{AU}/bgm/{cfg.get('mood','epic')}.mp3"
+BG=cfg.get('bgm') or cfg.get('mood','epic'); BG=BG if os.path.exists(BG) else f"{AU}/bgm/{BG}.mp3"   # 곡 이름(audio/bgm/catalog.json) 또는 mood
 if os.path.exists(BG):   # 파일 BGM 이 있으면 위 합성 패드 대신 (모자라면 반복, 앞 0.5초·끝 1초 페이드)
     B=dec(BG); mus=np.tile(B,int(np.ceil(n/len(B))))[:n]*np.clip(tt/0.5,0,1)*np.clip((TOT-tt)/1.0,0,1)
 # ---- sfx: whoosh+impact at scene changes, plus prop cues (cfg 'sfx': [[scene, sec, kind]]) ----
@@ -67,11 +67,15 @@ def shot(st,g=0.3):
     b0=int(st*SR); bl=min(int(0.18*SR),n-b0); bt=np.arange(bl)/SR; x=rng.standard_normal(bl)
     sfx[b0:b0+bl]+=g*x*np.exp(-bt*35); boom(st,80,g*0.8,25)
 SM={}
-def samp(k,st,g):   # Kenney 효과음(audio/sfx/<k>.ogg) — 파일 없으면 False (합성음으로 대신)
-    if k not in SM: SM[k]=dec(f'{AU}/sfx/{k}.ogg') if os.path.exists(f'{AU}/sfx/{k}.ogg') else None
-    a=SM[k]; b0=int(st*SR); bl=min(len(a),n-b0) if a is not None else 0
+def samp(k,st,g,dur=None):   # 효과음 audio/sfx/<k>.ogg (변형 <k>_2.ogg … 있으면 무작위) — dur 주면 그 길이만큼 반복(행진·파도), 파일 없으면 False
+    if k not in SM: SM[k]=[dec(f) for f in sorted(glob.glob(f'{AU}/sfx/{k}.ogg')+glob.glob(f'{AU}/sfx/{k}_[0-9].ogg'))]
+    if not SM[k]: return False
+    a=SM[k][int(rng.integers(len(SM[k])))]
+    if dur:
+        m=int(dur*SR); x=np.arange(m)/SR; a=np.tile(a,int(np.ceil(m/len(a))))[:m]*np.clip(x/0.3,0,1)*np.clip((dur-x)/0.5,0,1)
+    b0=int(st*SR); bl=min(len(a),n-b0)
     if bl>0: sfx[b0:b0+bl]+=g*a[:bl]
-    return a is not None
+    return True
 for s in list(T0)[1:]: samp('impact',T0[s],0.5) or (whoosh(T0[s]),boom(T0[s]))
 def clink(st,g=0.12):   # 금속 「팅」 (동전)
     b0=int(st*SR); bl=min(int(0.25*SR),n-b0); bt=np.arange(bl)/SR
@@ -79,25 +83,36 @@ def clink(st,g=0.12):   # 금속 「팅」 (동전)
 def scratch(st,d,g=0.05):   # 펜·윤곽 긋는 소리 (고음 잡음, 떨림)
     b0=int(st*SR); bl=max(0,min(int(min(d,2.0)*SR),n-b0)); x=np.diff(rng.standard_normal(bl+1)); bt=np.arange(bl)/SR
     sfx[b0:b0+bl]+=g*x*(0.6+0.4*np.sin(2*np.pi*7*bt))*np.clip(bt/0.1,0,1)*np.clip((bl/SR-bt)/0.2,0,1)
-# 소품 자동 효과음 — Kenney 파일이 있으면 기본 켜짐(합성음은 2026-10-27 Jacob 「짜치다」로 대체만). 끄기: 설정 "prop_sfx": false
+# 소품 → 효과음 (파일, 크기, 반복 여부) — 2026-10-27 Jacob: 오브젝트에 맞는 소리를 안 거슬리게. 파일이 없으면 그 소품은 조용히. 끄기: 설정 "prop_sfx": false
+PROP_SFX={'coins':('coins',.6,0),'nuggets':('coins',.5,0),'flags':('cloth',.5,0),'flagswap':('cloth',.5,0),'qmark':('pluck',.45,0),'pricetag':('pluck',.45,0),
+          'dateline':('pluck',.35,0),'span':('pluck',.35,0),'glasses':('glass',.4,0),'sheep':('sheep',.3,0),'army':('march',.35,1),'ship':('waves',.3,1),
+          'swimmer':('splash',.4,0),'otters':('splash',.3,0),'drive':('car',.2,1)}
 for p in (cfg.get('props',[]) if cfg.get('prop_sfx',os.path.exists(f'{AU}/sfx/coins.ogg')) else []):
     if p.get('scene') not in T0: continue
-    st=T0[p['scene']]+(p.get('start') if p.get('start') is not None else p.get('from') if p.get('from') is not None else {'trace':0.2,'houses':1.2}.get(p['type'],0.35))
-    k=p['type']
-    if k=='coins': samp('coins',st,0.6) or [clink(st+q*0.4,0.1) for q in range(4)]
-    elif k=='flags': samp('cloth',st,0.5) or whoosh(st+0.3,0.15)
-    elif k in('qmark','pricetag'): samp('pluck',st,0.45) or pop(st,0.18)
-    elif k=='houses':
-        for q in range(len(p.get('at',[])) or 1): samp('pluck',st+q*0.28,0.3) or pop(st+q*0.28,0.12)
+    num=lambda v:v if isinstance(v,(int,float)) else None   # army 의 from 은 좌표라 시각이 아님
+    k=p['type']; t0=num(p.get('start')) if num(p.get('start')) is not None else num(p.get('from')) if num(p.get('from')) is not None else (p['march'][0] if k=='army' and 'march' in p else {'trace':0.2,'houses':1.2}.get(k,0.35))
+    st=T0[p['scene']]+t0
+    if k=='houses':
+        for q in range(len(p.get('at',[])) or 1): samp('pluck',st+q*0.28,0.3)
     elif k in('trace','pen'):
-        for q in range(int(min(p.get('dur',1.5),2.0)/0.4)+1): samp('scratch',st+q*0.4,0.25) or scratch(st,p.get('dur',1.5))
-for sid,sec,kind in cfg.get('sfx',[]):
-    st=T0[sid]+sec
-    if kind=='pop': pop(st)
-    elif kind=='boom': boom(st,45,0.7,6)
+        for q in range(int(min(p.get('dur',1.5),2.0)/0.4)+1): samp('scratch',st+q*0.4,0.25)
+    elif k=='clash':   # 총구 섬광 동안 소총 몇 발 (최대 6)
+        span=max(0.5,(num(p.get('to')) or t0+2)-t0)
+        for q in range(min(6,int(span/0.6)+1)): samp('gunshot',st+q*span/min(6,int(span/0.6)+1)+rng.uniform(0,0.1),0.3)
+    elif k=='army' and 'march' in p:   # 행진 구간만 발소리 (부대마다 조금 작게)
+        samp('march',st,0.25,min(4.0,p['march'][1]-p['march'][0]))
+    elif k in PROP_SFX:
+        f,g,loop=PROP_SFX[k]; samp(f,st,g,min(p.get('dur',3.0),4.0) if loop else None)
+# 수동 신호 cfg 'sfx': [장면, 초, 종류(, 길이)] — 종류는 audio/sfx 이름 아무거나(warcry·cheer·splash·waves·wind·cannon·explosion·horn…). 옛 이름 pop·boom·volley·whoosh 도 됨
+CUE_G={'gunshot':.35,'cannon':.45,'explosion':.45,'warcry':.3,'cheer':.3,'march':.35,'splash':.4,'waves':.3,'wind':.25,'horn':.3}
+for c in cfg.get('sfx',[]):
+    sid,sec,kind=c[:3]; st=T0[sid]+sec; L=c[3] if len(c)>3 else None
+    if kind=='pop': samp('pluck',st,0.4) or pop(st)
+    elif kind=='boom': samp('cannon',st,0.45) or samp('explosion',st,0.45) or boom(st,45,0.7,6)
     elif kind=='volley':
-        for q in range(6): shot(st+q*0.33+rng.uniform(0,0.12),0.22+0.08*rng.random())
+        for q in range(6): samp('gunshot',st+q*0.33+rng.uniform(0,0.12),0.3) or shot(st+q*0.33+rng.uniform(0,0.12),0.22+0.08*rng.random())
     elif kind=='whoosh': whoosh(st,0.35)
+    else: samp(kind,st,CUE_G.get(kind,0.35),L)
 sf.write('music.wav',(mus/np.max(np.abs(mus))*0.5).astype(np.float32),SR)
 sf.write('sfx.wav',(sfx/max(1e-6,np.max(np.abs(sfx)))*0.5).astype(np.float32),SR)
 VF=cfg.get('voice_fx',"highpass=f=75,equalizer=f=140:t=q:w=1:g=2,equalizer=f=3200:t=q:w=1.4:g=2,equalizer=f=7600:t=q:w=2:g=-2,acompressor=threshold=-20dB:ratio=3:attack=4:release=90:makeup=2,aecho=0.85:0.4:22|41:0.06|0.03")
