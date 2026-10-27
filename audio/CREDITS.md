@@ -25,3 +25,26 @@
 - pluck.ogg ← interface-sounds/pluck_001.ogg
 - scratch.ogg ← interface-sounds/scratch_001.ogg
 - impact.ogg ← impact-sounds/impactSoft_heavy_000.ogg
+
+## 효과음 — BigSoundBank (Joseph SARDIN, bigsoundbank.com), CC0 (출처 표기 불필요) · 실제 녹음, 최대 음량 -1dB 로 맞춤
+- gunshot.ogg ← Rifle: Shot #1 (https://bigsoundbank.com/rifle-shot-1-s2853.html)
+- gunshot_2.ogg ← Rifle: Shot #2 (https://bigsoundbank.com/rifle-shot-2-s2854.html)
+- cannon.ogg ← Explosion far Away #1 (https://bigsoundbank.com/explosion-far-away-s1023.html)
+- explosion.ogg ← Explosion far Away #1 (https://bigsoundbank.com/explosion-far-away-s1023.html)
+- cheer.ogg ← Shouts and Applauses of Teens #2 (https://bigsoundbank.com/shouts-and-applauses-of-teens-2-s0237.html)
+- splash.ogg ← Splash, Small #1 (https://bigsoundbank.com/splash-small-1-s1529.html)
+- splash_2.ogg ← Splash, Big #3 (https://bigsoundbank.com/splash-big-3-s1521.html)
+- waves.ogg ← Small Waves Facing the Ocean (https://bigsoundbank.com/small-waves-facing-the-ocean-s1046.html)
+- sheep.ogg ← Sheep #1 (https://bigsoundbank.com/sheep-1-s2343.html)
+- sheep_2.ogg ← Sheep #6 (https://bigsoundbank.com/sheep-6-s2348.html)
+- car.ogg ← Car, Starting and Departure (https://bigsoundbank.com/car-starting-and-departure-s0189.html)
+- horn.ogg ← Ocean Liner Horn #1 (https://bigsoundbank.com/horn-of-a-ship-1-s0261.html)
+- wind.ogg ← Wind (https://bigsoundbank.com/wind-s0595.html)
+- glass.ogg ← Cheers, Champagne Flute #1 (https://bigsoundbank.com/cheers-champagne-flute-1-s1335.html)
+- horse.ogg ← Horse Gallop (https://bigsoundbank.com/horse-gallop-s0611.html)
+- bell.ogg ← Church Bell (https://bigsoundbank.com/church-bell-s0135.html)
+- march.ogg ← Footsteps on gravels #1 3겹 (https://bigsoundbank.com/steps-on-gravels-s0510.html)
+
+## 자동 연결 (audio3d PROP_SFX)
+- coins·nuggets→coins · flags·flagswap→cloth · qmark·pricetag·dateline·span·houses→pluck · trace·pen→scratch · glasses→glass · sheep→sheep · army(행진 구간)→march · clash→gunshot 여러 발 · ship→waves · swimmer·otters→splash · drive→car · 장면 전환→impact
+- 그 밖의 장면(대포·함성·종·말·뱃고동·바람)은 설정 `"sfx": [[장면, 초, "이름"(, 길이)]]` 로 직접.
