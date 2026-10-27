@@ -9,6 +9,7 @@
 | audio3d.py | 음성(폴더 or Kokoro) + 합성 배경음·효과음(설정 `sfx`) + 덕킹 + -14 LUFS, Whisper 단어 타이밍 반영 |
 | index.html | 장면·카메라·강조·자막/배지/라벨 오버레이 (`window.frame(t)`) |
 | props.js | 소품 라이브러리: drive(자동차+궤적) · trace(윤곽 그리기) · qmark · houses · ship · crest(능선 빛) · army(행진·전투·후퇴) · clash(총구 섬광·연기) · flagswap · flags · sheep · pen(국경 긋기). 새 연출은 type 추가 |
+| precheck.py | **렌더 전 점검** `python3 precheck.py ../videos/<id>.json [../voice/<NNN_id>]` — 길이 35~40초·0초 큰 글자·4초 안 전환·5초 안 첫 답. 음성 없이 = 대본 단계 추정(±2초), 음성 있으면 audio3d 와 같은 계산(실제 영상과 ±0.1초) |
 | render.js | `CHROME=<chromium 경로> node render.js out.mp4 30` / 정지컷 `node render.js x 30 1.5,14` |
 
 음성: `../tts/` — Chatterbox(MIT)는 세션에서 HuggingFace 차단이라 GitHub Actions(`channel-tts.yml`)에서 생성.
