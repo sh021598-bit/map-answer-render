@@ -84,13 +84,13 @@ for p in (cfg.get('props',[]) if cfg.get('prop_sfx',os.path.exists(f'{AU}/sfx/co
     if p.get('scene') not in T0: continue
     st=T0[p['scene']]+(p.get('start') if p.get('start') is not None else p.get('from') if p.get('from') is not None else {'trace':0.2,'houses':1.2}.get(p['type'],0.35))
     k=p['type']
-    if k=='coins': samp('coins',st,0.35) or [clink(st+q*0.4,0.1) for q in range(4)]
-    elif k=='flags': samp('cloth',st,0.3) or whoosh(st+0.3,0.15)
-    elif k in('qmark','pricetag'): samp('pluck',st,0.3) or pop(st,0.18)
+    if k=='coins': samp('coins',st,0.6) or [clink(st+q*0.4,0.1) for q in range(4)]
+    elif k=='flags': samp('cloth',st,0.5) or whoosh(st+0.3,0.15)
+    elif k in('qmark','pricetag'): samp('pluck',st,0.45) or pop(st,0.18)
     elif k=='houses':
-        for q in range(len(p.get('at',[])) or 1): samp('pluck',st+q*0.28,0.2) or pop(st+q*0.28,0.12)
+        for q in range(len(p.get('at',[])) or 1): samp('pluck',st+q*0.28,0.3) or pop(st+q*0.28,0.12)
     elif k in('trace','pen'):
-        for q in range(int(min(p.get('dur',1.5),2.0)/0.4)+1): samp('scratch',st+q*0.4,0.15) or scratch(st,p.get('dur',1.5))
+        for q in range(int(min(p.get('dur',1.5),2.0)/0.4)+1): samp('scratch',st+q*0.4,0.25) or scratch(st,p.get('dur',1.5))
 for sid,sec,kind in cfg.get('sfx',[]):
     st=T0[sid]+sec
     if kind=='pop': pop(st)
