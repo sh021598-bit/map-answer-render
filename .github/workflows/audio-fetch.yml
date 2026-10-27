@@ -3,7 +3,7 @@ name: Audio fetch
 on:
   push:
     branches: [audio-fetch]
-    paths: [audio/fetch.py, .github/workflows/audio-fetch.yml]
+    paths: [audio/fetch.py, audio/final.py, .github/workflows/audio-fetch.yml]
 permissions:
   contents: write
 jobs:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
-      - run: python3 audio/fetch.py sfx
+      - run: python3 audio/final.py
       - run: |
           git config user.name audio-fetch && git config user.email audio-fetch@users.noreply.github.com
-          git add audio/out && git commit -qm "audio candidates" && git push -q origin HEAD:audio-fetch || echo "변경 없음"
+          git add audio && git commit -qm "audio candidates" && git push -q origin HEAD:audio-fetch || echo "변경 없음"
