@@ -1,0 +1,436 @@
+{
+ "sfx": {
+  "gunshot": [
+   {
+    "file": "audio/out2/sfx/gunshot/0.ogg",
+    "src_page": "https://opengameart.org/content/gunshots",
+    "src_file": "Preview_1.ogg",
+    "dur": 1.99,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/gunshot/1.ogg",
+    "src_page": "https://opengameart.org/content/gunshot-sounds",
+    "src_file": "guns.mp3.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   }
+  ],
+  "rifle shot": [
+   {
+    "file": "audio/out2/sfx/rifle_shot/0.ogg",
+    "src_page": "https://opengameart.org/content/laser-weapon-burst-fire",
+    "src_file": "burst%20fire.mp3.ogg",
+    "dur": 0.65,
+    "license": "CC0"
+   }
+  ],
+  "musket": [],
+  "cannon": [
+   {
+    "file": "audio/out2/sfx/cannon/0.ogg",
+    "src_page": "https://opengameart.org/content/25-cc0-bang-firework-sfx",
+    "src_file": "bangs_prev.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/cannon/1.ogg",
+    "src_page": "https://opengameart.org/content/battle-at-sea",
+    "src_file": "ship_fx_preview.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/cannon/2.ogg",
+    "src_page": "https://opengameart.org/content/doomsday-laser-cannon-sound-effect",
+    "src_file": "doomsday_laser_cannon_long.mp3.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   }
+  ],
+  "explosion": [
+   {
+    "file": "audio/out2/sfx/explosion/0.ogg",
+    "src_page": "https://opengameart.org/content/50-cc0-retro-synth-sfx",
+    "src_file": "retro_sfx_prev.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/explosion/1.ogg",
+    "src_page": "https://opengameart.org/content/2-wooden-squish-splatter-sequences",
+    "src_file": "crack.mp3.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   }
+  ],
+  "marching": [],
+  "footsteps march": [],
+  "war cry": [
+   {
+    "file": "audio/out2/sfx/war_cry/0.ogg",
+    "src_page": "https://opengameart.org/content/battle-at-sea",
+    "src_file": "ship_fx_preview.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   }
+  ],
+  "battle cry": [
+   {
+    "file": "audio/out2/sfx/battle_cry/0.ogg",
+    "src_page": "https://opengameart.org/content/battle-at-sea",
+    "src_file": "ship_fx_preview.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/battle_cry/1.ogg",
+    "src_page": "https://opengameart.org/content/tiny-creatures-sounds",
+    "src_file": "preview_55.ogg",
+    "dur": 3.67,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/battle_cry/2.ogg",
+    "src_page": "https://opengameart.org/content/crowd-shoutingspeaking-ambience",
+    "src_file": "crowd_shouting.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   }
+  ],
+  "crowd cheer": [],
+  "water splash": [
+   {
+    "file": "audio/out2/sfx/water_splash/0.ogg",
+    "src_page": "https://opengameart.org/content/dripping-water-loop",
+    "src_file": "atmo.mp3.ogg",
+    "dur": 5.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/water_splash/1.ogg",
+    "src_page": "https://opengameart.org/content/40-cc0-water-splash-slime-sfx",
+    "src_file": "water_sfx_prev.ogg",
+    "dur": 5.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/water_splash/2.ogg",
+    "src_page": "https://opengameart.org/content/water-waves",
+    "src_file": "transitking-wave-prev.ogg",
+    "dur": 5.0,
+    "license": "CC0"
+   }
+  ],
+  "swimming": [
+   {
+    "file": "audio/out2/sfx/swimming/0.ogg",
+    "src_page": "https://opengameart.org/content/beach-ocean-waves",
+    "src_file": "jasinski-wave-prev.ogg",
+    "dur": 8.0,
+    "license": "CC0"
+   }
+  ],
+  "ocean waves": [
+   {
+    "file": "audio/out2/sfx/ocean_waves/0.ogg",
+    "src_page": "https://opengameart.org/content/water-waves",
+    "src_file": "transitking-wave-prev.ogg",
+    "dur": 9.37,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/ocean_waves/1.ogg",
+    "src_page": "https://opengameart.org/content/beach-ocean-waves",
+    "src_file": "jasinski-wave-prev.ogg",
+    "dur": 10.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/ocean_waves/2.ogg",
+    "src_page": "https://opengameart.org/content/ship-sinking",
+    "src_file": "ship_destroyed.ogg",
+    "dur": 10.0,
+    "license": "CC0"
+   }
+  ],
+  "sea waves": [
+   {
+    "file": "audio/out2/sfx/sea_waves/0.ogg",
+    "src_page": "https://opengameart.org/content/sea-and-river-wave-sounds",
+    "src_file": "VistulaShort.mp3.ogg",
+    "dur": 10.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/sea_waves/1.ogg",
+    "src_page": "https://opengameart.org/content/ship-sinking",
+    "src_file": "ship_destroyed.ogg",
+    "dur": 10.0,
+    "license": "CC0"
+   }
+  ],
+  "sheep": [
+   {
+    "file": "audio/out2/sfx/sheep/0.ogg",
+    "src_page": "https://opengameart.org/content/sheep-baa",
+    "src_file": "sheep_baa.ogg",
+    "dur": 0.74,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/sheep/1.ogg",
+    "src_page": "https://opengameart.org/content/fantasy-desert-ride-able-camel",
+    "src_file": "fantasy_desert_camel_0.mp3.ogg",
+    "dur": 1.74,
+    "license": "CC0"
+   }
+  ],
+  "car engine": [
+   {
+    "file": "audio/out2/sfx/car_engine/0.ogg",
+    "src_page": "https://opengameart.org/content/racing-car-engine-sound-loops",
+    "src_file": "loop_0.wav.ogg",
+    "dur": 0.86,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/car_engine/1.ogg",
+    "src_page": "https://opengameart.org/content/supertuxkart-sound-effects",
+    "src_file": "sfx%20kart%20game.mp3.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/car_engine/2.ogg",
+    "src_page": "https://opengameart.org/content/some-sounds-0",
+    "src_file": "collectionforpreview.mp3.ogg",
+    "dur": 6.0,
+    "license": "CC0"
+   }
+  ],
+  "ship horn": [],
+  "wind": [
+   {
+    "file": "audio/out2/sfx/wind/0.ogg",
+    "src_page": "https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes",
+    "src_file": "montageAudio-20120408%40130311.mp3.ogg",
+    "dur": 10.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/wind/1.ogg",
+    "src_page": "https://opengameart.org/content/wind1",
+    "src_file": "wind1.wav.ogg",
+    "dur": 10.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out2/sfx/wind/2.ogg",
+    "src_page": "https://opengameart.org/content/swishes-sound-pack",
+    "src_file": "swishprev.mp3.ogg",
+    "dur": 1.66,
+    "license": "CC0"
+   }
+  ],
+  "glass clink": []
+ },
+ "bgm": [
+  {
+   "mood": "epic",
+   "file": "audio/out2/bgm/epic_2.mp3",
+   "title": "Stormfront",
+   "feel": "Dark, Epic, Intense, Suspenseful, Unnerving",
+   "voiceband": 0.02,
+   "dyn": 11.3,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Stormfront.mp3"
+  },
+  {
+   "mood": "epic",
+   "file": "audio/out2/bgm/epic_1.mp3",
+   "title": "Curse of the Scarab",
+   "feel": "Dark, Epic, Action, Driving",
+   "voiceband": 0.34,
+   "dyn": 11.1,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Curse%20of%20the%20Scarab.mp3"
+  },
+  {
+   "mood": "epic",
+   "file": "audio/out2/bgm/epic_0.mp3",
+   "title": "Majestic Hills",
+   "feel": "Dark, Epic, Somber",
+   "voiceband": 0.65,
+   "dyn": 7.1,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Majestic%20Hills.mp3"
+  },
+  {
+   "mood": "tense",
+   "file": "audio/out2/bgm/tense_3.mp3",
+   "title": "Variation on Egmont",
+   "feel": "Driving, Aggressive, Unnerving",
+   "voiceband": 0.03,
+   "dyn": 4.4,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Variation%20on%20Egmont.mp3"
+  },
+  {
+   "mood": "tense",
+   "file": "audio/out2/bgm/tense_6.mp3",
+   "title": "Shamanistic",
+   "feel": "Dark, Driving, Eerie, Mysterious, Mystical",
+   "voiceband": 0.05,
+   "dyn": 6.9,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Shamanistic.mp3"
+  },
+  {
+   "mood": "tense",
+   "file": "audio/out2/bgm/tense_5.mp3",
+   "title": "Chase Pulse",
+   "feel": "Dark, Driving, Mysterious",
+   "voiceband": 0.03,
+   "dyn": 11.7,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Chase%20Pulse.mp3"
+  },
+  {
+   "mood": "mystery",
+   "file": "audio/out2/bgm/mystery_0.mp3",
+   "title": "Very Low Note",
+   "feel": "Dark, Eerie, Mysterious, Unnerving",
+   "voiceband": 0.0,
+   "dyn": 7.2,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Very%20Low%20Note.mp3"
+  },
+  {
+   "mood": "mystery",
+   "file": "audio/out2/bgm/mystery_6.mp3",
+   "title": "This House",
+   "feel": "Dark, Eerie, Unnerving",
+   "voiceband": 0.14,
+   "dyn": 6.2,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/This%20House.mp3"
+  },
+  {
+   "mood": "mystery",
+   "file": "audio/out2/bgm/mystery_3.mp3",
+   "title": "Opium",
+   "feel": "Calming, Mystical, Relaxed",
+   "voiceband": 0.15,
+   "dyn": 10.7,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Opium.mp3"
+  },
+  {
+   "mood": "somber",
+   "file": "audio/out2/bgm/somber_0.mp3",
+   "title": "Anguish",
+   "feel": "Calming, Dark, Somber",
+   "voiceband": 0.42,
+   "dyn": 6.9,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Anguish.mp3"
+  },
+  {
+   "mood": "somber",
+   "file": "audio/out2/bgm/somber_3.mp3",
+   "title": "Gregorian Chant",
+   "feel": "Mystical, Somber",
+   "voiceband": 0.68,
+   "dyn": 8.1,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Gregorian%20Chant.mp3"
+  },
+  {
+   "mood": "somber",
+   "file": "audio/out2/bgm/somber_1.mp3",
+   "title": "Seven Off",
+   "feel": "Unnerving, Eerie, Mystical, Mysterious, Suspenseful, Somber",
+   "voiceband": 0.7,
+   "dyn": 7.6,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Seven%20Off.mp3"
+  },
+  {
+   "mood": "bright",
+   "file": "audio/out2/bgm/bright_2.mp3",
+   "title": "Canon In D For 8 Bit Synths",
+   "feel": "Bright, Calming, Relaxed",
+   "voiceband": 0.31,
+   "dyn": 1.1,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Canon%20In%20D%20For%208%20Bit%20Synths.mp3"
+  },
+  {
+   "mood": "bright",
+   "file": "audio/out2/bgm/bright_1.mp3",
+   "title": "Whiskey on the Mississippi",
+   "feel": "Bouncy, Grooving",
+   "voiceband": 0.19,
+   "dyn": 6.4,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Whiskey%20on%20the%20Mississippi.mp3"
+  },
+  {
+   "mood": "bright",
+   "file": "audio/out2/bgm/bright_5.mp3",
+   "title": "Evening",
+   "feel": "Bright, Calming, Relaxed",
+   "voiceband": 0.28,
+   "dyn": 8.4,
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Evening.mp3"
+  }
+ ],
+ "log": [
+  "gunshot https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/Preview_1.ogg: HTTP Error 404: Not Found",
+  "gunshot https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/Preview_1.ogg: HTTP Error 404: Not Found",
+  "gunshot https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/guns.mp3: HTTP Error 404: Not Found",
+  "gunshot https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/guns.mp3: HTTP Error 404: Not Found",
+  "rifle shot https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/burst%20fire.mp3: HTTP Error 404: Not Found",
+  "rifle shot https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/burst%20fire.mp3: HTTP Error 404: Not Found",
+  "cannon https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/bangs_prev.ogg: HTTP Error 404: Not Found",
+  "cannon https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/bangs_prev.ogg: HTTP Error 404: Not Found",
+  "cannon https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/ship_fx_preview.ogg: HTTP Error 404: Not Found",
+  "cannon https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/ship_fx_preview.ogg: HTTP Error 404: Not Found",
+  "cannon https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/doomsday_laser_cannon_long.mp3: HTTP Error 404: Not Found",
+  "cannon https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/doomsday_laser_cannon_long.mp3: HTTP Error 404: Not Found",
+  "explosion https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/retro_sfx_prev.ogg: HTTP Error 404: Not Found",
+  "explosion https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/retro_sfx_prev.ogg: HTTP Error 404: Not Found",
+  "explosion https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/crack.mp3: HTTP Error 404: Not Found",
+  "explosion https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/crack.mp3: HTTP Error 404: Not Found",
+  "war cry https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/ship_fx_preview.ogg: HTTP Error 404: Not Found",
+  "war cry https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/ship_fx_preview.ogg: HTTP Error 404: Not Found",
+  "battle cry https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/ship_fx_preview.ogg: HTTP Error 404: Not Found",
+  "battle cry https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/ship_fx_preview.ogg: HTTP Error 404: Not Found",
+  "battle cry https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/preview_55.ogg: HTTP Error 404: Not Found",
+  "battle cry https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/preview_55.ogg: HTTP Error 404: Not Found",
+  "battle cry https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/crowd_shouting.ogg: HTTP Error 404: Not Found",
+  "battle cry https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/crowd_shouting.ogg: HTTP Error 404: Not Found",
+  "water splash https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/atmo.mp3: HTTP Error 404: Not Found",
+  "water splash https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/atmo.mp3: HTTP Error 404: Not Found",
+  "water splash https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/water_sfx_prev.ogg: HTTP Error 404: Not Found",
+  "water splash https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/water_sfx_prev.ogg: HTTP Error 404: Not Found",
+  "water splash https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/transitking-wave-prev.ogg: HTTP Error 404: Not Found",
+  "water splash https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/transitking-wave-prev.ogg: HTTP Error 404: Not Found",
+  "swimming https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/jasinski-wave-prev.ogg: HTTP Error 404: Not Found",
+  "swimming https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/jasinski-wave-prev.ogg: HTTP Error 404: Not Found",
+  "ocean waves https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/transitking-wave-prev.ogg: HTTP Error 404: Not Found",
+  "ocean waves https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/transitking-wave-prev.ogg: HTTP Error 404: Not Found",
+  "ocean waves https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/jasinski-wave-prev.ogg: HTTP Error 404: Not Found",
+  "ocean waves https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/jasinski-wave-prev.ogg: HTTP Error 404: Not Found",
+  "ocean waves https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/ship_destroyed.ogg: HTTP Error 404: Not Found",
+  "ocean waves https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/ship_destroyed.ogg: HTTP Error 404: Not Found",
+  "sea waves https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/VistulaShort.mp3: HTTP Error 404: Not Found",
+  "sea waves https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/VistulaShort.mp3: HTTP Error 404: Not Found",
+  "sea waves https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/ship_destroyed.ogg: HTTP Error 404: Not Found",
+  "sea waves https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/ship_destroyed.ogg: HTTP Error 404: Not Found",
+  "sheep https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/sheep_baa.ogg: HTTP Error 404: Not Found",
+  "sheep https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/sheep_baa.ogg: HTTP Error 404: Not Found",
+  "sheep https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/fantasy_desert_camel_0.mp3: HTTP Error 404: Not Found",
+  "sheep https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/fantasy_desert_camel_0.mp3: HTTP Error 404: Not Found",
+  "car engine https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/loop_0.wav: HTTP Error 404: Not Found",
+  "car engine https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/loop_0.wav: HTTP Error 404: Not Found",
+  "car engine https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/sfx%20kart%20game.mp3: HTTP Error 404: Not Found",
+  "car engine https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/sfx%20kart%20game.mp3: HTTP Error 404: Not Found",
+  "car engine https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/collectionforpreview.mp3: HTTP Error 404: Not Found",
+  "car engine https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/collectionforpreview.mp3: HTTP Error 404: Not Found",
+  "wind https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/montageAudio-20120408%40130311.mp3: HTTP Error 404: Not Found",
+  "wind https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/montageAudio-20120408%40130311.mp3: HTTP Error 404: Not Found",
+  "wind https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/wind1.wav: HTTP Error 404: Not Found",
+  "wind https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/wind1.wav: HTTP Error 404: Not Found",
+  "wind https://opengameart.org/sites/default/files/styles/audio_with_background/public/audio_preview/swishprev.mp3: HTTP Error 404: Not Found",
+  "wind https://opengameart.org/sites/default/files/styles/medium/public/audio_preview/swishprev.mp3: HTTP Error 404: Not Found"
+ ]
+}
