@@ -18,19 +18,19 @@ for key,(q,maxs) in Q.items():
     got=[]
     try:
         h=get('https://bigsoundbank.com/search?q='+urllib.parse.quote(q)).decode('utf-8','replace')
-        pages=list(dict.fromkeys(re.findall(r'href="(?:https://bigsoundbank\.com)?/?([a-z0-9\-_]+-s\d{4}\.html)"',h)))[:6]
+        pages=list(dict.fromkeys(re.findall(r'''href=['"](?:https://bigsoundbank\.com)?/?([a-z0-9\-_]+-s\d{4}\.html)['"]''',h)))[:6]
         if not pages: R['log'].append(f'{q}: 결과 없음 '+h[:200].replace('\n',' '))
         for pg in pages:
             if len(got)>=3: break
             c=get('https://bigsoundbank.com/'+pg).decode('utf-8','replace')
             if 'CC0' not in c and 'publicdomain/zero' not in c: R['log'].append(f'{pg}: CC0 표기 없음'); continue
-            fl=list(dict.fromkeys(re.findall(r'''["'](https?://[^"']*?\.(?:mp3|ogg|wav|flac)|/?UPLOAD/[^"']+?\.(?:mp3|ogg|wav|flac))["']''',c,re.I)))
-            fl=[f if f.startswith('http') else 'https://bigsoundbank.com/'+f.lstrip('/') for f in fl]
-            fl.sort(key=lambda f:(0 if f.lower().endswith(('.wav','.flac')) else 1 if f.lower().endswith('.ogg') else 2))
+            sid=re.search(r'-s(\d{4})\.html',pg).group(1); fl=[f'https://bigsoundbank.com/UPLOAD/flac/{sid}.flac',f'https://bigsoundbank.com/UPLOAD/ogg/{sid}.ogg']
             if not fl: R['log'].append(f'{pg}: 파일 링크 없음'); continue
             src='/tmp/x'+os.path.splitext(fl[0])[1]
             try: open(src,'wb').write(get(fl[0],120))
-            except Exception as e: R['log'].append(f'{pg} {fl[0]}: {e}'); continue
+            except Exception:
+                try: src='/tmp/x.ogg'; open(src,'wb').write(get(fl[1],120))
+                except Exception as e: R['log'].append(f'{pg}: {e}'); continue
             os.makedirs(f'{O}/{key}',exist_ok=True); dst=f'{O}/{key}/{len(got)}.ogg'
             subprocess.run(['ffmpeg','-v','error','-y','-i',src,'-t',str(maxs),'-ac','1','-ar','48000','-af','silenceremove=start_periods=1:start_threshold=-45dB,afade=t=out:st=%s:d=0.3'%max(0,maxs-0.3),'-c:a','libvorbis','-q:a','5',dst],check=True)
             dur=float(subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',dst],capture_output=True,text=True).stdout or 0)
