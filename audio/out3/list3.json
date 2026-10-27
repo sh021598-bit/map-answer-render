@@ -1,44 +1,359 @@
 {
  "sfx": {
-  "gunshot": [],
+  "gunshot": [
+   {
+    "file": "audio/out3/gunshot/0.ogg",
+    "page": "https://bigsoundbank.com/shot-of-winchester-magnum-xtr-s0397.html",
+    "title": "Shot of Winchester Magnum XTR — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 2.21,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/gunshot/1.ogg",
+    "page": "https://bigsoundbank.com/rifle-shot-2-s2854.html",
+    "title": "Rifle: Shot #2 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 1.17,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/gunshot/2.ogg",
+    "page": "https://bigsoundbank.com/rifle-shot-1-s2853.html",
+    "title": "Rifle: Shot #1 — Free Sound Effect Download | BigSoundBank",
+    "dur": 1.18,
+    "license": "CC0"
+   }
+  ],
   "musket": [],
-  "cannon": [],
-  "explosion": [],
+  "cannon": [
+   {
+    "file": "audio/out3/cannon/0.ogg",
+    "page": "https://bigsoundbank.com/explosion-far-away-s1023.html",
+    "title": "Explosion far Away #1 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 4.61,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/cannon/1.ogg",
+    "page": "https://bigsoundbank.com/paparazzi-2-s2390.html",
+    "title": "Paparazzi #2 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 4.47,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/cannon/2.ogg",
+    "page": "https://bigsoundbank.com/explosion-2-s1808.html",
+    "title": "Explosion #2 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 0.34,
+    "license": "CC0"
+   }
+  ],
+  "explosion": [
+   {
+    "file": "audio/out3/explosion/0.ogg",
+    "page": "https://bigsoundbank.com/explosion-far-away-s1023.html",
+    "title": "Explosion far Away #1 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 4.61,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/explosion/1.ogg",
+    "page": "https://bigsoundbank.com/tinnitus-s1388.html",
+    "title": "Tinnitus — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 5.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/explosion/2.ogg",
+    "page": "https://bigsoundbank.com/fireworks-2-s2672.html",
+    "title": "Fireworks #2 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 5.0,
+    "license": "CC0"
+   }
+  ],
   "march": [],
-  "footsteps": [],
+  "footsteps": [
+   {
+    "file": "audio/out3/footsteps/0.ogg",
+    "page": "https://bigsoundbank.com/footsteps-on-gravels-4-s3216.html",
+    "title": "Footsteps on Gravels #4 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/footsteps/1.ogg",
+    "page": "https://bigsoundbank.com/steps-on-gravels-s0510.html",
+    "title": "Footsteps on gravels #1 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/footsteps/2.ogg",
+    "page": "https://bigsoundbank.com/footsteps-on-gravels-3-s3202.html",
+    "title": "Footsteps on Gravels #3 — Free Sound Effect Download | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   }
+  ],
   "crowd": [],
-  "cheer": [],
-  "splash": [],
-  "swim": [],
-  "waves": [],
-  "sheep": [],
-  "car": [],
-  "horn": [],
-  "wind": [],
-  "glass": [],
-  "horse": [],
-  "bell": [],
+  "cheer": [
+   {
+    "file": "audio/out3/cheer/0.ogg",
+    "page": "https://bigsoundbank.com/applause-1-s2363.html",
+    "title": "Applause #1 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/cheer/1.ogg",
+    "page": "https://bigsoundbank.com/applause-concert-bar-1-s2479.html",
+    "title": "Applause Concert Bar #1 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/cheer/2.ogg",
+    "page": "https://bigsoundbank.com/shouts-and-applauses-of-teens-2-s0237.html",
+    "title": "Shouts and Applauses of Teens #2 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 5.56,
+    "license": "CC0"
+   }
+  ],
+  "splash": [
+   {
+    "file": "audio/out3/splash/0.ogg",
+    "page": "https://bigsoundbank.com/splash-big-3-s1521.html",
+    "title": "Splash, Big #3 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 3.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/splash/1.ogg",
+    "page": "https://bigsoundbank.com/splash-small-1-s1529.html",
+    "title": "Splash, Small #1 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 2.57,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/splash/2.ogg",
+    "page": "https://bigsoundbank.com/splash-big-1-s1519.html",
+    "title": "Splash, Big #1 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 3.0,
+    "license": "CC0"
+   }
+  ],
+  "swim": [
+   {
+    "file": "audio/out3/swim/0.ogg",
+    "page": "https://bigsoundbank.com/outdoor-pool-atmosphere-s0434.html",
+    "title": "Outdoor pool atmosphere — Free Sound Effect Download | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/swim/1.ogg",
+    "page": "https://bigsoundbank.com/pool-changing-rooms-1-s1007.html",
+    "title": "Pool changing rooms #1 — Free Sound Effect Download | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/swim/2.ogg",
+    "page": "https://bigsoundbank.com/indoor-pool-1-s1210.html",
+    "title": "Indoor pool #1 — Free Sound Effect Download | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   }
+  ],
+  "waves": [
+   {
+    "file": "audio/out3/waves/0.ogg",
+    "page": "https://bigsoundbank.com/sea-waves-and-seagulls-s0267.html",
+    "title": "Sea Waves with Tern Calls — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 10.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/waves/1.ogg",
+    "page": "https://bigsoundbank.com/small-waves-facing-the-ocean-s1046.html",
+    "title": "Small Waves Facing the Ocean — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 10.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/waves/2.ogg",
+    "page": "https://bigsoundbank.com/small-waves-froth-and-beach-s1447.html",
+    "title": "Small Waves, Froth and Beach — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 10.0,
+    "license": "CC0"
+   }
+  ],
+  "sheep": [
+   {
+    "file": "audio/out3/sheep/0.ogg",
+    "page": "https://bigsoundbank.com/sheep-1-s2343.html",
+    "title": "Sheep #1 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 0.78,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/sheep/1.ogg",
+    "page": "https://bigsoundbank.com/flock-sheep-and-cows-s3220.html",
+    "title": "Flock of Sheep and Cows — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 3.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/sheep/2.ogg",
+    "page": "https://bigsoundbank.com/sheep-6-s2348.html",
+    "title": "Sheep #6 — Free Sound Effect Download | BigSoundBank",
+    "dur": 0.93,
+    "license": "CC0"
+   }
+  ],
+  "car": [
+   {
+    "file": "audio/out3/car/0.ogg",
+    "page": "https://bigsoundbank.com/car-starting-and-departure-s0189.html",
+    "title": "Car, Starting and Departure — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/car/1.ogg",
+    "page": "https://bigsoundbank.com/acceleration-aston-martin-s0600.html",
+    "title": "Acceleration Aston Martin — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/car/2.ogg",
+    "page": "https://bigsoundbank.com/truck-engine-s1145.html",
+    "title": "Truck engine — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   }
+  ],
+  "horn": [
+   {
+    "file": "audio/out3/horn/0.ogg",
+    "page": "https://bigsoundbank.com/horn-of-a-ship-1-s0261.html",
+    "title": "Ocean Liner Horn #1 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 5.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/horn/1.ogg",
+    "page": "https://bigsoundbank.com/ocean-liner-horn-3-s3507.html",
+    "title": "Ocean Liner Horn #3 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 4.49,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/horn/2.ogg",
+    "page": "https://bigsoundbank.com/horn-of-a-ship-2-s0262.html",
+    "title": "Ocean Liner Horn #2 — Free Sound Effect Download | BigSoundBank",
+    "dur": 5.0,
+    "license": "CC0"
+   }
+  ],
+  "wind": [
+   {
+    "file": "audio/out3/wind/0.ogg",
+    "page": "https://bigsoundbank.com/wind-s0595.html",
+    "title": "Wind — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 10.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/wind/1.ogg",
+    "page": "https://bigsoundbank.com/countryside-s0097.html",
+    "title": "Countryside — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 10.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/wind/2.ogg",
+    "page": "https://bigsoundbank.com/wind-in-tall-grass-s0908.html",
+    "title": "Wind in Tall Grass — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 10.0,
+    "license": "CC0"
+   }
+  ],
+  "glass": [
+   {
+    "file": "audio/out3/glass/0.ogg",
+    "page": "https://bigsoundbank.com/cheers-champagne-flute-1-s1335.html",
+    "title": "Cheers, Champagne Flute #1 — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 0.82,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/glass/1.ogg",
+    "page": "https://bigsoundbank.com/cheers-big-red-wine-glass-2-s1333.html",
+    "title": "Cheers, big red wine glass #2 — Free Sound Effect Download | BigSoundBank",
+    "dur": 0.91,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/glass/2.ogg",
+    "page": "https://bigsoundbank.com/clink-of-glass-toast-3-s2888.html",
+    "title": "Clink of glass, Toast #3 — Free Sound Effect Download | BigSoundBank",
+    "dur": 2.0,
+    "license": "CC0"
+   }
+  ],
+  "horse": [
+   {
+    "file": "audio/out3/horse/0.ogg",
+    "page": "https://bigsoundbank.com/horse-gallop-s0611.html",
+    "title": "Horse Gallop — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/horse/1.ogg",
+    "page": "https://bigsoundbank.com/horse-gallop-tall-grass-s1850.html",
+    "title": "Horse gallop, tall grass — Free Sound Effect Download | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/horse/2.ogg",
+    "page": "https://bigsoundbank.com/horse-gallop-passage-tall-grass-s1851.html",
+    "title": "Horse gallop, passage, tall grass — Free Sound Effect Download | BigSoundBank",
+    "dur": 6.0,
+    "license": "CC0"
+   }
+  ],
+  "bell": [
+   {
+    "file": "audio/out3/bell/0.ogg",
+    "page": "https://bigsoundbank.com/church-bell-s0135.html",
+    "title": "Church Bell — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 5.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/bell/1.ogg",
+    "page": "https://bigsoundbank.com/bell-1-o-clock-s3446.html",
+    "title": "Bell 1 O'clock — Free Download WAV & MP3 | BigSoundBank",
+    "dur": 5.0,
+    "license": "CC0"
+   },
+   {
+    "file": "audio/out3/bell/2.ogg",
+    "page": "https://bigsoundbank.com/bell-5-o-clock-s3445.html",
+    "title": "Bell 5 O'clock — Free Sound Effect Download | BigSoundBank",
+    "dur": 5.0,
+    "license": "CC0"
+   }
+  ],
   "drum": []
  },
  "log": [
-  "gunshot rifle: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"228c87c785c4d82420333129c21f726b",
-  "musket: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"dc451ed2492a8b24fcee918f4268a7b8",
-  "cannon: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"79b6c74069fbe1313e35f7339e32892a",
-  "explosion: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"ffc5508c43136ad4167d7c6c97e85ec8",
-  "marching soldiers: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"d1a1a5df74436b9d043d070d8742e855",
-  "footsteps gravel: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"45f585ba9182bb429b830ab87c8b1180",
-  "crowd shouting: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"0142ff52fffd815f962b2cb18ecb233b",
-  "crowd cheering: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"11f4c29cdba90e9e82b1964f533c799d",
-  "splash water: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"42f1b2417d12dd131d636b81be2e9aec",
-  "swimming: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"44d9b17c5574ca95e6d5c135cba6779b",
-  "waves sea: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"79a28c00384c2f746f01aac88b3f05eb",
-  "sheep: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"e38e813fe2045fa8fb8c54e49fcfa88a",
-  "car engine: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"7e4466b77cc79ab09964d880295c3bb2",
-  "ship horn: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"ce58222bf2fe256ada0fe4731fde301c",
-  "wind: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"8a05bef344ad61ae81f3f1a8c77a3992",
-  "glass clink: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"225ffe7dd97a352c9398b07a65405c93",
-  "horse gallop: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"f68b8bbb428f5dd991f034cb6d120980",
-  "church bell: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"0037bcccc0ea7a4a3798b9ee1723a191",
-  "military drum: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"67ea05e2212d9ec5caf310275e96a630"
+  "musket: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"15983c57c8b070ae696502c12d0f6aad",
+  "marching soldiers: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"8f03692e8ed44d0da22def499188fe88",
+  "crowd shouting: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"5099890a03fc797b0256e811d20a0c9c",
+  "military drum: 결과 없음 <!DOCTYPE html> <html lang=\"en-US\"> <head>  <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"> <meta name=\"csrf-token\" content=\"f901ef4307d51b0e60288cd3c6fe1162"
  ]
 }
