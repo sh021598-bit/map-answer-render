@@ -4,13 +4,22 @@
 import io,json,os,re,subprocess,urllib.request,urllib.parse,zipfile,random
 O='audio/out'; os.makedirs(O,exist_ok=True); UA={'User-Agent':'Mozilla/5.0 (map-answer-render audio fetch)'}
 def get(u): return urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=60).read()
-res={'sfx':{},'bgm':[],'log':[]}
-for slug in ['rpg-audio','casino-audio','impact-sounds','interface-sounds','ui-audio']:
+import sys
+ONLY=sys.argv[1] if len(sys.argv)>1 else ''
+res=json.load(open(f'{O}/list.json')) if os.path.exists(f'{O}/list.json') else {'sfx':{},'bgm':[],'log':[]}
+res['log']=[]
+OGA={'rpg-audio':'50-rpg-sound-effects','interface-sounds':'51-ui-sound-effects-buttons-switches-and-clicks','impact-sounds':'impact-sounds','casino-audio':'casino-audio','ui-audio':'ui-audio'}
+for slug in (['rpg-audio','casino-audio','impact-sounds','interface-sounds','ui-audio'] if ONLY in ('','sfx') else []):
     try:
-        h=get(f'https://kenney.nl/assets/{slug}').decode('utf-8','replace')
-        z=re.findall(r'href="([^"]+\.zip)"',h)
-        if not z: res['log'].append(f'{slug}: zip 링크 없음'); continue
-        url=z[0] if z[0].startswith('http') else 'https://kenney.nl'+z[0]
+        z=[]
+        for page in (f'https://kenney.nl/assets/{slug}',f'https://opengameart.org/content/{OGA[slug]}'):
+            try: h=get(page).decode('utf-8','replace')
+            except Exception as e: res['log'].append(f'{page}: {e}'); continue
+            z=re.findall(r'''(https?://[^\s"'<>]+?\.zip|/[^\s"'<>]+?\.zip)''',h)
+            if z: break
+            res['log'].append(f'{page}: zip 없음, download 주변: '+' | '.join(h[max(0,m.start()-120):m.start()+160].replace('\n',' ') for m in list(re.finditer(r'(?i)download',h))[:2]))
+        if not z: continue
+        url=z[0] if z[0].startswith('http') else ('https://kenney.nl' if 'kenney' in page else 'https://opengameart.org')+z[0]
         zf=zipfile.ZipFile(io.BytesIO(get(url))); d=f'{O}/kenney/{slug}'; os.makedirs(d,exist_ok=True); names=[]
         for n in zf.namelist():
             if n.lower().endswith(('.ogg','.wav')):
@@ -20,6 +29,7 @@ for slug in ['rpg-audio','casino-audio','impact-sounds','interface-sounds','ui-a
     except Exception as e: res['log'].append(f'{slug}: {e}')
 FEEL={'epic':['Epic','Heroic'],'tense':['Intense','Suspenseful','Driving','Tense'],'mystery':['Mysterious','Eerie','Mystical'],'bright':['Bright','Uplifting','Bouncy']}
 try:
+    if ONLY=='sfx': raise StopIteration
     P=json.loads(get('https://incompetech.com/music/royalty-free/pieces.json'))
     res['log'].append('pieces keys: '+', '.join(P[0].keys()) if isinstance(P,list) else 'pieces 형식: '+str(type(P)))
     random.seed(7)
@@ -37,6 +47,7 @@ try:
             src=f'/tmp/{n}_{mood}.mp3'; open(src,'wb').write(b); out=f'{O}/bgm/{mood}_{n}.mp3'; os.makedirs(f'{O}/bgm',exist_ok=True)
             subprocess.run(['ffmpeg','-v','error','-y','-ss','8','-t','22','-i',src,'-af','afade=t=in:d=1,afade=t=out:st=20:d=2','-b:a','96k',out],check=True)
             res['bgm'].append({'mood':mood,'file':out,'title':p.get('title'),'feel':p.get('feel'),'genre':p.get('genre'),'url':url}); n+=1
+except StopIteration: pass
 except Exception as e: res['log'].append(f'incompetech: {e}')
 json.dump(res,open(f'{O}/list.json','w'),ensure_ascii=False,indent=1)
 print(json.dumps(res['log'],ensure_ascii=False)); print(len(res['bgm']),'bgm', {k:len(v['files']) for k,v in res['sfx'].items()})
