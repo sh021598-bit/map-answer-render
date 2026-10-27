@@ -47,6 +47,11 @@ for i in range(int(TOT/bar)+1):
     for j in range(int(bar*2) if PULSE else 0):
         ps=s+int(j*0.5*SR); pe=min(n,ps+int(0.35*SR)); pt=(np.arange(max(0,pe-ps)))/SR
         mus[ps:pe]+=0.25*np.sin(2*np.pi*note(33+(0 if i%4!=1 else -4))*pt)*np.exp(-pt*9)
+AU=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','audio')   # 무료 음원 (2026-10-27 채널성장팀 채택, 출처 audio/CREDITS.md)
+def dec(p): return np.frombuffer(subprocess.run(['ffmpeg','-v','error','-i',p,'-ac','1','-ar',str(SR),'-f','f32le','-'],capture_output=True,check=True).stdout,np.float32).astype(float)
+BG=cfg.get('bgm') or f"{AU}/bgm/{cfg.get('mood','epic')}.mp3"
+if os.path.exists(BG):   # 파일 BGM 이 있으면 위 합성 패드 대신 (모자라면 반복, 앞 0.5초·끝 1초 페이드)
+    B=dec(BG); mus=np.tile(B,int(np.ceil(n/len(B))))[:n]*np.clip(tt/0.5,0,1)*np.clip((TOT-tt)/1.0,0,1)
 # ---- sfx: whoosh+impact at scene changes, plus prop cues (cfg 'sfx': [[scene, sec, kind]]) ----
 sfx=np.zeros(n); rng=np.random.default_rng(3); T0={}
 for L in lines: T0.setdefault(L['scene'],L['t0'])
@@ -61,25 +66,31 @@ def pop(st,g=0.25):
 def shot(st,g=0.3):
     b0=int(st*SR); bl=min(int(0.18*SR),n-b0); bt=np.arange(bl)/SR; x=rng.standard_normal(bl)
     sfx[b0:b0+bl]+=g*x*np.exp(-bt*35); boom(st,80,g*0.8,25)
-for s in list(T0)[1:]: whoosh(T0[s]); boom(T0[s])
+SM={}
+def samp(k,st,g):   # Kenney 효과음(audio/sfx/<k>.ogg) — 파일 없으면 False (합성음으로 대신)
+    if k not in SM: SM[k]=dec(f'{AU}/sfx/{k}.ogg') if os.path.exists(f'{AU}/sfx/{k}.ogg') else None
+    a=SM[k]; b0=int(st*SR); bl=min(len(a),n-b0) if a is not None else 0
+    if bl>0: sfx[b0:b0+bl]+=g*a[:bl]
+    return a is not None
+for s in list(T0)[1:]: samp('impact',T0[s],0.5) or (whoosh(T0[s]),boom(T0[s]))
 def clink(st,g=0.12):   # 금속 「팅」 (동전)
     b0=int(st*SR); bl=min(int(0.25*SR),n-b0); bt=np.arange(bl)/SR
     sfx[b0:b0+bl]+=g*sum(a*np.sin(2*np.pi*f*bt) for f,a in ((2400,1),(3700,.6),(5100,.35)))*np.exp(-bt*22)
 def scratch(st,d,g=0.05):   # 펜·윤곽 긋는 소리 (고음 잡음, 떨림)
     b0=int(st*SR); bl=max(0,min(int(min(d,2.0)*SR),n-b0)); x=np.diff(rng.standard_normal(bl+1)); bt=np.arange(bl)/SR
     sfx[b0:b0+bl]+=g*x*(0.6+0.4*np.sin(2*np.pi*7*bt))*np.clip(bt/0.1,0,1)*np.clip((bl/SR-bt)/0.2,0,1)
-# 소품 자동 효과음 (합성음, 기본 꺼짐 — 2026-10-27 Jacob 「짜치다」 → 무료 음원 교체 전까지). 켜기: 설정 "prop_sfx": true
-for p in (cfg.get('props',[]) if cfg.get('prop_sfx',False) else []):
+# 소품 자동 효과음 — Kenney 파일이 있으면 기본 켜짐(합성음은 2026-10-27 Jacob 「짜치다」로 대체만). 끄기: 설정 "prop_sfx": false
+for p in (cfg.get('props',[]) if cfg.get('prop_sfx',os.path.exists(f'{AU}/sfx/coins.ogg')) else []):
     if p.get('scene') not in T0: continue
     st=T0[p['scene']]+(p.get('start') if p.get('start') is not None else p.get('from') if p.get('from') is not None else {'trace':0.2,'houses':1.2}.get(p['type'],0.35))
     k=p['type']
-    if k=='coins':
-        for q in range(min(6,p.get('n',4))): clink(st+q*p.get('dur',2.0)/min(6,p.get('n',4))+rng.uniform(0,0.08),0.08+0.05*rng.random())
-    elif k=='flags': whoosh(st+0.3,0.15)
-    elif k in('qmark','pricetag'): pop(st,0.18)
+    if k=='coins': samp('coins',st,0.35) or [clink(st+q*0.4,0.1) for q in range(4)]
+    elif k=='flags': samp('cloth',st,0.3) or whoosh(st+0.3,0.15)
+    elif k in('qmark','pricetag'): samp('pluck',st,0.3) or pop(st,0.18)
     elif k=='houses':
-        for q in range(len(p.get('at',[])) or 1): pop(st+q*0.28,0.12)
-    elif k in('trace','pen'): scratch(st,p.get('dur',1.5))
+        for q in range(len(p.get('at',[])) or 1): samp('pluck',st+q*0.28,0.2) or pop(st+q*0.28,0.12)
+    elif k in('trace','pen'):
+        for q in range(int(min(p.get('dur',1.5),2.0)/0.4)+1): samp('scratch',st+q*0.4,0.15) or scratch(st,p.get('dur',1.5))
 for sid,sec,kind in cfg.get('sfx',[]):
     st=T0[sid]+sec
     if kind=='pop': pop(st)
