@@ -1,0 +1,9 @@
+00 0.90 | Zero countries claim this land, because it would cost them. | Zero countries claimed this land because it would cost them.
+01 1.00 | In 1899, Britain drew the Egypt and Sudan border as a straight line. | In 1899, Britain drew the Egypt and Sudan border as a straight line.
+02 1.00 | In 1902, it drew another line, following where local tribes lived. | In 1902, it drew another line, following where local tribes lived.
+03 1.00 | Egypt uses the first line, and Sudan uses the second. | Egypt uses the first line and Sudan uses the second.
+04 1.00 | Each line gives this dry triangle to the other country. | Each line gives this dry triangle to the other country.
+05 1.00 | But each line gives its own country a Red Sea coast ten times bigger. | But each line gives its own country a Red Sea coast ten times bigger.
+06 0.90 | So claiming the desert would mean giving up the coast. | So claiming the desert will mean giving up the coast.
+07 1.00 | Both countries still fight over that coast, so the desert stays unclaimed. | Both countries still fight over that coast, so the desert stays unclaimed.
+08 1.00 | So today, zero countries claim it. | So today, zero countries claim it.
