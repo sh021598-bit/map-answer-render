@@ -1,0 +1,326 @@
+{
+ "id": "007-bir-tawil",
+ "title": "Zero countries claim this land",
+ "globe": false,
+ "tail": 0.3,
+ "bgm": "opium",
+ "region": {
+  "lon": [
+   29.0,
+   39.0
+  ],
+  "lat": [
+   18.0,
+   27.0
+  ],
+  "nx": 700,
+  "smooth": 1.0,
+  "z": 7
+ },
+ "countries": {
+  "egypt": {
+   "admin": "Egypt",
+   "color": "#ff4d4d"
+  },
+  "sudan": {
+   "admin": "Sudan",
+   "color": "#3f8cff"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "Zero countries claim this land, because it would cost them."
+  ],
+  [
+   "a1899",
+   "In 1899, Britain drew the Egypt and Sudan border as a straight line."
+  ],
+  [
+   "a1902",
+   "In 1902, it drew another line, following where local tribes lived."
+  ],
+  [
+   "use",
+   "Egypt uses the first line, and Sudan uses the second."
+  ],
+  [
+   "swap",
+   "Each line gives this dry triangle to the other country."
+  ],
+  [
+   "coast",
+   "But each line gives its own country a Red Sea coast ten times bigger."
+  ],
+  [
+   "cost",
+   "So claiming the desert would mean giving up the coast."
+  ],
+  [
+   "fight",
+   "Both countries still fight over that coast, so the desert stays unclaimed."
+  ],
+  [
+   "end",
+   "So today, zero countries claim it."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    33.7,
+    22.0
+   ],
+   17,
+   58,
+   0
+  ],
+  "a1899": [
+   [
+    33.5,
+    22.0
+   ],
+   24,
+   55,
+   0
+  ],
+  "a1902": [
+   [
+    34.2,
+    22.0
+   ],
+   20,
+   55,
+   -8
+  ],
+  "use": [
+   [
+    33.5,
+    22.4
+   ],
+   26,
+   52,
+   6
+  ],
+  "swap": [
+   [
+    33.7,
+    21.9
+   ],
+   15,
+   56,
+   -6
+  ],
+  "coast": [
+   [
+    35.2,
+    22.4
+   ],
+   19,
+   54,
+   0
+  ],
+  "cost": [
+   [
+    34.6,
+    22.1
+   ],
+   21,
+   52,
+   6
+  ],
+  "fight": [
+   [
+    34.6,
+    22.1
+   ],
+   23,
+   54,
+   -6
+  ],
+  "end": [
+   [
+    33.7,
+    22.0
+   ],
+   17,
+   58,
+   0
+  ]
+ },
+ "orbit": {
+  "swap": 10,
+  "end": -8
+ },
+ "tint": {
+  "hook": {
+   "egypt": 1,
+   "sudan": 1
+  },
+  "a1899": {
+   "egypt": 1,
+   "sudan": 1
+  },
+  "a1902": {
+   "egypt": 1,
+   "sudan": 1
+  },
+  "use": {
+   "egypt": 1,
+   "sudan": 1
+  },
+  "swap": {
+   "egypt": 1,
+   "sudan": 1
+  },
+  "coast": {
+   "egypt": 1,
+   "sudan": 1
+  },
+  "cost": {
+   "egypt": 1,
+   "sudan": 1
+  },
+  "end": {
+   "egypt": 1,
+   "sudan": 1
+  },
+  "fight": {
+   "egypt": 1,
+   "sudan": 1
+  }
+ },
+ "lift": {},
+ "exaggerate": {},
+ "badges": {},
+ "big": {
+  "hook": [
+   "0 COUNTRIES",
+   "CLAIM THIS LAND"
+  ],
+  "a1899": [
+   "1899",
+   "STRAIGHT LINE"
+  ],
+  "a1902": [
+   "1902",
+   "TRIBAL LINE"
+  ],
+  "coast": [
+   "10X",
+   "BIGGER COAST"
+  ]
+ },
+ "labels": {
+  "hook": [
+   [
+    "BIR TAWIL",
+    33.7,
+    22.15,
+    0.3
+   ],
+   [
+    "EGYPT",
+    31.3,
+    24.5,
+    0.6
+   ],
+   [
+    "SUDAN",
+    31.6,
+    19.6,
+    0.6
+   ]
+  ],
+  "swap": [
+   [
+    "BIR TAWIL",
+    33.7,
+    22.15,
+    0.3
+   ]
+  ],
+  "coast": [
+   [
+    "HALAIB",
+    36.2,
+    22.6,
+    0.3
+   ]
+  ],
+  "end": [
+   [
+    "BIR TAWIL",
+    33.7,
+    22.15,
+    0.3
+   ]
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "qmark",
+   "scene": "hook",
+   "at": [
+    33.7,
+    21.85
+   ],
+   "size": 0.9
+  },
+  {
+   "type": "span",
+   "scene": "a1899",
+   "a": [
+    29.5,
+    22.0
+   ],
+   "b": [
+    37.5,
+    22.0
+   ],
+   "from": 0.8,
+   "dur": 2.0
+  },
+  {
+   "type": "qmark",
+   "scene": "swap",
+   "at": [
+    33.7,
+    21.85
+   ],
+   "size": 0.9
+  },
+  {
+   "type": "qmark",
+   "scene": "end",
+   "at": [
+    33.7,
+    21.85
+   ],
+   "size": 0.9
+  }
+ ],
+ "sfx": [
+  [
+   "hook",
+   0.4,
+   "whoosh"
+  ],
+  [
+   "a1899",
+   0.5,
+   "pop"
+  ],
+  [
+   "coast",
+   0.4,
+   "pop"
+  ]
+ ],
+ "fog_add": 1.5
+}
