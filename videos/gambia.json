@@ -1,6 +1,6 @@
 {
  "id": "009-gambia",
- "title": "Why Gambia is shaped like a river",
+ "title": "Why Gambia is only 30 miles wide",
  "globe": false,
  "tail": 0.3,
  "bgm": "evening",
@@ -30,8 +30,8 @@
  "lines": [
   [
    "hook",
-   "One river, ten kilometers each side: that is Gambia.",
-   "One river, ten kilometers each side: that is Gambeea."
+   "Thirty miles wide at most: that is Gambia.",
+   "Thirty miles wide at most: that is Gambeea."
   ],
   [
    "small",
@@ -53,7 +53,7 @@
   ],
   [
    "border",
-   "In 1889, the two powers drew the border ten kilometers from each bank."
+   "In 1889, the two powers drew the border about ten kilometers out from the river."
   ],
   [
    "strip",
@@ -199,8 +199,8 @@
  "badges": {},
  "big": {
   "hook": [
-   "10 KM",
-   "EACH SIDE OF A RIVER"
+   "30 MILES",
+   "WIDE AT MOST"
   ],
   "treaty": [
    "1783",
