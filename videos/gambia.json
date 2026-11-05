@@ -23,7 +23,7 @@
   },
   "senegal": {
    "admin": "Senegal",
-   "color": "#3f8cff"
+   "color": "#8fbf6f"
   }
  },
  "borders": {},
@@ -223,8 +223,8 @@
   "small": [
    [
     "SENEGAL",
-    -14.2,
-    14.4,
+    -15.3,
+    14.35,
     0.8
    ]
   ],
