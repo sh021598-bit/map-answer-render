@@ -1,0 +1,9 @@
+00 0.88 | Thirty miles wide at most: that is Gambia. | 30 miles wide at most, that is Gambia.
+01 1.00 | It is the smallest country on mainland Africa, stuck inside Senegal. | It is the smallest country on mainland Africa, stuck inside Senegal.
+02 1.00 | The reason is the Gambia River, a highway into West Africa. | The reason is the Gambia River, a highway into West Africa.
+03 1.00 | Britain held the river, while France held the land around it. | Britain held the river, while France held the land around it.
+04 1.00 | A treaty in 1783 confirmed it: the river was British. | A treaty in 1783 confirmed it. The river was British.
+05 0.93 | In 1889, the two powers drew the border about ten kilometers out from the river. | In 1889, the two powers drew the border about 10 kilometers out from the river.
+06 0.80 | That strip ran about three hundred miles inland. | That strip ran about 300 miles inland.
+07 1.00 | In 1965, Gambia became independent, still shaped like its river. | In 1965, Gambia became independent, still shaped like its river.
+08 1.00 | One river became a whole country. | One river became a whole country.
