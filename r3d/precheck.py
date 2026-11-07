@@ -66,7 +66,7 @@ chk=[('길이 35~40초',35<=TOT<=40,f'{TOT:.1f}s'),
      ('끝: 맺음말 없음·꼬리 ≤0.5초',"map answer" not in rows[-1][1].lower() and cfg.get('tail',1.2)<=0.5,f"tail {cfg.get('tail',1.2)}s"),
      ('BGM: 무거운 소재에 밝은 곡 금지',not (SERIOUS and TONE=='light') and BGI is not None,f"{BGN} ({TONE or '목록에 없음'})"+(f" · 무거운 말: {', '.join(sorted(set(SERIOUS))[:4])}" if SERIOUS else '')),
      ('효과음: 무거운 장면에 박수·잔 소리 금지',not BADCUE,', '.join(BADCUE) or '없음'),
-     ('낯선 고유명사',not BADNAME,('발음 철자 칸 필요 또는 이름 빼기: '+', '.join(BADNAME)) if BADNAME else '모두 확인됨(사전·known_names·발음 칸)'+('' if COMMON is not None else ' · 사전 없음: 문장 첫 단어는 건너뜀')),
+     ('낯선 고유명사',not BADNAME,('발음 철자 칸 필요 또는 이름 빼기: '+', '.join(BADNAME)+' — 음성 뒤 tts-out check.txt 에서 맞게(0.9↑) 읽혔으면 r3d/known_names.txt 에 넣고 다시 실행(오탐을 ❌ 로 남기면 자동 예약이 막힘)') if BADNAME else '모두 확인됨(사전·known_names·발음 칸)'+('' if COMMON is not None else ' · 사전 없음: 문장 첫 단어는 건너뜀')),
      ('단어 타이밍(words.json 줄 수)',not VD or len(json.load(open(f'{VD}/words.json')))==len(rows),'' if VD else '(음성 없음 — 추정)')]
 for name,ok,v in chk: print(('✅' if ok else '❌'),name,v)
 if BGI and BGI.get('title'): print(f'ℹ️ 설명란에 넣을 줄: Music: "{BGI["title"]}" Kevin MacLeod (incompetech.com) · Licensed under Creative Commons: By Attribution 4.0 · http://creativecommons.org/licenses/by/4.0/')
