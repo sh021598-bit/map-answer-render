@@ -1,0 +1,483 @@
+{
+ "id": "009-gambia-cards-test",
+ "title": "Why Gambia is only 30 miles wide (card test)",
+ "globe": false,
+ "tail": 0.3,
+ "bgm": "evening",
+ "region": {
+  "lon": [
+   -18.5,
+   -11.5
+  ],
+  "lat": [
+   11.5,
+   15.5
+  ],
+  "nx": 800,
+  "smooth": 1.0
+ },
+ "countries": {
+  "gambia": {
+   "admin": "Gambia",
+   "color": "#ff4d4d"
+  },
+  "senegal": {
+   "admin": "Senegal",
+   "color": "#8fbf6f"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "Thirty miles wide at most: that is Gambia.",
+   "Thirty miles wide at most: that is Gambeea."
+  ],
+  [
+   "small",
+   "It is the smallest country on mainland Africa, stuck inside Senegal.",
+   "It is the smallest country on mainland Africa, stuck inside Senegawl."
+  ],
+  [
+   "river",
+   "The reason is the Gambia River, a highway into West Africa.",
+   "The reason is the Gambeea River, a highway into West Africa."
+  ],
+  [
+   "brit",
+   "Britain held the river, while France held the land around it."
+  ],
+  [
+   "treaty",
+   "A treaty in 1783 confirmed it: the river was British."
+  ],
+  [
+   "border",
+   "In 1889, the two powers drew the border about ten kilometers out from the river."
+  ],
+  [
+   "strip",
+   "That strip ran about three hundred miles inland."
+  ],
+  [
+   "indep",
+   "In 1965, Gambia became independent, still shaped like its river.",
+   "In 1965, Gambeea became independent, still shaped like its river."
+  ],
+  [
+   "end",
+   "One river became a whole country."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    -15.1,
+    13.45
+   ],
+   9,
+   56,
+   0
+  ],
+  "small": [
+   [
+    -15.1,
+    13.5
+   ],
+   12,
+   54,
+   -6
+  ],
+  "river": [
+   [
+    -15.1,
+    13.5
+   ],
+   9,
+   50,
+   8
+  ],
+  "brit": [
+   [
+    -16.3,
+    13.5
+   ],
+   6,
+   52,
+   0
+  ],
+  "treaty": [
+   [
+    -16.3,
+    13.5
+   ],
+   7,
+   54,
+   6
+  ],
+  "border": [
+   [
+    -15.1,
+    13.45
+   ],
+   8,
+   54,
+   -8
+  ],
+  "strip": [
+   [
+    -15.1,
+    13.45
+   ],
+   8,
+   50,
+   10
+  ],
+  "indep": [
+   [
+    -15.1,
+    13.45
+   ],
+   9,
+   56,
+   0
+  ],
+  "end": [
+   [
+    -15.1,
+    13.45
+   ],
+   10,
+   60,
+   -6
+  ]
+ },
+ "orbit": {
+  "small": 8,
+  "end": -8
+ },
+ "tint": {
+  "hook": {
+   "gambia": 1,
+   "senegal": 1
+  },
+  "small": {
+   "gambia": 1,
+   "senegal": 1
+  },
+  "river": {
+   "gambia": 1,
+   "senegal": 1
+  },
+  "brit": {
+   "gambia": 1,
+   "senegal": 1
+  },
+  "treaty": {
+   "gambia": 1,
+   "senegal": 1
+  },
+  "border": {
+   "gambia": 1,
+   "senegal": 1
+  },
+  "strip": {
+   "gambia": 1,
+   "senegal": 1
+  },
+  "indep": {
+   "gambia": 1,
+   "senegal": 1
+  },
+  "end": {
+   "gambia": 1,
+   "senegal": 1
+  }
+ },
+ "lift": {},
+ "exaggerate": {},
+ "badges": {},
+ "big": {
+  "hook": [
+   "30 MILES",
+   "WIDE AT MOST"
+  ],
+  "treaty": [
+   "1783",
+   "RIVER = BRITISH"
+  ],
+  "border": [
+   "1889",
+   "10 KM BORDER"
+  ],
+  "strip": [
+   "300 MI",
+   "INLAND"
+  ],
+  "indep": [
+   "1965",
+   "INDEPENDENT"
+  ]
+ },
+ "labels": {
+  "small": [
+   [
+    "SENEGAL",
+    -15.3,
+    14.35,
+    0.8
+   ]
+  ],
+  "river": [
+   [
+    "GAMBIA RIVER",
+    -15.1,
+    13.75,
+    0.4
+   ]
+  ],
+  "brit": [
+   [
+    "BANJUL",
+    -16.6,
+    13.45,
+    0.3
+   ]
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "trace",
+   "scene": "hook",
+   "country": "gambia",
+   "dur": 2.0,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "dateline",
+   "scene": "river",
+   "path": [
+    [
+     -16.6,
+     13.43
+    ],
+    [
+     -16.0,
+     13.48
+    ],
+    [
+     -15.5,
+     13.55
+    ],
+    [
+     -15.0,
+     13.6
+    ],
+    [
+     -14.8,
+     13.5
+    ],
+    [
+     -14.4,
+     13.45
+    ],
+    [
+     -14.0,
+     13.35
+    ],
+    [
+     -13.8,
+     13.4
+    ]
+   ],
+   "from": 0.3,
+   "dur": 2.2,
+   "h": 0.4,
+   "color": "#5ec8ff"
+  },
+  {
+   "type": "ship",
+   "scene": "brit",
+   "path": [
+    [
+     -17.2,
+     13.2
+    ],
+    [
+     -16.3,
+     13.45
+    ]
+   ],
+   "dur": 2.5,
+   "flag": "#c8102e"
+  },
+  {
+   "type": "flags",
+   "scene": "brit",
+   "flag": "uk",
+   "at": [
+    [
+     -16.3,
+     13.6
+    ]
+   ],
+   "from": 1.0,
+   "size": 2.2
+  },
+  {
+   "type": "flags",
+   "scene": "brit",
+   "flag": "france",
+   "at": [
+    [
+     -15.5,
+     14.6
+    ]
+   ],
+   "from": 1.8,
+   "size": 2.2
+  },
+  {
+   "type": "dateline",
+   "scene": "border",
+   "path": [
+    [
+     -16.6,
+     13.43
+    ],
+    [
+     -16.0,
+     13.48
+    ],
+    [
+     -15.5,
+     13.55
+    ],
+    [
+     -15.0,
+     13.6
+    ],
+    [
+     -14.8,
+     13.5
+    ],
+    [
+     -14.4,
+     13.45
+    ],
+    [
+     -14.0,
+     13.35
+    ],
+    [
+     -13.8,
+     13.4
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.4,
+   "color": "#5ec8ff"
+  },
+  {
+   "type": "trace",
+   "scene": "border",
+   "country": "gambia",
+   "dur": 2.2,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "dateline",
+   "scene": "strip",
+   "path": [
+    [
+     -16.7,
+     13.4
+    ],
+    [
+     -13.8,
+     13.4
+    ]
+   ],
+   "from": 0.2,
+   "dur": 2.5,
+   "h": 0.4,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "trace",
+   "scene": "indep",
+   "country": "gambia",
+   "dur": 1.5,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "trace",
+   "scene": "end",
+   "country": "gambia",
+   "dur": 1.5,
+   "color": "#ffc83d"
+  }
+ ],
+ "sfx": [
+  [
+   "hook",
+   0.4,
+   "whoosh"
+  ],
+  [
+   "treaty",
+   0.4,
+   "pop"
+  ],
+  [
+   "indep",
+   0.4,
+   "pop"
+  ]
+ ],
+ "fog_add": 0,
+ "cards": [
+  {
+   "type": "photo",
+   "scene": "river",
+   "from": 0.9,
+   "in": 0.3,
+   "out": 0.3,
+   "title": "THE GAMBIA RIVER",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Sunrise_at_the_Gambia_River_in_Banjul,_the_Gambia.jpg?width=1280",
+   "credit": "Photo: Forbes Johnston / CC BY 2.0 (Wikimedia Commons)",
+   "zoom": 1.1
+  },
+  {
+   "type": "stat",
+   "scene": "border",
+   "from": 1.2,
+   "value": 10,
+   "suffix": " KM",
+   "label": "BORDER FROM THE RIVER"
+  },
+  {
+   "type": "bars",
+   "scene": "strip",
+   "from": 0.6,
+   "title": "GAMBIA'S SHAPE",
+   "unit": "MI",
+   "items": [
+    [
+     "LENGTH",
+     300,
+     "#ff4d4d"
+    ],
+    [
+     "WIDTH",
+     30
+    ]
+   ]
+  }
+ ]
+}

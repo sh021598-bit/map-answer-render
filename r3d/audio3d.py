@@ -103,6 +103,12 @@ for p in (cfg.get('props',[]) if cfg.get('prop_sfx',os.path.exists(f'{AU}/sfx/co
         samp('march',st,0.25,min(4.0,p['march'][1]-p['march'][0]))
     elif k in PROP_SFX:
         f,g,loop=PROP_SFX[k]; samp(f,st,g,min(p.get('dur',3.0),4.0) if loop else None)
+# 지도 밖 장면 카드(cards.js) — 들어올 때 휙, 막대마다 톡 (끄기: 설정 "card_sfx": false)
+for c in (cfg.get('cards',[]) if cfg.get('card_sfx',True) else []):
+    if c.get('scene') not in T0: continue
+    st=T0[c['scene']]+(c.get('from') or 0); whoosh(st+0.2,0.3)
+    if c.get('type')=='bars':
+        for j in range(len(c.get('items',[]))): samp('pluck',st+0.15+j*c.get('step',0.35),0.3)
 # 수동 신호 cfg 'sfx': [장면, 초, 종류(, 길이)] — 종류는 audio/sfx 이름 아무거나(gunshot·cannon·explosion·march·applause(축하만)·splash·waves·wind·horn·horse·bell·car·sheep·glass…). 옛 이름 pop·boom·volley·whoosh 도 됨
 CUE_G={'gunshot':.35,'cannon':.45,'explosion':.45,'applause':.3,'march':.35,'splash':.4,'waves':.3,'wind':.25,'horn':.3,'horse':.3,'bell':.3,'car':.2,'sheep':.3,'glass':.35}
 for c in cfg.get('sfx',[]):

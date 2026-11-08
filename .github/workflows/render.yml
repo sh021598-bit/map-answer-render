@@ -34,13 +34,14 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           pip install -q numpy pillow soundfile
-          mkdir -p /tmp/w/data /tmp/w/voice && cp r3d/{index.html,props.js,render.js,package.json,world50.json} /tmp/w/
+          mkdir -p /tmp/w/data /tmp/w/voice && cp r3d/{index.html,props.js,cards.js,render.js,package.json,world50.json} /tmp/w/
           cd /tmp/w && npm i --silent && npx playwright install --with-deps chromium >/dev/null
           python3 -c "import json;j=json.load(open('$GITHUB_WORKSPACE/render/job.json'));open('/tmp/job.env','w').write(f\"VIDEO={j['video']}\nVOICE={j['voice']}\nOUT={j['out']}\n\")"
           cat /tmp/job.env >> $GITHUB_ENV
       - name: 음성·지형
         run: |
           cp "$VOICE"/* /tmp/w/voice/ && cp videos/$VIDEO.json /tmp/w/data/config.json
+          python3 r3d/media.py /tmp/w/data/config.json media /tmp/w/media   # 카드 사진: media/ 파일 복사 또는 URL 받기
           cd /tmp/w && python3 $GITHUB_WORKSPACE/r3d/prep3d.py data/config.json && python3 $GITHUB_WORKSPACE/r3d/audio3d.py data/config.json voice
       - name: 렌더 (조각 ${{ matrix.part }}, 실패 시 이어 그리기 3번)
         run: |
