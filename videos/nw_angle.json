@@ -1,0 +1,650 @@
+{
+ "id": "010-nw-angle",
+ "title": "Why part of Minnesota is only reachable through Canada",
+ "format": "F1",
+ "globe": false,
+ "tail": 0.3,
+ "bgm": "mississippi",
+ "region": {
+  "lon": [
+   -102,
+   -89
+  ],
+  "lat": [
+   45,
+   52
+  ],
+  "nx": 800,
+  "smooth": 1.0
+ },
+ "countries": {
+  "usa": {
+   "admin": "United States of America",
+   "color": "#5b8def"
+  },
+  "canada": {
+   "admin": "Canada",
+   "color": "#8fbf6f"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "Fifty-four Minnesotans live where the only road runs through Canada."
+  ],
+  [
+   "angle",
+   "This is the Northwest Angle, north of the forty-ninth parallel."
+  ],
+  [
+   "blame",
+   "Blame a bad map."
+  ],
+  [
+   "treaty",
+   "In 1783, a treaty ran the border west from the Lake of the Woods to the Mississippi."
+  ],
+  [
+   "wrong",
+   "But the map was wrong, and that line never reaches the river."
+  ],
+  [
+   "fix",
+   "So in 1818, they used the forty-ninth parallel instead."
+  ],
+  [
+   "corner",
+   "But the line started at the lake's northwest corner, which sits above it."
+  ],
+  [
+   "stay",
+   "So that corner stayed American, cut off from Minnesota by water."
+  ],
+  [
+   "end",
+   "One wrong map gave Minnesota a corner with no road home."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    -95.2,
+    49.0
+   ],
+   9,
+   56,
+   0
+  ],
+  "angle": [
+   [
+    -95.15,
+    49.25
+   ],
+   4.5,
+   58,
+   0
+  ],
+  "blame": [
+   [
+    -96.5,
+    48.0
+   ],
+   12,
+   54,
+   -6
+  ],
+  "treaty": [
+   [
+    -96.8,
+    48.2
+   ],
+   11,
+   55,
+   6
+  ],
+  "wrong": [
+   [
+    -96.5,
+    48.1
+   ],
+   12,
+   54,
+   0
+  ],
+  "fix": [
+   [
+    -98.5,
+    49.0
+   ],
+   10,
+   52,
+   -8
+  ],
+  "corner": [
+   [
+    -95.15,
+    49.25
+   ],
+   4,
+   58,
+   6
+  ],
+  "stay": [
+   [
+    -95.1,
+    49.1
+   ],
+   6,
+   56,
+   -8
+  ],
+  "end": [
+   [
+    -95.2,
+    48.8
+   ],
+   9,
+   56,
+   0
+  ]
+ },
+ "orbit": {
+  "angle": 6,
+  "stay": -6
+ },
+ "tint": {
+  "hook": {
+   "usa": 1,
+   "canada": 1
+  },
+  "angle": {
+   "usa": 1,
+   "canada": 1
+  },
+  "blame": {
+   "usa": 1,
+   "canada": 1
+  },
+  "treaty": {
+   "usa": 1,
+   "canada": 1
+  },
+  "wrong": {
+   "usa": 1,
+   "canada": 1
+  },
+  "fix": {
+   "usa": 1,
+   "canada": 1
+  },
+  "corner": {
+   "usa": 1,
+   "canada": 1
+  },
+  "stay": {
+   "usa": 1,
+   "canada": 1
+  },
+  "end": {
+   "usa": 1,
+   "canada": 1
+  }
+ },
+ "lift": {},
+ "exaggerate": {},
+ "badges": {},
+ "big": {
+  "hook": [
+   "54 PEOPLE",
+   "ONLY ROAD: CANADA"
+  ],
+  "treaty": [
+   "1783",
+   "BAD MAP"
+  ],
+  "fix": [
+   "1818",
+   "49°N"
+  ]
+ },
+ "labels": {
+  "angle": [
+   [
+    "NORTHWEST ANGLE",
+    -95.15,
+    49.55,
+    0.5
+   ]
+  ],
+  "treaty": [
+   [
+    "MISSISSIPPI",
+    -93.2,
+    46.8,
+    1.0
+   ]
+  ],
+  "fix": [
+   [
+    "49°N",
+    -100.5,
+    49.35,
+    1.0
+   ]
+  ],
+  "stay": [
+   [
+    "MINNESOTA",
+    -95.6,
+    48.5,
+    0.6
+   ]
+  ],
+  "end": [
+   [
+    "CANADA",
+    -96.0,
+    50.2,
+    0.5
+   ]
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "dateline",
+   "scene": "hook",
+   "path": [
+    [
+     -104,
+     49
+    ],
+    [
+     -95.153,
+     49
+    ],
+    [
+     -95.153,
+     49.0
+    ],
+    [
+     -95.153,
+     49.384
+    ]
+   ],
+   "from": 0.1,
+   "dur": 1.6,
+   "h": 0.4,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "drive",
+   "scene": "hook",
+   "path": [
+    [
+     -95.31,
+     48.91
+    ],
+    [
+     -95.57,
+     49.0
+    ],
+    [
+     -95.5,
+     49.2
+    ],
+    [
+     -95.15,
+     49.3
+    ]
+   ],
+   "from": 1.6,
+   "dur": 3.0
+  },
+  {
+   "type": "dateline",
+   "scene": "angle",
+   "path": [
+    [
+     -104,
+     49
+    ],
+    [
+     -95.153,
+     49
+    ],
+    [
+     -95.153,
+     49.0
+    ],
+    [
+     -95.153,
+     49.384
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.4,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "dateline",
+   "scene": "blame",
+   "path": [
+    [
+     -104,
+     49
+    ],
+    [
+     -95.153,
+     49
+    ],
+    [
+     -95.153,
+     49.0
+    ],
+    [
+     -95.153,
+     49.384
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.4,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "qmark",
+   "scene": "blame",
+   "at": [
+    -96.5,
+    49.2
+   ],
+   "size": 1.4
+  },
+  {
+   "type": "dateline",
+   "scene": "treaty",
+   "path": [
+    [
+     -95.2,
+     47.24
+    ],
+    [
+     -94.9,
+     47.45
+    ],
+    [
+     -94.3,
+     47.3
+    ],
+    [
+     -93.9,
+     47.0
+    ],
+    [
+     -93.5,
+     46.6
+    ],
+    [
+     -93.7,
+     46.0
+    ],
+    [
+     -94.2,
+     45.5
+    ]
+   ],
+   "from": 0.2,
+   "dur": 1.6,
+   "h": 0.35,
+   "color": "#5ec8ff"
+  },
+  {
+   "type": "dateline",
+   "scene": "treaty",
+   "path": [
+    [
+     -95.153,
+     49.384
+    ],
+    [
+     -102,
+     49.384
+    ]
+   ],
+   "from": 1.8,
+   "dur": 2.4,
+   "h": 0.35,
+   "color": "#ff6b6b"
+  },
+  {
+   "type": "dateline",
+   "scene": "wrong",
+   "path": [
+    [
+     -95.2,
+     47.24
+    ],
+    [
+     -94.9,
+     47.45
+    ],
+    [
+     -94.3,
+     47.3
+    ],
+    [
+     -93.9,
+     47.0
+    ],
+    [
+     -93.5,
+     46.6
+    ],
+    [
+     -93.7,
+     46.0
+    ],
+    [
+     -94.2,
+     45.5
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.35,
+   "color": "#5ec8ff"
+  },
+  {
+   "type": "dateline",
+   "scene": "wrong",
+   "path": [
+    [
+     -95.153,
+     49.384
+    ],
+    [
+     -102,
+     49.384
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.35,
+   "color": "#ff6b6b"
+  },
+  {
+   "type": "qmark",
+   "scene": "wrong",
+   "at": [
+    -96.5,
+    48.3
+   ],
+   "size": 1.4,
+   "from": 2.0
+  },
+  {
+   "type": "dateline",
+   "scene": "fix",
+   "path": [
+    [
+     -104,
+     49
+    ],
+    [
+     -95.153,
+     49
+    ]
+   ],
+   "from": 0.3,
+   "dur": 2.2,
+   "h": 0.4,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "dateline",
+   "scene": "corner",
+   "path": [
+    [
+     -104,
+     49
+    ],
+    [
+     -95.153,
+     49
+    ],
+    [
+     -95.153,
+     49.0
+    ],
+    [
+     -95.153,
+     49.384
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.4,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "dateline",
+   "scene": "corner",
+   "path": [
+    [
+     -95.153,
+     49.0
+    ],
+    [
+     -95.153,
+     49.384
+    ]
+   ],
+   "from": 0.5,
+   "dur": 1.6,
+   "h": 0.6,
+   "color": "#ff6b6b"
+  },
+  {
+   "type": "dateline",
+   "scene": "stay",
+   "path": [
+    [
+     -104,
+     49
+    ],
+    [
+     -95.153,
+     49
+    ],
+    [
+     -95.153,
+     49.0
+    ],
+    [
+     -95.153,
+     49.384
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.4,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "flags",
+   "scene": "stay",
+   "flag": "usa",
+   "at": [
+    [
+     -95.1,
+     49.2
+    ]
+   ],
+   "from": 0.8,
+   "size": 1.8
+  },
+  {
+   "type": "dateline",
+   "scene": "end",
+   "path": [
+    [
+     -104,
+     49
+    ],
+    [
+     -95.153,
+     49
+    ],
+    [
+     -95.153,
+     49.0
+    ],
+    [
+     -95.153,
+     49.384
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.4,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "flags",
+   "scene": "end",
+   "flag": "usa",
+   "at": [
+    [
+     -95.1,
+     49.2
+    ]
+   ],
+   "from": 0.2,
+   "size": 2.2
+  }
+ ],
+ "sfx": [
+  [
+   "hook",
+   0.4,
+   "whoosh"
+  ],
+  [
+   "blame",
+   0.3,
+   "pop"
+  ],
+  [
+   "fix",
+   0.4,
+   "pop"
+  ]
+ ],
+ "fog_add": 0
+}
