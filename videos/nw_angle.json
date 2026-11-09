@@ -20,7 +20,7 @@
  "countries": {
   "usa": {
    "admin": "United States of America",
-   "color": "#5b8def"
+   "color": "#e8a45c"
   },
   "canada": {
    "admin": "Canada",
@@ -279,8 +279,8 @@
    ],
    "from": 0.1,
    "dur": 1.6,
-   "h": 0.4,
-   "color": "#ffc83d"
+   "h": 0.7,
+   "color": "#ffffff"
   },
   {
    "type": "drive",
@@ -329,8 +329,8 @@
    ],
    "from": 0,
    "dur": 0.01,
-   "h": 0.4,
-   "color": "#ffc83d"
+   "h": 0.7,
+   "color": "#ffffff"
   },
   {
    "type": "dateline",
@@ -355,8 +355,8 @@
    ],
    "from": 0,
    "dur": 0.01,
-   "h": 0.4,
-   "color": "#ffc83d"
+   "h": 0.7,
+   "color": "#ffffff"
   },
   {
    "type": "qmark",
@@ -504,8 +504,8 @@
    ],
    "from": 0.3,
    "dur": 2.2,
-   "h": 0.4,
-   "color": "#ffc83d"
+   "h": 0.7,
+   "color": "#ffffff"
   },
   {
    "type": "dateline",
@@ -530,8 +530,8 @@
    ],
    "from": 0,
    "dur": 0.01,
-   "h": 0.4,
-   "color": "#ffc83d"
+   "h": 0.7,
+   "color": "#ffffff"
   },
   {
    "type": "dateline",
@@ -574,8 +574,8 @@
    ],
    "from": 0,
    "dur": 0.01,
-   "h": 0.4,
-   "color": "#ffc83d"
+   "h": 0.7,
+   "color": "#ffffff"
   },
   {
    "type": "flags",
@@ -613,8 +613,8 @@
    ],
    "from": 0,
    "dur": 0.01,
-   "h": 0.4,
-   "color": "#ffc83d"
+   "h": 0.7,
+   "color": "#ffffff"
   },
   {
    "type": "flags",
