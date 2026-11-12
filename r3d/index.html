@@ -216,7 +216,7 @@ window.frame=(t)=>{
   const L=TL.lines.find(l=>t>=l.t0&&t<l.t1+0.15);
   if(L){const ws=L.words;let wi=ws.findIndex(w=>t<w[2]);if(wi<0)wi=ws.length-1;const g=Math.floor(wi/3)*3;
     html+=`<div class="cap">${ws.slice(g,g+3).map((w,j)=>`<span class="${g+j===wi?'on':''}">${w[0]}</span>`).join(' ')}</div>`}
-  ov.innerHTML=html; return true;
+  ov.innerHTML=html; return cards.list.some(c=>c.type==='video')?cards.paint(ov):true;   // 영상 카드가 있으면 프레임 그림을 기다림(render.js 가 await)
 };
 await document.fonts.load('400 80px AB');await document.fonts.load('800 40px IN');
 window.ready=true;

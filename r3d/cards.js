@@ -6,6 +6,10 @@
 // type "stat"  : 큰 숫자 하나 — value · prefix · suffix · label(아래 글) · count(숫자가 0→값으로 오르는 초, 기본 0.8, 0 이면 바로)
 // type "photo" : 사진 카드 — src(media/ 아래 파일 또는 https URL — 렌더 Actions 가 media/ 로 받아 둠) · credit(출처 줄, 필수: "Photo: 작가 / 라이선스")
 //                zoom(천천히 다가가는 배율, 기본 1.08) — 사진 설명은 title 로
+// type "video" : 실사 영상 컷(2026-11-12 Jacob 건의) — 화면 전체(9:16 자르기)를 덮는 짧은 실사. src(https URL 또는 media/파일) · start(원본 몇 초부터, 기본 0)
+//                credit(필수 "Video: 작가 / 라이선스 (출처)") · x(가로 자르기 위치 0~1, 기본 0.5) · page(원본 설명 페이지, 선택)
+//                원음 없음. media.py 가 ffmpeg 로 CLIP 초를 1080×1920·30fps JPG 로 잘라 media/<videoDir>/ 에 둔다(레포엔 클립을 안 쌓음)
+//                한 장 1.5~2.5초 · 한 편 ≤3장 · 허용 출처(Commons·NASA)는 precheck 가 본다. 진짜 촬영물만 — AI 생성 영상·다른 장소 컷 금지
 // 카드가 화면을 다 덮은 동안은 3D 렌더를 건너뛴다(렌더 시간 절약). 자막·진행 막대·로고는 카드 위에 그대로.
 export const CARD_CSS=`
 .card{position:absolute;left:0;right:0;top:0;bottom:0;background:radial-gradient(120% 80% at 50% 30%,#1b2a44 0%,#0a0f1a 70%)}
@@ -22,6 +26,11 @@ export const CARD_CSS=`
 .card .stat .lab{font:800 56px IN;color:#fff;letter-spacing:4px;margin-top:26px;padding:0 70px}
 .card .ph{position:absolute;left:60px;right:60px;top:380px;height:820px;border-radius:36px;overflow:hidden;border:4px solid #FFC83D;box-shadow:0 20px 60px rgba(0,0,0,.6);background:#111}
 .card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 45%}
+.card.vd{background:#000}
+.card .vf{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .vsh{position:absolute;inset:0;background:linear-gradient(#000a 0%,#0000 26%,#0000 58%,#000b 100%)}
+.card.vd .ttl{text-shadow:0 6px 30px #000c}
+.card .vcr{position:absolute;right:56px;left:56px;top:1290px;font:600 26px IN;color:#fff;opacity:.92;text-align:right;text-shadow:0 2px 8px #000}
 .card .cr{position:absolute;right:66px;top:1214px;font:600 26px IN;color:#c9d3e6;opacity:.9;text-align:right;max-width:950px}
 `;
 const cl=x=>Math.max(0,Math.min(1,x)), out3=u=>1-Math.pow(1-cl(u),3);
@@ -31,10 +40,17 @@ const decs=v=>{const m=String(v).match(/\.(\d+)/);return m?m[1].length:0};
 // 카드 사진 파일 경로: 언제나 media/<마지막 이름> (URL·로컬 둘 다) (render.yml·make.sh 가 같은 이름으로 받음)
 export const mediaPath=src=>'media/'+decodeURIComponent(String(src).split('?')[0].split('/').pop());
 
+// 영상 카드 프레임 폴더: media/v_<이름>_<start> — media.py videoDir 과 같은 규칙 (영숫자 밖 → _, 이름 60자)
+export const videoDir=c=>{const nm=decodeURIComponent(String(c.src).split('?')[0].split('/').pop()).replace(/\.[A-Za-z0-9]+$/,'').replace(/[^A-Za-z0-9]/g,'_').slice(0,60);
+  const st=Math.round((+c.start||0)*100); return 'media/v_'+nm+'_'+st};
+export const VFPS=30;
+
 export async function makeCards(CFG,T0,T1){
   const list=(CFG.cards||[]).filter(c=>T0[c.scene]!==undefined).map(c=>{
     const a=T0[c.scene]+(c.from||0), b=c.to!=null?T0[c.scene]+c.to:T1[c.scene];
     return {...c,a,b,in:c.in??0.3,out:c.out??0.3}});
+  for(const c of list) if(c.type==='video'){c.dir=videoDir(c);
+    try{c.n=(await (await fetch(c.dir+'/clip.json')).json()).n}catch(e){c.n=0;console.log('card video missing',c.src)}}
   for(const c of list) if(c.type==='photo'){const im=new Image();im.src=mediaPath(c.src);try{await im.decode()}catch(e){console.log('card photo missing',c.src)}}
   // 지금 보일 카드와 덮는 정도(0~1)
   function at(t){for(const c of list){if(t<c.a||t>=c.b)continue;
@@ -42,7 +58,10 @@ export async function makeCards(CFG,T0,T1){
     return null}
   function html(t){const k=at(t);if(!k)return {html:'',cover:0};const {c,v,lt}=k;
     const e=out3(v), slide=((1-e)*120).toFixed(0);   // 들어올 때 아래에서 살짝 올라오며 나타남, 나갈 때 반대
-    let h=`<div class="card" style="opacity:${e.toFixed(3)};transform:translateY(${slide}px)">`;
+    let h=`<div class="card${c.type==='video'?' vd':''}" style="opacity:${e.toFixed(3)};transform:translateY(${slide}px)">`;
+    if(c.type==='video'){const k=Math.max(1,Math.min(c.n,1+Math.floor(lt*VFPS+1e-6)));   // 카드 안 시간 → 프레임(끝나면 마지막 프레임 유지)
+      h+=c.n?`<img class="vf" src="${c.dir}/${String(k).padStart(3,'0')}.jpg">`:'';
+      h+=`<div class="vsh"></div><div class="vcr">${esc(c.credit||'')}</div>`}
     if(c.title) h+=`<div class="ttl">${esc(c.title)}</div>`;
     if(c.type==='bars'){const its=c.items||[], mx=Math.max(...its.map(x=>+x[1]),1e-9), st=c.step??0.35, gr=c.grow??0.6;
       h+=`<div class="bars">`;
@@ -56,5 +75,8 @@ export async function makeCards(CFG,T0,T1){
     else if(c.type==='photo'){const z=1+((c.zoom??1.08)-1)*cl(lt/Math.max(0.5,c.b-c.a));
       h+=`<div class="ph"><img src="${esc(mediaPath(c.src))}" style="transform:scale(${z.toFixed(4)})"></div><div class="cr">${esc(c.credit||'')}</div>`}
     return {html:h+`</div>`,cover:e}}
-  return {list,at,html};
+  // ov.innerHTML 을 넣은 뒤 부른다: 영상 프레임 그림이 다 풀릴 때까지 기다려 스크린샷에 빈 칸이 안 찍히게
+  async function paint(root){const ims=[...root.querySelectorAll('img.vf')];
+    await Promise.all(ims.map(im=>im.decode().catch(()=>console.log('card video frame missing',im.getAttribute('src')))));return true}
+  return {list,at,html,paint};
 }

@@ -69,21 +69,42 @@ chk=[('길이 35~40초',35<=TOT<=40,f'{TOT:.1f}s'),
      ('낯선 고유명사',not BADNAME,('발음 철자 칸 필요 또는 이름 빼기: '+', '.join(BADNAME)+' — 음성 뒤 tts-out check.txt 에서 맞게(0.9↑) 읽혔으면 r3d/known_names.txt 에 넣고 다시 실행(오탐을 ❌ 로 남기면 자동 예약이 막힘)') if BADNAME else '모두 확인됨(사전·known_names·발음 칸)'+('' if COMMON is not None else ' · 사전 없음: 문장 첫 단어는 건너뜀')),
      ('단어 타이밍(words.json 줄 수)',not VD or len(json.load(open(f'{VD}/words.json')))==len(rows),'' if VD else '(음성 없음 — 추정)')]
 # 지도 밖 장면 카드(cards.js, 결재함 101): 장면 이름·사진 출처 줄·사진 파일 확인 + 화면 변화 간격(ℹ️, 아직 기준 아님 — 전략 회의 ≤2.5초)
+# 실사 영상 카드(2026-11-12 Jacob 건의 실사 혼합): 허용 출처만(진짜 촬영물 — AI 생성 영상 금지는 사람이 본다) · 출처 줄 · 한 장 1.5~2.5초 · 한 편 ≤3장
+VHOST=('commons.wikimedia.org','upload.wikimedia.org')   # Pexels·Pixabay 는 라이선스 확인 전이라 뺌(2026-11-12 엔지니어링팀)
+VLIC=re.compile(r'\bCC BY \d|\bCC0\b|public domain|\bNASA\b',re.I)
+def vcheck(c,ST,SN,TOT):
+    from urllib.parse import urlparse
+    bad=[]; src=str(c.get('src','')); cr=(c.get('credit') or '').strip()
+    if src.startswith('http'):
+        h=(urlparse(src).hostname or '').lower()
+        if not (h in VHOST or h=='nasa.gov' or h.endswith('.nasa.gov')): bad.append(f"영상 출처 허용 밖 {h} (Commons·NASA 만)")
+    elif not os.path.exists(os.path.join(HERE,'..','media',os.path.basename(src))): bad.append(f"영상 파일 없음 {src}")
+    if not cr: bad.append(f"영상 출처 줄 없음 {src}")
+    elif not cr.startswith('Video:'): bad.append(f"영상 출처 줄은 'Video: …' 로 시작 ({cr[:30]})")
+    elif not VLIC.search(cr): bad.append(f"영상 라이선스 표기 없음/허용 밖(CC BY·CC0·Public domain·NASA) ({cr[:40]})")
+    if re.search(r'CC BY-SA|CC BY-NC|CC BY-ND',cr,re.I): bad.append(f"영상 라이선스 허용 밖 ({cr[:40]})")
+    s_=ST[c['scene']]; j=SN.index(c['scene']); e_=ST[SN[j+1]] if j+1<len(SN) else TOT
+    L=(s_+c['to'] if c.get('to') is not None else e_)-(s_+(c.get('from') or 0))
+    if not 1.5<=L<=2.5: bad.append(f"영상 카드 길이 {L:.1f}초 (1.5~2.5초 — to 로 끊기)")
+    return bad
 SC=[r[0] for r in rows]; ST={}; [ST.setdefault(s_,a_) for s_,_,a_,_ in rows]; SN=list(ST)
 CBAD=[]; CHG=sorted(set(ST.values()))
 for c in cfg.get('cards',[]):
     if c.get('scene') not in ST: CBAD.append(f"장면 없음 {c.get('scene')}"); continue
-    if c.get('type') not in ('bars','stat','photo'): CBAD.append(f"type {c.get('type')}")
+    if c.get('type') not in ('bars','stat','photo','video'): CBAD.append(f"type {c.get('type')}")
+    if c.get('type')=='video': CBAD+=vcheck(c,ST,SN,TOT)
     if c.get('type')=='photo':
         if not (c.get('credit') or '').strip(): CBAD.append(f"출처 줄 없음 {c.get('src')}")
         if not str(c.get('src','')).startswith('http') and not os.path.exists(os.path.join(HERE,'..','media',os.path.basename(c.get('src','')))): CBAD.append(f"사진 파일 없음 {c.get('src')}")
     s_=ST[c['scene']]; j=SN.index(c['scene']); e_=ST[SN[j+1]] if j+1<len(SN) else TOT
     CHG+= [s_+(c.get('from') or 0)] + ([s_+c['to']] if c.get('to') is not None and s_+c['to']<e_-0.05 else [])
 CHG=sorted(set(round(x,2) for x in CHG+[TOT])); GAP=max((b_-a_ for a_,b_ in zip(CHG,CHG[1:])),default=0)
+NV=sum(1 for c in cfg.get('cards',[]) if c.get('type')=='video')
+if NV>3: CBAD.append(f"영상 카드 {NV}장 (한 편 ≤3장)")
 chk.append(('카드(지도 밖 장면)',not CBAD,', '.join(CBAD) or f"{len(cfg.get('cards',[]))}개"))
 for name,ok,v in chk: print(('✅' if ok else '❌'),name,v)
 if BGI and BGI.get('title'): print(f'ℹ️ 설명란에 넣을 줄: Music: "{BGI["title"]}" Kevin MacLeod (incompetech.com) · Licensed under Creative Commons: By Attribution 4.0 · http://creativecommons.org/licenses/by/4.0/')
 print(f'ℹ️ 화면 변화 최장 간격 {GAP:.1f}s (장면 전환+카드 들고 남, 목표 ≤2.5초 — 아직 판정 기준 아님)')
 for c in cfg.get('cards',[]):
-    if c.get('type')=='photo' and c.get('credit'): print(f"ℹ️ 설명란에 넣을 줄: {c['credit']}" + (f" ({c['src']})" if str(c.get('src','')).startswith('http') else ''))
+    if c.get('type') in ('photo','video') and c.get('credit'): print(f"ℹ️ 설명란에 넣을 줄: {c['credit']}" + (f" ({c.get('page') or c['src']})" if str(c.get('src','')).startswith('http') else ''))
 sys.exit(0 if all(ok for _,ok,_ in chk) else 1)
