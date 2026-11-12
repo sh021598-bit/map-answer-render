@@ -92,3 +92,13 @@ angle
 lake
 woods
 mississippi
+
+# 011 (2026-11-12, check.txt 에서 맞게 읽힘 확인)
+Nevada
+Los
+Angeles
+California
+Middle
+Erie
+Washington
+Atlantic
