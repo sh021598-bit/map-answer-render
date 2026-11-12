@@ -1,0 +1,10 @@
+00 1.00 | Four places on this map feel wrong, but each one is true. | Four places on this map feel wrong, but each one is true.
+01 0.89 | One. Reno, Nevada, is farther west than Los Angeles. | 1. Reno, Nevada is farther west than Los Angeles.
+02 1.00 | California's coast bends east as it runs south. | California's coast bends east as it runs south.
+03 0.90 | Two. Canada's southernmost point is south of California's northern border. | 2. Canada's southernmost point is south of California's northern border.
+04 1.00 | It's Middle Island, sitting in Lake Erie. | It's Middle Island, sitting in Lake Erie.
+05 0.76 | Three. Lima, Peru, is almost exactly south of Washington, D.C. | 3. Lima, Peru is almost exactly south of Washington, D .C.
+06 0.77 | Both sit near seventy-seven degrees west. | Both sit near 77 degrees west.
+07 0.93 | Four. In Panama, the Pacific end of the canal is east of the Atlantic end. | 4. In Panama, the Pacific end of the canal is east of the Atlantic end.
+08 1.00 | So ships cross heading southeast, from the Atlantic to the Pacific. | So, ships cross heading southeast, from the Atlantic to the Pacific.
+09 1.00 | Four places that feel wrong, and each one is true. | Four places that feel wrong and each one is true.
