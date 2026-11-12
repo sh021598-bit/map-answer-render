@@ -1,0 +1,688 @@
+{
+ "id": "011-map-facts",
+ "title": "4 map facts that feel wrong",
+ "format": "F2",
+ "globe": false,
+ "tail": 0.3,
+ "bgm": "bright",
+ "region": {
+  "lon": [
+   -126,
+   -68
+  ],
+  "lat": [
+   -14,
+   52
+  ],
+  "nx": 800,
+  "smooth": 1.0
+ },
+ "countries": {
+  "usa": {
+   "admin": "United States of America",
+   "color": "#e8a45c"
+  },
+  "canada": {
+   "admin": "Canada",
+   "color": "#8fbf6f"
+  },
+  "peru": {
+   "admin": "Peru",
+   "color": "#e0605a"
+  },
+  "panama": {
+   "admin": "Panama",
+   "color": "#b57be0"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "Four map facts that feel wrong, but a map proves every one."
+  ],
+  [
+   "reno",
+   "One. Reno, Nevada, is farther west than Los Angeles."
+  ],
+  [
+   "reno2",
+   "California's coast bends east as it runs south."
+  ],
+  [
+   "ca",
+   "Two. Canada's southernmost point is south of California's northern border."
+  ],
+  [
+   "ca2",
+   "That's Middle Island, in Lake Erie."
+  ],
+  [
+   "lima",
+   "Three. Lima, Peru, is almost exactly south of Washington, D.C.",
+   "Three. Lima, Peru, is almost exactly south of Washington D C."
+  ],
+  [
+   "lima2",
+   "Both sit near seventy-seven degrees west."
+  ],
+  [
+   "pan",
+   "Four. In Panama, the Pacific end of the canal is east of the Atlantic end."
+  ],
+  [
+   "pan2",
+   "So ships cross heading southeast, from the Atlantic to the Pacific."
+  ],
+  [
+   "end",
+   "Four facts that feel wrong, and the map backs every one."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    -98,
+    18
+   ],
+   34,
+   56,
+   0
+  ],
+  "reno": [
+   [
+    -119.5,
+    37
+   ],
+   9,
+   54,
+   -6
+  ],
+  "reno2": [
+   [
+    -120.5,
+    35.5
+   ],
+   10,
+   50,
+   8
+  ],
+  "ca": [
+   [
+    -103,
+    42
+   ],
+   26,
+   58,
+   0
+  ],
+  "ca2": [
+   [
+    -82.8,
+    41.8
+   ],
+   6,
+   52,
+   -8
+  ],
+  "lima": [
+   [
+    -77.5,
+    13
+   ],
+   32,
+   58,
+   0
+  ],
+  "lima2": [
+   [
+    -77.2,
+    -10
+   ],
+   9,
+   52,
+   6
+  ],
+  "pan": [
+   [
+    -79.7,
+    9.1
+   ],
+   7,
+   54,
+   0
+  ],
+  "pan2": [
+   [
+    -79.75,
+    9.15
+   ],
+   4.5,
+   56,
+   8
+  ],
+  "end": [
+   [
+    -98,
+    18
+   ],
+   34,
+   58,
+   -6
+  ]
+ },
+ "orbit": {
+  "hook": 4,
+  "ca": -3,
+  "lima": 3,
+  "end": -4
+ },
+ "tint": {
+  "hook": {
+   "usa": 1,
+   "canada": 1,
+   "peru": 1,
+   "panama": 1
+  },
+  "reno": {
+   "usa": 1,
+   "canada": 1,
+   "peru": 1,
+   "panama": 1
+  },
+  "reno2": {
+   "usa": 1,
+   "canada": 1,
+   "peru": 1,
+   "panama": 1
+  },
+  "ca": {
+   "usa": 1,
+   "canada": 1,
+   "peru": 1,
+   "panama": 1
+  },
+  "ca2": {
+   "usa": 1,
+   "canada": 1,
+   "peru": 1,
+   "panama": 1
+  },
+  "lima": {
+   "usa": 1,
+   "canada": 1,
+   "peru": 1,
+   "panama": 1
+  },
+  "lima2": {
+   "usa": 1,
+   "canada": 1,
+   "peru": 1,
+   "panama": 1
+  },
+  "pan": {
+   "usa": 1,
+   "canada": 1,
+   "peru": 1,
+   "panama": 1
+  },
+  "pan2": {
+   "usa": 1,
+   "canada": 1,
+   "peru": 1,
+   "panama": 1
+  },
+  "end": {
+   "usa": 1,
+   "canada": 1,
+   "peru": 1,
+   "panama": 1
+  }
+ },
+ "lift": {},
+ "exaggerate": {},
+ "badges": {},
+ "big": {
+  "hook": [
+   "4 MAP FACTS",
+   "THAT FEEL WRONG"
+  ],
+  "reno": [
+   "RENO",
+   "IS WEST OF L.A."
+  ],
+  "ca": [
+   "42°N",
+   "CALIFORNIA'S EDGE"
+  ],
+  "lima": [
+   "LIMA",
+   "SOUTH OF D.C."
+  ],
+  "pan": [
+   "PANAMA",
+   "PACIFIC IS EAST"
+  ]
+ },
+ "labels": {
+  "reno": [
+   [
+    "RENO",
+    -119.8,
+    39.5,
+    0.4
+   ],
+   [
+    "LOS ANGELES",
+    -118.2,
+    34.05,
+    0.4
+   ]
+  ],
+  "reno2": [
+   [
+    "LOS ANGELES",
+    -118.2,
+    34.05,
+    0.4
+   ]
+  ],
+  "ca": [
+   [
+    "CALIFORNIA",
+    -121,
+    40.4,
+    0.4
+   ],
+   [
+    "ONTARIO",
+    -80.5,
+    43.5,
+    0.4
+   ]
+  ],
+  "ca2": [
+   [
+    "MIDDLE ISLAND",
+    -82.68,
+    41.68,
+    0.3
+   ]
+  ],
+  "lima": [
+   [
+    "WASHINGTON, D.C.",
+    -77.04,
+    38.9,
+    0.4
+   ],
+   [
+    "LIMA",
+    -77.04,
+    -12.05,
+    0.4
+   ]
+  ],
+  "lima2": [
+   [
+    "LIMA",
+    -77.04,
+    -12.05,
+    0.3
+   ]
+  ],
+  "pan": [
+   [
+    "COLON",
+    -79.92,
+    9.36,
+    0.3
+   ],
+   [
+    "BALBOA",
+    -79.57,
+    8.95,
+    0.3
+   ]
+  ],
+  "pan2": [
+   [
+    "COLON",
+    -79.92,
+    9.36,
+    0.3
+   ],
+   [
+    "BALBOA",
+    -79.57,
+    8.95,
+    0.3
+   ]
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "dateline",
+   "scene": "reno",
+   "path": [
+    [
+     -119.0,
+     31
+    ],
+    [
+     -119.0,
+     42
+    ]
+   ],
+   "from": 0.2,
+   "dur": 1.6,
+   "h": 0.7,
+   "color": "#ffffff"
+  },
+  {
+   "type": "qmark",
+   "scene": "reno",
+   "at": [
+    -119.8,
+    39.53
+   ],
+   "size": 1.2
+  },
+  {
+   "type": "dateline",
+   "scene": "reno2",
+   "path": [
+    [
+     -119.0,
+     31
+    ],
+    [
+     -119.0,
+     42
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.7,
+   "color": "#ffffff"
+  },
+  {
+   "type": "dateline",
+   "scene": "reno2",
+   "path": [
+    [
+     -124.2,
+     40.4
+    ],
+    [
+     -122.4,
+     37.8
+    ],
+    [
+     -120.6,
+     34.5
+    ],
+    [
+     -118.2,
+     33.8
+    ],
+    [
+     -117.1,
+     32.6
+    ]
+   ],
+   "from": 0.3,
+   "dur": 2.0,
+   "h": 0.5,
+   "color": "#ffd24a"
+  },
+  {
+   "type": "dateline",
+   "scene": "ca",
+   "path": [
+    [
+     -124.4,
+     42
+    ],
+    [
+     -82.0,
+     42
+    ]
+   ],
+   "from": 0.3,
+   "dur": 2.4,
+   "h": 0.5,
+   "color": "#ffffff"
+  },
+  {
+   "type": "qmark",
+   "scene": "ca",
+   "at": [
+    -82.68,
+    41.68
+   ],
+   "size": 2.0,
+   "from": 2.6
+  },
+  {
+   "type": "dateline",
+   "scene": "ca2",
+   "path": [
+    [
+     -124.4,
+     42
+    ],
+    [
+     -82.0,
+     42
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.5,
+   "color": "#ffffff"
+  },
+  {
+   "type": "flags",
+   "scene": "ca2",
+   "flag": "#d52b1e",
+   "at": [
+    [
+     -82.68,
+     41.68
+    ]
+   ],
+   "from": 0.5,
+   "size": 1.4
+  },
+  {
+   "type": "dateline",
+   "scene": "lima",
+   "path": [
+    [
+     -77.04,
+     -14
+    ],
+    [
+     -77.04,
+     38.9
+    ]
+   ],
+   "from": 0.2,
+   "dur": 2.6,
+   "h": 0.6,
+   "color": "#ffffff"
+  },
+  {
+   "type": "flags",
+   "scene": "lima",
+   "flag": "usa",
+   "at": [
+    [
+     -77.04,
+     38.9
+    ]
+   ],
+   "from": 1.2,
+   "size": 3.0
+  },
+  {
+   "type": "flags",
+   "scene": "lima",
+   "flag": "peru",
+   "at": [
+    [
+     -77.04,
+     -12.05
+    ]
+   ],
+   "from": 2.4,
+   "size": 3.0
+  },
+  {
+   "type": "dateline",
+   "scene": "lima2",
+   "path": [
+    [
+     -77.04,
+     -14
+    ],
+    [
+     -77.04,
+     38.9
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.6,
+   "color": "#ffffff"
+  },
+  {
+   "type": "flags",
+   "scene": "lima2",
+   "flag": "peru",
+   "at": [
+    [
+     -77.04,
+     -12.05
+    ]
+   ],
+   "from": 0.2,
+   "size": 1.2
+  },
+  {
+   "type": "dateline",
+   "scene": "pan",
+   "path": [
+    [
+     -79.92,
+     9.37
+    ],
+    [
+     -79.92,
+     9.28
+    ],
+    [
+     -79.75,
+     9.12
+    ],
+    [
+     -79.65,
+     9.05
+    ],
+    [
+     -79.57,
+     8.95
+    ]
+   ],
+   "from": 0.3,
+   "dur": 2.2,
+   "h": 0.35,
+   "color": "#ffd24a"
+  },
+  {
+   "type": "qmark",
+   "scene": "pan",
+   "at": [
+    -79.57,
+    8.95
+   ],
+   "size": 0.5,
+   "from": 2.6
+  },
+  {
+   "type": "dateline",
+   "scene": "pan2",
+   "path": [
+    [
+     -79.92,
+     9.37
+    ],
+    [
+     -79.92,
+     9.28
+    ],
+    [
+     -79.75,
+     9.12
+    ],
+    [
+     -79.65,
+     9.05
+    ],
+    [
+     -79.57,
+     8.95
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.35,
+   "color": "#ffd24a"
+  }
+ ],
+ "cards": [
+  {
+   "type": "stat",
+   "scene": "ca2",
+   "from": 0.4,
+   "to": 2.4,
+   "in": 0.2,
+   "out": 0.2,
+   "value": 41.7,
+   "suffix": "°N",
+   "label": "MIDDLE ISLAND, CANADA",
+   "count": 0.6
+  },
+  {
+   "type": "stat",
+   "scene": "lima2",
+   "from": 0.5,
+   "to": 2.7,
+   "in": 0.2,
+   "out": 0.2,
+   "value": 77,
+   "suffix": "°W",
+   "label": "LIMA + WASHINGTON, D.C.",
+   "count": 0.6
+  },
+  {
+   "type": "stat",
+   "scene": "pan2",
+   "from": 0.9,
+   "to": 3.1,
+   "in": 0.2,
+   "out": 0.2,
+   "value": 25,
+   "suffix": " MILES",
+   "label": "PACIFIC END IS EAST",
+   "count": 0.6
+  }
+ ],
+ "sfx": [],
+ "fog_add": 0
+}
