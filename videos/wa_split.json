@@ -1,0 +1,63 @@
+{
+ "id": "012-wa-split",
+ "title": "What if Western Australia had left?",
+ "format": "F3",
+ "globe": false,
+ "tail": 0.3,
+ "bgm": "epic",
+ "region": {"lon": [108, 158], "lat": [-46, -8], "nx": 800, "smooth": 1.0},
+ "countries": {"australia": {"admin": "Australia", "color": "#e8a45c"}},
+ "borders": {},
+ "lines": [
+  ["hook", "Two out of three voters here chose to leave Australia."],
+  ["year", "It was 1933, and Western Australia wanted to be its own country.", "It was nineteen thirty-three, and Western Australia wanted to be its own country."],
+  ["cut", "So what if they had actually left? Cut the map right here."],
+  ["big", "The new country would be the tenth-largest on Earth, bigger than Algeria."],
+  ["no", "But Britain's Parliament refused to accept their petition."],
+  ["end", "So the map still shows one Australia, even though"]
+ ],
+ "shots": {
+  "hook": [[123, -25], 20, 55, 0],
+  "year": [[133.5, -26.5], 30, 56, 0],
+  "cut": [[127.5, -23], 17, 60, 6],
+  "big": [[122.5, -25.5], 23, 54, -6],
+  "no": [[133.5, -26.5], 31, 57, 4],
+  "end": [[123, -25], 21, 55, 0]
+ },
+ "orbit": {"hook": 4, "year": -3, "big": 3, "end": 4},
+ "tint": {"hook": {"australia": 1}, "year": {"australia": 1}, "cut": {"australia": 1}, "big": {"australia": 1}, "no": {"australia": 1}, "end": {"australia": 1}},
+ "lift": {},
+ "exaggerate": {},
+ "badges": {},
+ "big": {
+  "hook": ["2 IN 3 VOTED", "TO LEAVE AUSTRALIA"],
+  "cut": ["WHAT IF?", "A NEW BORDER"],
+  "no": ["REFUSED", "BY BRITAIN, 1935"]
+ },
+ "labels": {
+  "hook": [["WESTERN AUSTRALIA", 122, -26, 0.45]],
+  "year": [["WESTERN AUSTRALIA", 121.5, -26, 0.4], ["REST OF AUSTRALIA", 140, -27, 0.4]],
+  "big": [["NEW COUNTRY", 122, -26, 0.45]],
+  "no": [["WESTERN AUSTRALIA", 121.5, -26, 0.4]],
+  "end": [["AUSTRALIA", 128, -26, 0.45]]
+ },
+ "endcard": ["THE MAP ANSWER", "SUBSCRIBE FOR THE NEXT MAP"],
+ "props": [
+  {"type": "dateline", "scene": "hook", "path": [[129, -14.9], [129, -31.7]], "from": 0.1, "dur": 1.4, "h": 0.8, "color": "#ffffff"},
+  {"type": "qmark", "scene": "hook", "at": [121, -23], "size": 1.4, "from": 1.6},
+  {"type": "dateline", "scene": "year", "path": [[129, -14.9], [129, -31.7]], "from": 0, "dur": 0.01, "h": 0.8, "color": "#ffffff"},
+  {"type": "dateline", "scene": "cut", "path": [[129, -14.9], [129, -31.7]], "from": 0, "dur": 0.01, "h": 0.8, "color": "#ffffff"},
+  {"type": "dateline", "scene": "cut", "path": [[129.15, -14.9], [129.15, -31.7]], "from": 1.4, "dur": 1.5, "h": 1.6, "color": "#ff5a4f"},
+  {"type": "flags", "scene": "cut", "flag": "#1f5fbf", "at": [[122, -25]], "from": 2.6, "size": 3.0},
+  {"type": "dateline", "scene": "big", "path": [[129.15, -14.9], [129.15, -31.7]], "from": 0, "dur": 0.01, "h": 1.6, "color": "#ff5a4f"},
+  {"type": "flags", "scene": "big", "flag": "#1f5fbf", "at": [[122, -25]], "from": 0, "size": 3.0},
+  {"type": "dateline", "scene": "no", "path": [[129, -14.9], [129, -31.7]], "from": 0, "dur": 0.01, "h": 0.8, "color": "#ffffff"},
+  {"type": "dateline", "scene": "end", "path": [[129, -14.9], [129, -31.7]], "from": 0, "dur": 0.01, "h": 0.8, "color": "#ffffff"}
+ ],
+ "cards": [
+  {"type": "stat", "scene": "year", "from": 1.4, "to": 3.6, "in": 0.2, "out": 0.2, "value": 66, "suffix": "%", "label": "VOTED YES, 1933", "count": 0.6},
+  {"type": "bars", "scene": "big", "from": 1.2, "in": 0.2, "out": 0.2, "title": "COUNTRY SIZE", "unit": "M KM²", "items": [["KAZAKHSTAN", 2.72], ["W. AUSTRALIA", 2.53, "#ffd24a"], ["ALGERIA", 2.38]]}
+ ],
+ "sfx": [],
+ "fog_add": 0
+}
