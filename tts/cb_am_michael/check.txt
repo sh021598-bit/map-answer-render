@@ -1,0 +1,9 @@
+00 1.00 | Panama used to be part of Colombia. | Panama used to be part of Colombia.
+01 1.00 | It broke away for one big reason: a canal. | It broke away for one big reason, a canal.
+02 1.00 | This thin strip is the shortcut between two oceans. | This thin strip is the shortcut between two oceans.
+03 0.88 | In 1903, Colombia's Senate rejected America's canal deal. | In 1903, Columbia Senate rejected America's canal deal.
+04 1.00 | So when Panama declared independence, the United States backed it. | So when Panama declared independence, the United States backed it.
+05 0.83 | An American warship stood guard, and Colombia's troops got stuck in Colón. | An American warship stood guard, and Columbia's troops got stuck in Cologne.
+06 0.93 | Fifteen days later, a treaty gave America a ten-mile strip across Panama, forever. | Fifteen days later, a treaty gave America a 10 -mile strip across Panama forever.
+07 1.00 | The canal opened in 1914. Panama got it back in 1999. | The canal opened in 1914. Panama got it back in 1999.
+08 1.00 | Today the canal is Panama's, not Colombia's, even though | Today, the canal is Panama's, not Colombia's, even though
