@@ -26,6 +26,9 @@ function flagTex(kind){const c=document.createElement('canvas');c.width=192;c.he
   else if(kind==='argentina'){bands(['#74acdf','#fff','#74acdf']);g.fillStyle='#f6b40e';g.beginPath();g.arc(96,64,13,0,7);g.fill()}
   else if(kind==='denmark'){g.fillStyle='#c8102e';g.fillRect(0,0,192,128);g.fillStyle='#fff';g.fillRect(56,0,24,128);g.fillRect(0,52,192,24)}
   else if(kind==='france'){g.fillStyle='#0055a4';g.fillRect(0,0,64,128);g.fillStyle='#fff';g.fillRect(64,0,64,128);g.fillStyle='#ef4135';g.fillRect(128,0,64,128)}
+  else if(kind==='colombia') bands(['#fcd116','#fcd116','#003893','#ce1126']);
+  else if(kind==='panama'){g.fillStyle='#fff';g.fillRect(0,0,192,128);g.fillStyle='#d21034';g.fillRect(96,0,96,64);g.fillStyle='#005293';g.fillRect(0,64,96,64);
+    const st=(cx,cy,col)=>{g.fillStyle=col;g.beginPath();for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rr=i%2?6:15;g.lineTo(cx+rr*Math.cos(a),cy+rr*Math.sin(a))}g.fill()};st(48,32,'#005293');st(144,96,'#d21034')}
   else if(kind==='russia') bands(['#ffffff','#0039a6','#d52b1e']);
   else if(kind==='ussr'){g.fillStyle='#cc0000';g.fillRect(0,0,192,128);g.fillStyle='#ffd700';g.beginPath();for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rr=i%2?4:10;g.lineTo(34+rr*Math.cos(a),22+rr*Math.sin(a))}g.fill();
     g.strokeStyle='#ffd700';g.lineWidth=5;g.beginPath();g.arc(36,52,12,0.3,Math.PI*1.25);g.stroke();g.beginPath();g.moveTo(26,64);g.lineTo(46,42);g.stroke()}

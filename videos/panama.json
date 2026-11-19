@@ -1,0 +1,710 @@
+{
+ "id": "013-panama",
+ "title": "Why Panama is not part of Colombia",
+ "format": "F4",
+ "globe": false,
+ "tail": 0.3,
+ "bgm": "tense",
+ "region": {
+  "lon": [
+   -84,
+   -74
+  ],
+  "lat": [
+   4.5,
+   11
+  ],
+  "nx": 800,
+  "smooth": 1.0
+ },
+ "countries": {
+  "panama": {
+   "admin": "Panama",
+   "color": "#ff4d4d"
+  },
+  "colombia": {
+   "admin": "Colombia",
+   "color": "#f2c94c"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "Panama used to be part of Colombia.",
+   "Panama used to be part of Colombia."
+  ],
+  [
+   "why",
+   "It broke away for one big reason: a canal."
+  ],
+  [
+   "strip",
+   "This thin strip is the shortcut between two oceans."
+  ],
+  [
+   "no",
+   "In 1903, Colombia's Senate rejected America's canal deal.",
+   "In nineteen oh three, Colombia's Senate rejected America's canal deal."
+  ],
+  [
+   "revolt",
+   "So when Panama declared independence, the United States backed it."
+  ],
+  [
+   "ship",
+   "An American warship stood guard, and Colombia's troops got stuck in Colón.",
+   "An American warship stood guard, and Colombia's troops got stuck in Coh-lone."
+  ],
+  [
+   "zone",
+   "Fifteen days later, a treaty gave America a ten-mile strip across Panama, forever."
+  ],
+  [
+   "back",
+   "The canal opened in 1914. Panama got it back in 1999.",
+   "The canal opened in nineteen fourteen. Panama got it back in nineteen ninety-nine."
+  ],
+  [
+   "end",
+   "Today the canal is Panama's, not Colombia's, even though"
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    -78.6,
+    8.4
+   ],
+   11,
+   56,
+   0
+  ],
+  "why": [
+   [
+    -79.7,
+    9.1
+   ],
+   5,
+   58,
+   6
+  ],
+  "strip": [
+   [
+    -79.7,
+    9.0
+   ],
+   8,
+   54,
+   -6
+  ],
+  "no": [
+   [
+    -77.5,
+    7.2
+   ],
+   13,
+   55,
+   4
+  ],
+  "revolt": [
+   [
+    -79.5,
+    8.8
+   ],
+   7,
+   57,
+   -4
+  ],
+  "ship": [
+   [
+    -79.85,
+    9.3
+   ],
+   4,
+   58,
+   8
+  ],
+  "zone": [
+   [
+    -79.72,
+    9.12
+   ],
+   4.5,
+   60,
+   -6
+  ],
+  "back": [
+   [
+    -79.7,
+    9.1
+   ],
+   6,
+   56,
+   4
+  ],
+  "end": [
+   [
+    -78.6,
+    8.4
+   ],
+   11,
+   56,
+   0
+  ]
+ },
+ "orbit": {
+  "hook": 5,
+  "strip": -4,
+  "zone": 4,
+  "end": 5
+ },
+ "tint": {
+  "hook": {
+   "panama": 1,
+   "colombia": 1
+  },
+  "why": {
+   "panama": 1,
+   "colombia": 1
+  },
+  "strip": {
+   "panama": 1,
+   "colombia": 1
+  },
+  "no": {
+   "panama": 1,
+   "colombia": 1
+  },
+  "revolt": {
+   "panama": 1,
+   "colombia": 1
+  },
+  "ship": {
+   "panama": 1,
+   "colombia": 1
+  },
+  "zone": {
+   "panama": 1,
+   "colombia": 1
+  },
+  "back": {
+   "panama": 1,
+   "colombia": 1
+  },
+  "end": {
+   "panama": 1,
+   "colombia": 1
+  }
+ },
+ "lift": {},
+ "exaggerate": {},
+ "badges": {},
+ "big": {
+  "hook": [
+   "PANAMA WAS",
+   "PART OF COLOMBIA"
+  ],
+  "no": [
+   "1903",
+   "COLOMBIA SAYS NO"
+  ],
+  "zone": [
+   "10-MILE ZONE",
+   "FOREVER"
+  ],
+  "back": [
+   "1914 OPEN",
+   "1999 RETURNED"
+  ]
+ },
+ "labels": {
+  "hook": [
+   [
+    "PANAMA",
+    -80.3,
+    8.25,
+    0.45
+   ],
+   [
+    "COLOMBIA",
+    -75.6,
+    6.6,
+    0.5
+   ]
+  ],
+  "strip": [
+   [
+    "ATLANTIC",
+    -79.4,
+    10.2,
+    0.4
+   ],
+   [
+    "PACIFIC",
+    -79.9,
+    7.7,
+    0.4
+   ]
+  ],
+  "ship": [
+   [
+    "COLÓN",
+    -79.92,
+    9.5,
+    0.3
+   ]
+  ],
+  "end": [
+   [
+    "PANAMA",
+    -80.3,
+    8.25,
+    0.45
+   ],
+   [
+    "COLOMBIA",
+    -75.6,
+    6.6,
+    0.5
+   ]
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "trace",
+   "scene": "hook",
+   "country": "panama",
+   "dur": 1.6,
+   "color": "#ffffff"
+  },
+  {
+   "type": "qmark",
+   "scene": "hook",
+   "at": [
+    -77.0,
+    7.3
+   ],
+   "size": 1.2,
+   "from": 1.5
+  },
+  {
+   "type": "dateline",
+   "scene": "why",
+   "path": [
+    [
+     -79.92,
+     9.36
+    ],
+    [
+     -79.92,
+     9.26
+    ],
+    [
+     -79.8,
+     9.17
+    ],
+    [
+     -79.69,
+     9.11
+    ],
+    [
+     -79.64,
+     9.03
+    ],
+    [
+     -79.57,
+     8.95
+    ]
+   ],
+   "from": 0.4,
+   "dur": 1.6,
+   "h": 0.5,
+   "color": "#5ec8ff"
+  },
+  {
+   "type": "dateline",
+   "scene": "strip",
+   "path": [
+    [
+     -79.92,
+     9.36
+    ],
+    [
+     -79.92,
+     9.26
+    ],
+    [
+     -79.8,
+     9.17
+    ],
+    [
+     -79.69,
+     9.11
+    ],
+    [
+     -79.64,
+     9.03
+    ],
+    [
+     -79.57,
+     8.95
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.5,
+   "color": "#5ec8ff"
+  },
+  {
+   "type": "ship",
+   "scene": "strip",
+   "path": [
+    [
+     -79.95,
+     9.75
+    ],
+    [
+     -79.92,
+     9.36
+    ]
+   ],
+   "dur": 2.4,
+   "flag": "#ffffff"
+  },
+  {
+   "type": "flags",
+   "scene": "no",
+   "flag": "colombia",
+   "at": [
+    [
+     -75.4,
+     6.2
+    ]
+   ],
+   "from": 0.6,
+   "size": 2.4
+  },
+  {
+   "type": "dateline",
+   "scene": "no",
+   "path": [
+    [
+     -79.92,
+     9.36
+    ],
+    [
+     -79.92,
+     9.26
+    ],
+    [
+     -79.8,
+     9.17
+    ],
+    [
+     -79.69,
+     9.11
+    ],
+    [
+     -79.64,
+     9.03
+    ],
+    [
+     -79.57,
+     8.95
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.5,
+   "color": "#5ec8ff"
+  },
+  {
+   "type": "qmark",
+   "scene": "no",
+   "at": [
+    -79.6,
+    9.6
+   ],
+   "size": 1.0,
+   "from": 1.6
+  },
+  {
+   "type": "flagswap",
+   "scene": "revolt",
+   "lost": "colombia",
+   "won": "panama",
+   "at": [
+    -79.6,
+    8.7
+   ],
+   "t": 1.2,
+   "size": 2.2
+  },
+  {
+   "type": "flags",
+   "scene": "revolt",
+   "flag": "usa",
+   "at": [
+    [
+     -79.1,
+     9.6
+    ]
+   ],
+   "from": 2.6,
+   "size": 1.8
+  },
+  {
+   "type": "ship",
+   "scene": "ship",
+   "path": [
+    [
+     -80.25,
+     9.6
+    ],
+    [
+     -79.98,
+     9.42
+    ]
+   ],
+   "dur": 2.0,
+   "flag": "#b22234"
+  },
+  {
+   "type": "army",
+   "scene": "ship",
+   "color": "#f2c94c",
+   "flag": "colombia",
+   "from": [
+    -79.92,
+    9.33
+   ],
+   "to": [
+    -79.88,
+    9.25
+   ],
+   "rows": 2,
+   "cols": 4,
+   "march": [
+    1.8,
+    2.6
+   ],
+   "size": 1.2
+  },
+  {
+   "type": "dateline",
+   "scene": "zone",
+   "path": [
+    [
+     -79.92,
+     9.36
+    ],
+    [
+     -79.92,
+     9.26
+    ],
+    [
+     -79.8,
+     9.17
+    ],
+    [
+     -79.69,
+     9.11
+    ],
+    [
+     -79.64,
+     9.03
+    ],
+    [
+     -79.57,
+     8.95
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.5,
+   "color": "#5ec8ff"
+  },
+  {
+   "type": "dateline",
+   "scene": "zone",
+   "path": [
+    [
+     -79.85000000000001,
+     9.423
+    ],
+    [
+     -79.85000000000001,
+     9.323
+    ],
+    [
+     -79.73,
+     9.233
+    ],
+    [
+     -79.62,
+     9.173
+    ],
+    [
+     -79.57000000000001,
+     9.093
+    ],
+    [
+     -79.5,
+     9.013
+    ]
+   ],
+   "from": 1.4,
+   "dur": 1.2,
+   "h": 0.6,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "dateline",
+   "scene": "zone",
+   "path": [
+    [
+     -79.99,
+     9.296999999999999
+    ],
+    [
+     -79.99,
+     9.197
+    ],
+    [
+     -79.86999999999999,
+     9.107
+    ],
+    [
+     -79.75999999999999,
+     9.046999999999999
+    ],
+    [
+     -79.71,
+     8.966999999999999
+    ],
+    [
+     -79.63999999999999,
+     8.886999999999999
+    ]
+   ],
+   "from": 1.4,
+   "dur": 1.2,
+   "h": 0.6,
+   "color": "#ffc83d"
+  },
+  {
+   "type": "flags",
+   "scene": "zone",
+   "flag": "usa",
+   "at": [
+    [
+     -79.72,
+     9.14
+    ]
+   ],
+   "from": 2.6,
+   "size": 1.6
+  },
+  {
+   "type": "dateline",
+   "scene": "back",
+   "path": [
+    [
+     -79.92,
+     9.36
+    ],
+    [
+     -79.92,
+     9.26
+    ],
+    [
+     -79.8,
+     9.17
+    ],
+    [
+     -79.69,
+     9.11
+    ],
+    [
+     -79.64,
+     9.03
+    ],
+    [
+     -79.57,
+     8.95
+    ]
+   ],
+   "from": 0,
+   "dur": 0.01,
+   "h": 0.5,
+   "color": "#5ec8ff"
+  },
+  {
+   "type": "ship",
+   "scene": "back",
+   "path": [
+    [
+     -79.92,
+     9.36
+    ],
+    [
+     -79.69,
+     9.11
+    ]
+   ],
+   "dur": 2.6,
+   "flag": "#ffffff"
+  },
+  {
+   "type": "flagswap",
+   "scene": "back",
+   "lost": "usa",
+   "won": "panama",
+   "at": [
+    -79.6,
+    9.0
+   ],
+   "t": 2.0,
+   "size": 2.0
+  },
+  {
+   "type": "trace",
+   "scene": "end",
+   "country": "panama",
+   "dur": 1.5,
+   "color": "#ffffff"
+  }
+ ],
+ "cards": [
+  {
+   "type": "stat",
+   "scene": "zone",
+   "from": 0.0,
+   "to": 1.6,
+   "in": 0.2,
+   "out": 0.2,
+   "value": 15,
+   "suffix": " DAYS",
+   "label": "LATER: THE TREATY",
+   "count": 0.5
+  }
+ ],
+ "sfx": [
+  [
+   "hook",
+   0.3,
+   "whoosh"
+  ],
+  [
+   "ship",
+   0.6,
+   "horn"
+  ]
+ ],
+ "fog_add": 0
+}
