@@ -96,10 +96,10 @@
   ],
   "why": [
    [
-    8,
+    13,
     37.5
    ],
-   20,
+   22,
    58,
    6
   ],
@@ -110,7 +110,7 @@
    ],
    4,
    52,
-   -6
+   60
   ],
   "twist": [
    [
@@ -141,12 +141,12 @@
   ],
   "plan": [
    [
-    -3,
-    36.8
+    -4.5,
+    36.4
    ],
-   10,
+   8,
    55,
-   -4
+   50
   ],
   "end": [
    [
@@ -218,12 +218,12 @@
    "DAM IT"
   ],
   "twist": [
-   "IT HAPPENED",
+   "IT'S REAL",
    "6 MILLION YEARS AGO"
   ],
   "plan": [
-   "ATLANTROPA",
-   "A REAL 1920s PLAN"
+   "REAL PLAN",
+   "ATLANTROPA, 1920s"
   ],
   "end": [
    "WOULD YOU",
@@ -248,46 +248,40 @@
   "tease": [
    [
     "MEDITERRANEAN SEA",
-    17,
-    35.2,
+    16,
+    35.0,
     0.45
-   ],
-   [
-    "ATLANTIC",
-    -8.5,
-    34.5,
-    0.4
    ]
   ],
   "why": [
    [
     "MEDITERRANEAN SEA",
-    17,
-    35.2,
+    15,
+    35.0,
     0.45
    ]
   ],
   "salt": [
    [
     "SALT UNDER HERE",
-    18,
-    34.5,
+    17,
+    34.2,
     0.45
    ]
   ],
   "end": [
    [
     "MEDITERRANEAN SEA",
-    17,
-    35.2,
+    16,
+    35.0,
     0.45
    ]
   ],
   "inflow": [
    [
     "ATLANTIC",
-    -8,
-    35.6,
+    -6.7,
+    35.5,
     0.4
    ]
   ],
@@ -295,7 +289,7 @@
    [
     "MEDITERRANEAN SEA",
     17,
-    35.2,
+    34.6,
     0.45
    ]
   ]
@@ -305,16 +299,6 @@
   "SUBSCRIBE FOR THE NEXT MAP"
  ],
  "props": [
-  {
-   "type": "qmark",
-   "scene": "hook",
-   "at": [
-    -3.0,
-    36.6
-   ],
-   "size": 0.8,
-   "from": 1.4
-  },
   {
    "type": "ship",
    "scene": "inflow",
@@ -346,17 +330,17 @@
    ],
    "from": 0.3,
    "dur": 1.2,
-   "h": 2.4,
+   "h": 0.5,
    "color": "#ff5a4f"
   },
   {
    "type": "qmark",
    "scene": "dam",
    "at": [
-    -2.5,
-    36.6
+    -6.6,
+    35.3
    ],
-   "size": 0.8,
+   "size": 0.5,
    "from": 1.8
   },
   {
@@ -374,7 +358,7 @@
    ],
    "from": 0.2,
    "dur": 1.2,
-   "h": 2.4,
+   "h": 0.8,
    "color": "#ff5a4f"
   }
  ],
