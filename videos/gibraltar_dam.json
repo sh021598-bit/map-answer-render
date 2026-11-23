@@ -1,0 +1,437 @@
+{
+ "id": "014-gibraltar-dam",
+ "title": "What If We Closed This 8-Mile Gap? 🤯",
+ "format": "E17-A",
+ "globe": false,
+ "tail": 0.3,
+ "bgm": "epic",
+ "region": {
+  "lon": [
+   -11,
+   37
+  ],
+  "lat": [
+   29,
+   47
+  ],
+  "nx": 800,
+  "smooth": 1.0
+ },
+ "countries": {
+  "spain": {
+   "admin": "Spain",
+   "color": "#e8a45c"
+  },
+  "morocco": {
+   "admin": "Morocco",
+   "color": "#7fb069"
+  }
+ },
+ "borders": {},
+ "lines": [
+  [
+   "hook",
+   "This eight-mile gap is all that keeps the Mediterranean Sea alive."
+  ],
+  [
+   "tease",
+   "Close it, and the whole sea starts to vanish. And that's not just a theory."
+  ],
+  [
+   "why",
+   "The sun takes more water from this sea than its rivers bring back."
+  ],
+  [
+   "inflow",
+   "Only the Atlantic, pouring in right here, keeps it full."
+  ],
+  [
+   "dam",
+   "So what if we dammed it? Every year, the water drops. Spain's beach bars? Now they're desert bars."
+  ],
+  [
+   "twist",
+   "But here's the twist: it already happened."
+  ],
+  [
+   "dry",
+   "About six million years ago, its link to the Atlantic closed, and the Mediterranean largely dried out."
+  ],
+  [
+   "salt",
+   "In places, the salt it left is more than three thousand feet thick under the seafloor."
+  ],
+  [
+   "flood",
+   "Then the Atlantic smashed back in. One study says it mostly refilled in under two years, rising over thirty feet a day."
+  ],
+  [
+   "plan",
+   "And in the 1920s, a German architect really planned this dam, to drop the sea by up to six hundred sixty feet.",
+   "And in the nineteen twenties, a German architect really planned this dam, to drop the sea by up to six hundred sixty feet."
+  ],
+  [
+   "end",
+   "Would you build it? Follow for more map stories."
+  ]
+ ],
+ "shots": {
+  "hook": [
+   [
+    -5.5,
+    36.0
+   ],
+   5,
+   55,
+   0
+  ],
+  "tease": [
+   [
+    13,
+    37.5
+   ],
+   24,
+   56,
+   0
+  ],
+  "why": [
+   [
+    8,
+    37.5
+   ],
+   20,
+   58,
+   6
+  ],
+  "dam": [
+   [
+    -5.5,
+    36.0
+   ],
+   4,
+   52,
+   -6
+  ],
+  "twist": [
+   [
+    13,
+    37.5
+   ],
+   24,
+   55,
+   0
+  ],
+  "salt": [
+   [
+    18,
+    35
+   ],
+   17,
+   60,
+   5
+  ],
+  "flood": [
+   [
+    -5.5,
+    36.0
+   ],
+   6,
+   55,
+   4
+  ],
+  "plan": [
+   [
+    -3,
+    36.8
+   ],
+   10,
+   55,
+   -4
+  ],
+  "end": [
+   [
+    13,
+    37.5
+   ],
+   24,
+   56,
+   0
+  ],
+  "inflow": [
+   [
+    -4.5,
+    36.2
+   ],
+   8,
+   58,
+   8
+  ],
+  "dry": [
+   [
+    18,
+    35.5
+   ],
+   19,
+   60,
+   -4
+  ]
+ },
+ "orbit": {
+  "hook": 4,
+  "tease": -3,
+  "twist": 3,
+  "salt": -3,
+  "end": 4
+ },
+ "tint": {
+  "hook": {
+   "spain": 1,
+   "morocco": 1
+  },
+  "dam": {
+   "spain": 1,
+   "morocco": 1
+  },
+  "flood": {
+   "spain": 1,
+   "morocco": 1
+  },
+  "plan": {
+   "spain": 1,
+   "morocco": 1
+  },
+  "inflow": {
+   "spain": 1,
+   "morocco": 1
+  }
+ },
+ "lift": {},
+ "exaggerate": {},
+ "badges": {},
+ "big": {
+  "hook": [
+   "8 MILES",
+   "KEEPS THIS SEA ALIVE"
+  ],
+  "dam": [
+   "WHAT IF?",
+   "DAM IT"
+  ],
+  "twist": [
+   "IT HAPPENED",
+   "6 MILLION YEARS AGO"
+  ],
+  "plan": [
+   "ATLANTROPA",
+   "A REAL 1920s PLAN"
+  ],
+  "end": [
+   "WOULD YOU",
+   "BUILD IT?"
+  ]
+ },
+ "labels": {
+  "hook": [
+   [
+    "SPAIN",
+    -4.6,
+    37.0,
+    0.4
+   ],
+   [
+    "MOROCCO",
+    -5.4,
+    35.2,
+    0.4
+   ]
+  ],
+  "tease": [
+   [
+    "MEDITERRANEAN SEA",
+    17,
+    35.2,
+    0.45
+   ],
+   [
+    "ATLANTIC",
+    -8.5,
+    34.5,
+    0.4
+   ]
+  ],
+  "why": [
+   [
+    "MEDITERRANEAN SEA",
+    17,
+    35.2,
+    0.45
+   ]
+  ],
+  "salt": [
+   [
+    "SALT UNDER HERE",
+    18,
+    34.5,
+    0.45
+   ]
+  ],
+  "end": [
+   [
+    "MEDITERRANEAN SEA",
+    17,
+    35.2,
+    0.45
+   ]
+  ],
+  "inflow": [
+   [
+    "ATLANTIC",
+    -8,
+    35.6,
+    0.4
+   ]
+  ],
+  "dry": [
+   [
+    "MEDITERRANEAN SEA",
+    17,
+    35.2,
+    0.45
+   ]
+  ]
+ },
+ "endcard": [
+  "THE MAP ANSWER",
+  "SUBSCRIBE FOR THE NEXT MAP"
+ ],
+ "props": [
+  {
+   "type": "qmark",
+   "scene": "hook",
+   "at": [
+    -3.0,
+    36.6
+   ],
+   "size": 0.8,
+   "from": 1.4
+  },
+  {
+   "type": "ship",
+   "scene": "inflow",
+   "path": [
+    [
+     -9,
+     35.9
+    ],
+    [
+     -2.5,
+     36.1
+    ]
+   ],
+   "from": 2.2,
+   "dur": 2.2
+  },
+  {
+   "type": "dateline",
+   "scene": "dam",
+   "path": [
+    [
+     -5.6,
+     35.55
+    ],
+    [
+     -5.6,
+     36.25
+    ]
+   ],
+   "from": 0.3,
+   "dur": 1.2,
+   "h": 2.4,
+   "color": "#ff5a4f"
+  },
+  {
+   "type": "qmark",
+   "scene": "dam",
+   "at": [
+    -2.5,
+    36.6
+   ],
+   "size": 0.8,
+   "from": 1.8
+  },
+  {
+   "type": "dateline",
+   "scene": "plan",
+   "path": [
+    [
+     -5.6,
+     35.55
+    ],
+    [
+     -5.6,
+     36.25
+    ]
+   ],
+   "from": 0.2,
+   "dur": 1.2,
+   "h": 2.4,
+   "color": "#ff5a4f"
+  }
+ ],
+ "cards": [
+  {
+   "type": "photo",
+   "scene": "inflow",
+   "from": 0.2,
+   "to": 2.2,
+   "in": 0.2,
+   "out": 0.2,
+   "title": "THE STRAIT FROM SPACE",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/STS059-238-074_Strait_of_Gibraltar.jpg?width=1280",
+   "credit": "Photo: NASA / Public domain (Wikimedia Commons)",
+   "zoom": 1.1
+  },
+  {
+   "type": "stat",
+   "scene": "salt",
+   "from": 0.6,
+   "to": 3.0,
+   "in": 0.2,
+   "out": 0.2,
+   "value": 3000,
+   "suffix": "+ FT",
+   "label": "SALT UNDER THE SEAFLOOR",
+   "count": 0.6
+  },
+  {
+   "type": "stat",
+   "scene": "flood",
+   "from": 2.4,
+   "to": 4.6,
+   "in": 0.2,
+   "out": 0.2,
+   "value": 30,
+   "suffix": "+ FT",
+   "label": "SEA RISE PER DAY, AT PEAK",
+   "count": 0.5
+  }
+ ],
+ "sfx": [
+  [
+   "hook",
+   0.3,
+   "whoosh"
+  ],
+  [
+   "dry",
+   0.6,
+   "wind"
+  ],
+  [
+   "flood",
+   0.2,
+   "splash_2"
+  ]
+ ],
+ "fog_add": 0
+}
