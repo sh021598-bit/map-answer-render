@@ -1,0 +1,13 @@
+00 1.00 | Look at the eastern United States. Its borders twist along rivers and mountains. | Look at the eastern United States. Its borders twist along rivers and mountains.
+01 1.00 | Now look west. Straight lines. | Now look west, straight lines.
+02 1.00 | They were drawn on paper before the land was surveyed. And they're not really straight. | They were drawn on paper before the land was surveyed, and they're not really straight.
+03 1.00 | Eastern borders came from old colonies, following coasts and rivers. | Eastern borders came from old colonies following coasts and rivers.
+04 1.00 | Out west, Congress drew borders from far away. | Out west, Congress drew borders from far away.
+05 1.00 | The easiest line to write into law? Latitude and longitude. | The easiest line to write into law, latitude and longitude.
+06 1.00 | But here's the twist: Colorado was meant to be a perfect box. | But here's the twist. Colorado was meant to be a perfect box.
+07 0.91 | Surveyors marked it by hand in the 1800s, and their mistakes gave it nearly seven hundred sides. | Surveyors marked it by hand in the 1800s, and their mistakes gave it nearly 700 sides.
+08 1.00 | In 1925, the Supreme Court ruled the markers win. | In 1925, the Supreme Court ruled the markers win.
+09 1.00 | And twist number two: Oklahoma's panhandle. | And twist number two, Oklahoma's panhandle.
+10 1.00 | Texas gave up its land north of the line Congress used to split slave and free territory. | Texas gave up its land north of the line Congress used to split slave and free territory.
+11 1.00 | The leftover strip became the panhandle. | the leftover strip became the panhandle.
+12 1.00 | Which state has the weirdest border? Follow for more map stories. | Which state has the weirdest border? Follow for more map stories.
